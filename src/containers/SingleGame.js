@@ -145,7 +145,7 @@ export default class SingleGame extends Component {
             </div>
 
             <div className="arrow_container">
-              <Link to='/games'>
+              <Link to='/webpage/games'>
                 <i className="material-icons md-36">arrow_back</i>
               </Link>
             </div>
