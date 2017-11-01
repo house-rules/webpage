@@ -2,7 +2,7 @@
   "name": "house-rules.github.io",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://house-rules.github.io/house-rules.github.io",
+  "homepage": "https://house-rules.github.io/webpage",
   "dependencies": {
     "immutability-helper": "^2.4.0",
     "js-cookie": "^2.2.0",

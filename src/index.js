@@ -30,11 +30,11 @@ ReactDOM.render(
   <BrowserRouter>
     <BaseLayout>
       <Switch>
-        <Route exact path="/" component={App} />
-        <Route exact path='/games/:id' component={SingleGame} />
-        <Route exact path='/games' component={GameList} />
-        <Route exact path='/newGame' component={GameForm} />
-        <Route exact path='/about' component={About} />
+        <Route exact path="/webpage/" component={App} />
+        <Route exact path='/webpage/games/:id' component={SingleGame} />
+        <Route exact path='/webpage/games' component={GameList} />
+        <Route exact path='/webpage/newGame' component={GameForm} />
+        <Route exact path='/webpage/about' component={About} />
       </Switch>
     </BaseLayout>
   </BrowserRouter>

@@ -51,7 +51,7 @@ export default class AddAlternate extends Component {
           objective: '',
           rules: ''
         })
-        this.props.history.push(`/games/${this.props.game.id}`);
+        this.props.history.push(`/webpage/games/${this.props.game.id}`);
         // this.props.arrowToggle();
       } else {
 
@@ -84,7 +84,7 @@ export default class AddAlternate extends Component {
         </div>
 
         <div className="form_submits">
-          <button className="btn" onClick={this.handleSubmit(`/games/${this.props.game.id}`)}>Submit</button>
+          <button className="btn" onClick={this.handleSubmit(`/webpage/games/${this.props.game.id}`)}>Submit</button>
         </div>
 
       </div>

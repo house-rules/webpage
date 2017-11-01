@@ -15,14 +15,14 @@ class BaseLayout extends Component {
       let icon = document.getElementById("icon");
 
       if ((navBar.className === "topnav") &&
-          (endpoint !== "/")) {
+          (endpoint !== "/webpage/")) {
           navBar.className += " responsive";
       } else {
           navBar.className = "topnav";
       }
 
       if ((icon.className === "icon") &&
-          (endpoint !== "/")) {
+          (endpoint !== "/webpage/")) {
         icon.className += " rotate";
       } else {
         icon.className = "icon";
@@ -41,28 +41,28 @@ class BaseLayout extends Component {
 
           <nav className="topnav" id="myNavBar">
 
-            <Link className="Logo" to='#' onClick={() => this.handleNaviagation('/')}>
+            <Link className="Logo" to='#' onClick={() => this.handleNaviagation('/webpage/')}>
             <img src={require('../images/house-rules-white.png')} alt="#"/>
             <span>House Rules</span></Link>
 
             <Link
-            className="GamesLink" to='#' onClick={() => this.handleNaviagation('/games')}>
+            className="GamesLink" to='#' onClick={() => this.handleNaviagation('/webpage/games')}>
               <i className="material-icons">casino</i>
               Games
             </Link>
 
             <Link className="NewGameLink" to='#'
-            onClick={() => this.handleNaviagation('/newGame')}>
+            onClick={() => this.handleNaviagation('/webpage/newGame')}>
               <i className="material-icons">add</i>
               Add Game
             </Link>
 
-            <Link className="AboutLink" to='#' onClick={() => this.handleNaviagation('/about')}>
+            <Link className="AboutLink" to='#' onClick={() => this.handleNaviagation('/webpage/about')}>
               <i className="material-icons">local_library</i>
               About
             </Link>
 
-            <Link className="LogOutLink" to="#" onClick={() => this.handleNaviagation('/')}>
+            <Link className="LogOutLink" to="#" onClick={() => this.handleNaviagation('/webpage/')}>
               <i className="material-icons">chevron_left</i>
               Log Out
             </Link>

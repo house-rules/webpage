@@ -49,7 +49,7 @@ export default class SingleGame extends Component {
       console.log("Failure to delete: ", error);
     })
 
-    this.props.history.push('/games');
+    this.props.history.push('/webpage/games');
 
   }
 
