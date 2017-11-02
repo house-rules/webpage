@@ -1,3 +1,36 @@
+# House Rules
+
+Have you ever wanted to play a game but couldn’t find the rules? Or maybe you have a set of alternate rules or house rules for the game that you’d like to remember?
+
+Multiply that by how many games you have and that can be a lot of details to remember.
+
+That’s why we’ve built House Rules - to help game lovers save and organize the rules for your games for easy access, as well as add alternative rule sets for your games.
+
+## Tech Stack
+
+### Front End
+The main work (and commit history) on the front end of this project was done on [https://github.com/JGordy/house-rules](https://github.com/JGordy/house-rules)
+- React
+- Redux
+
+### Api
+#### Api code can be seen at [https://github.com/house-rules/HouseRules_API](https://github.com/house-rules/HouseRules_API)
+- Java (Spring)
+- PostgreSQL
+
+## Team members
+- [Bernie Strong](https://github.com/bstrong71) - Java
+- [William Rausch](https://github.com/WilliamRausch) - Java
+- [Joseph Gordy](https://github.com/JGordy) - React
+
+## Setup
+
+
+
+
+
+# Create-react-app Readme
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -283,7 +316,7 @@ In the WebStorm menu `Run` select `Edit Configurations...`. Then click `+` and s
 
 Start your app by running `npm start`, then press `^D` on macOS or `F9` on Windows and Linux or click the green debug icon to start debugging in WebStorm.
 
-The same way you can debug your application in IntelliJ IDEA Ultimate, PhpStorm, PyCharm Pro, and RubyMine. 
+The same way you can debug your application in IntelliJ IDEA Ultimate, PhpStorm, PyCharm Pro, and RubyMine.
 
 ## Formatting Code Automatically
 
@@ -1821,7 +1854,7 @@ If you’re using [Apache HTTP Server](https://httpd.apache.org/), you need to c
     RewriteRule ^ index.html [QSA,L]
 ```
 
-It will get copied to the `build` folder when you run `npm run build`. 
+It will get copied to the `build` folder when you run `npm run build`.
 
 If you’re using [Apache Tomcat](http://tomcat.apache.org/), you need to follow [this Stack Overflow answer](https://stackoverflow.com/a/41249464/4878474).
 
@@ -2217,7 +2250,7 @@ To resolve this:
 1. Open an issue on the dependency's issue tracker and ask that the package be published pre-compiled.
   * Note: Create React App can consume both CommonJS and ES modules. For Node.js compatibility, it is recommended that the main entry point is CommonJS. However, they can optionally provide an ES module entry point with the `module` field in `package.json`. Note that **even if a library provides an ES Modules version, it should still precompile other ES6 features to ES5 if it intends to support older browsers**.
 
-2. Fork the package and publish a corrected version yourself. 
+2. Fork the package and publish a corrected version yourself.
 
 3. If the dependency is small enough, copy it to your `src/` folder and treat it as application code.
 
