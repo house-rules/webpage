@@ -34,7 +34,11 @@ That’s why we’ve built House Rules - to help game lovers save and organize t
 
 ## Setup
 
-Copy this repo from github to a local source. Run this in CLI from the `house-rules.github.io/` folder. Use `yarn` or `npm install` in CLI to install the needed project dependencies. Last type `yarn start` or `npm run start` to run this app on localhost:3000. Open chrome dev tools and click the device mode button to see the mobile view. Desktop version is not complete as of this moment.
+Copy this repo from github to a local source. Run this in CLI from the `house-rules.github.io/` folder.
+
+Use `yarn` or `npm install` in CLI to install the needed project dependencies. Last type `yarn start` or `npm run start` to run this app on localhost:3000.
+
+Open chrome dev tools and click the device mode button to see the mobile view. Desktop version is not complete as of this moment.
 
 # Create-react-app Readme
 
