@@ -9,7 +9,7 @@ That’s why we’ve built House Rules - to help game lovers save and organize t
 ## Tech Stack
 
 ### Front End
-The main work (and commit history) on the front end of this project was done on [https://github.com/JGordy/house-rules](https://github.com/JGordy/house-rules)
+#### The main work (and commit history) on the front end of this project was done on [https://github.com/JGordy/house-rules](https://github.com/JGordy/house-rules)
 - React
 - Redux
 
@@ -18,6 +18,15 @@ The main work (and commit history) on the front end of this project was done on 
 - Java (Spring)
 - PostgreSQL
 
+### Dependencies
+- react-redux
+- redux
+- redux-thunk
+- react-router-dom
+- superagent
+- js-cookie
+- immutability-helper
+
 ## Team members
 - [Bernie Strong](https://github.com/bstrong71) - Java
 - [William Rausch](https://github.com/WilliamRausch) - Java
@@ -25,9 +34,7 @@ The main work (and commit history) on the front end of this project was done on 
 
 ## Setup
 
-
-
-
+Copy this repo from github to a local source. Run this in CLI from the `house-rules.github.io/` folder. Use `yarn` or `npm install` in CLI to install the needed project dependencies. Last type `yarn start` or `npm run start` to run this app on localhost:3000. Open chrome dev tools and click the device mode button to see the mobile view. Desktop version is not complete as of this moment.
 
 # Create-react-app Readme
 
