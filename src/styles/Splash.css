@@ -20,6 +20,7 @@
   }
 
   .Splash .btn {
+    /*animation: 1s ease-in 0s 1 fillWidth;*/
     background-color: #ff533d;
     border-radius: 20px;
     color: #fdfdff;
@@ -39,7 +40,7 @@
 
   .swiper {
     display: none;
-    animation: 1s ease-in 0s 1 swiper;
+    animation: 1s ease-in 0s infinite swiper;
     background-color: darkgray;
     border-radius: 50%;
     height: 43%;
@@ -54,16 +55,25 @@
     color: darkgray;
   }
 
-  @@keyframes swiper {
+  @keyframes swiper {
     0% {
       display: block;
-      transform: translateY(-100%);
+      transform: translateY(100%);
     }
     100% {
       display: block;
       transform: translateY(0);
     }
   }
+
+  /*@keyframes fillWidth {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 2rem;
+    }
+  }*/
 
 
 }
