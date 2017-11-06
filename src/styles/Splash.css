@@ -1,0 +1,69 @@
+@media screen and (max-width: 800px) {
+
+  .Splash {
+    align-items: center;
+    background: linear-gradient(155deg, #2cf, #fdfdff 75%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 92vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+  }
+
+  .Splash img {
+    padding: 1rem;
+    width: 40%;
+  }
+
+  .Splash .btn {
+    background-color: #ff533d;
+    border-radius: 20px;
+    color: #fdfdff;
+    margin-top: 3rem;
+    width: 8rem;
+  }
+
+  .swipeIcon {
+    display: none;
+    background-color: transparent;
+    border: 3px solid darkgray;
+    border-radius: 25px;
+    margin-top: 5rem;
+    height: 5rem;
+    width: 2.5rem;
+  }
+
+  .swiper {
+    display: none;
+    animation: 1s ease-in 0s 1 swiper;
+    background-color: darkgray;
+    border-radius: 50%;
+    height: 43%;
+    margin: 0.2rem auto;
+    /*left: 192px;*/
+    /*position: absolute;*/
+    width: 90%;
+  }
+
+  .Splash p {
+    display: none;
+    color: darkgray;
+  }
+
+  @@keyframes swiper {
+    0% {
+      display: block;
+      transform: translateY(-100%);
+    }
+    100% {
+      display: block;
+      transform: translateY(0);
+    }
+  }
+
+
+}

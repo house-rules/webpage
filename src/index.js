@@ -12,6 +12,7 @@ import reduxThunk from 'redux-thunk';
 import reducers from './reducers/reducer';
 
 // import components here
+import Splash from './components/Splash';
 import BaseLayout from './components/BaseLayout';
 import GameList from './containers/GameList';
 import GameForm from './components/GameForm';
@@ -35,6 +36,7 @@ ReactDOM.render(
         <Route exact path='/webpage/games' component={GameList} />
         <Route exact path='/webpage/newGame' component={GameForm} />
         <Route exact path='/webpage/about' component={About} />
+        <Route exact path='/' component={Splash} />
       </Switch>
     </BaseLayout>
   </BrowserRouter>
