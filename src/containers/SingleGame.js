@@ -90,7 +90,8 @@ export default class SingleGame extends Component {
     window.addEventListener('scroll', this.handleScroll);
   }
 
-  componentWillUnmount() {
+  componentShouldUnmount() {
+    console.log('componentWillUnmount invoked');
     window.addEventListener('scroll', this.handleScroll);
   }
 
@@ -149,7 +150,7 @@ export default class SingleGame extends Component {
     })
 
     return (
-      <div className="singleGame">
+      <div className="singleGame" id="singleGame">
         <div className='card card-block'>
           <div className="title_block">
 

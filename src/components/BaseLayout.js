@@ -72,6 +72,8 @@ class BaseLayout extends Component {
 
             {this.props.children}
 
+          <div id="top_arrow">
+          </div>
       </div>
     );
   }
