@@ -9,10 +9,17 @@ export default class SingleGame extends Component {
       game: {},
       alternates: []
     }
-    this.arrowToggle = this.arrowToggle.bind(this);
   }
 
-  arrowToggle() {
+  handleScroll = () => {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.getElementById("top_arrow").className = "slideUp";
+    } else {
+      document.getElementById("top_arrow").className = "slideDown";
+    }
+  }
+
+  arrowToggle = () => {
     var backArrow = document.getElementById('myArrow');
 
     if (backArrow.className === "material-icons") {
@@ -79,6 +86,12 @@ export default class SingleGame extends Component {
     .then(data => {
       this.setState({game: data, alternates: data.alternates})
     })
+
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   render() {
@@ -209,10 +222,13 @@ export default class SingleGame extends Component {
 
         <Link to="#" id="delete_button" className="btn" ><i className="material-icons">delete</i></Link>
 
-        <div>
+        <div id="top_arrow">
           <a href='#myNavBar'>
-            <i className="material-icons md-36 top_arrow">arrow_upward</i>
+            <i className="material-icons md-36 top_arrow slideDown">arrow_upward</i>
           </a>
+        </div>
+
+        <div className="footer">
         </div>
 
       </div>
