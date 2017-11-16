@@ -11,6 +11,14 @@ export default class SingleGame extends Component {
     }
   }
 
+  scrollTo = (element) => {
+    window.scroll({
+      behavior: 'smooth',
+      left: 0,
+      top: element.offsetTop
+    });
+  }
+
   handleScroll = () => {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
         document.getElementById("top_arrow").className = "slideUp";
@@ -196,7 +204,7 @@ export default class SingleGame extends Component {
           <div className='house_rules alert normal_rules'>
             <div>
               <h4>Traditional rules</h4>
-              <a className="alt_games_link" href="#altGamesList">...how about a different spin on the game?</a>
+              <div className="alt_games_link" onClick={() => this.scrollTo(document.getElementById('altGamesList'))}>...how about a different spin on the game?</div>
             </div>
           </div>
 
@@ -224,9 +232,9 @@ export default class SingleGame extends Component {
         <Link to="#" id="delete_button" className="btn" ><i className="material-icons">delete</i></Link>
 
         <div id="top_arrow">
-          <a href='#myNavBar'>
+          <div onClick={() => this.scrollTo(document.getElementById('myNavBar'))}>
             <i className="material-icons md-36 top_arrow slideDown">arrow_upward</i>
-          </a>
+          </div>
         </div>
 
         <div className="footer">
