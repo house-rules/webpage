@@ -22,6 +22,90 @@ label:focus,
     box-shadow: none!important;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#desktop_message {
+  display: none;
+}
+
+.material-icons {
+  margin-right: 10px;
+  transition: transform 0.5s;
+}
+
+.topnav {
+  height: 55px;
+  transition: height 0.5s;
+  width: 100%;
+  background: linear-gradient(155deg, #02558b 30%, #2cf );
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.topnav a:not(:first-child) {
+  display: none;
+  opacity: 0;
+  height: 0;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: 'Righteous', sans-serif;
+}
+
+.topnav .Logo {
+  margin-left: -1.4rem;
+  padding-left: 1rem;
+  padding-top: 0.75rem;
+  font-family: 'Righteous', sans-serif;
+  width: 50%;
+}
+
+.Logo img {
+  margin-right: 0.5rem;
+  width: 15%;
+}
+
+.topnav .Logo span {
+  padding-top: 0.5rem;
+}
+
+.topnav .icon {
+  color: white;
+  display: block;
+  float: right;
+  font-size: 24px;
+  height: 2rem;
+  opacity: 1;
+  position: absolute;
+  right: 0.5rem;
+  text-align: center;
+  top: 0.5rem;
+  transition: transform 0.5s;
+  width: 2rem;
+}
+
+.topnav .GamesLink, .topnav .NewGameLink, .topnav .LogOutLink, .topnav .AboutLink {
+  animation: 0.9s ease-in 0s 1 slideOutToLeft;
+}
+
+.topnav a:hover {
+  background-color: transparent;
+}
+
 /***********************************
 Signup / Login Page Styling
 ************************************/
@@ -36,817 +120,794 @@ Signup / Login Page Styling
   margin-top: 7px;
 }
 
-/***********************************
-     /  Page Styling
-************************************/
-* {
-  margin: 0;
-  padding: 0;
+.form-group {
+  height: 50%;
+  margin: 0px auto;
+  padding-top: 3.5rem;
+  width: 90%;
 }
 
-.topnav {
-    background: linear-gradient(155deg, #02558b 30%, #2cf );
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+div.form-group.login, div.form-group.signup {
+  height: 50%;
 }
 
-.topnav a {
-  color: #f2f2f2;
-  float: left;
-  display: block;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  font-family: 'Righteous', sans-serif;
+div.form-group.login {
+  padding-top: 3.5rem;
 }
 
-.topnav a:hover {
-
+div.form-group.login .btn, div.form-group.signup .btn{
+  background-color: #ff533d;
+  color: white;
+  margin-top: 0.5rem;
 }
 
-/* Hide the link that should open and close the topnav on small screens */
-.topnav .icon {
-    display: none;
+.topnav.responsive {
+  height: 200px;
+  transition: height 0.5s;
 }
 
-.topnav .Logo {
-  font-family: 'Righteous', sans-serif;
-  padding-left: 0rem;
-  width: 50%;
+.topnav.responsive .icon {
+  color: white;
+  position: absolute;
+  height: 2rem;
+  right: 0.5rem;
+  top: 0.5rem;
+  width: 2rem;
 }
 
-.Logo img {
-  margin-right: 0.5rem;
-  width: 15%;
+.topnav.responsive a {
+  float: none;
+  opacity: 1;
+  height: 20px;
+  text-align: left;
 }
 
-.material-icons {
-  margin-right: 10px;
+.topnav.responsive .Logo {
+  margin-left: 0rem;
+  padding-left: 1rem;
+}
+
+/*.topnav.responsive a:hover {
+    background-color: #ddd;
+}*/
+
+.topnav.responsive .GamesLink {
+  display:block;
+  animation: 0.5s ease-out 0s 1 slideInFromLeft;
+  margin-top: 8px;
+  vertical-align: top;
+}
+
+.topnav.responsive .NewGameLink {
+  display:block;
+  animation: 0.7s ease-out 0s 1 slideInFromLeft;
+  margin-top: 8px;
+}
+
+.topnav.responsive .AboutLink {
+  display:block;
+  animation: 0.9s ease-out 0s 1 slideInFromLeft;
+  margin-top: 8px;
+}
+
+.topnav.responsive .LogOutLink {
+  display:block;
+  animation: 1.1s ease-out 0s 1 slideInFromLeft;
+  margin-top: 8px;
+}
+
+.icon.rotate {
+  transform: rotate(90deg);
+  /* Safari */
+  -webkit-transform: rotate(90deg);
+  /* Firefox */
+  -moz-transform: rotate(90deg);
+  /* IE */
+  -ms-transform: rotate(90deg);
+  /* Opera */
+  -o-transform: rotate(90deg);
+
   transition: transform 0.5s;
 }
 
-.gameForm {
-  min-height: 92vh;
+/***********************************
+Mobile Game List Page Styling
+************************************/
+
+.GameList {
+  background-color: #fdfdff;
 }
 
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 800px) {
+.GameList .filter-bar {
+  background-image: url('../images/gplaypattern.png');
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 0.7rem;
+}
 
-  .topnav {
-    height: 55px;
-    transition: height 0.5s;
-    width: 100%;
+.GameList .filter-bar a {
+  color: #ff533d;
+  flex-basis: 18%;
+  text-align: center;
+}
+
+.filter_header {
+  color: darkgray;
+  font-size: 16px;
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.filter-bar .material-icons {
+  font-size: 48px;
+}
+
+.filter-bar .card_hand {
+  transform: scale(-1, -1);
+}
+
+.filter-bar p {
+  color: #02558b;
+  font-size: 14px;
+  text-align: center;
+}
+
+.filter-bar .badge-pill {
+  background-color: #ff7043;
+  color: white;
+  font-size: 12px;
+  min-width: 50%;
+}
+
+.GameList .material-icons {
+  margin-right: 0rem;
+}
+
+.each_game {
+  border: none;
+  border-radius: 0px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  margin: 0px 0.7rem 0.7rem;
+  min-height: 2rem;
+  padding: 10px;
+  padding-left: 0px;
+  /*width: 95%;*/
+}
+
+.each_game a {
+  display: flex;
+}
+
+.game_initial {
+  align-items: center;
+  background-color: #02558b;
+  /*background-color: transparent;*/
+  border-radius: 50%;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-basis: 3rem;
+  justify-content: center;
+  margin: 0rem 2.5rem 0rem 1rem;
+}
+
+.game_initial i {
+  color: white;
+}
+
+.game_initial #card {
+  transform: rotate(180deg);
+  /* Safari */
+  -webkit-transform: rotate(180deg);
+  /* Firefox */
+  -moz-transform: rotate(180deg);
+  /* IE */
+  -ms-transform: rotate(180deg);
+  /* Opera */
+  -o-transform: rotate(180deg);
+}
+
+.game_initial h3 {
+  color: white;
+  padding-top: 0.25rem;
+  text-transform: lowercase;
+}
+
+.game_title {
+  color: #2cf;
+  margin-bottom: 0px;
+}
+
+.game_category {
+  color: darkgray;
+  font-style: italic;
+  margin-bottom: 0px;
+}
+
+.material-icons.md-36.FAB {
+ background-color: #ff533d;
+ border-radius: 50%;
+ box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2);
+ color: white;
+ padding: 0.75rem;
+ position: fixed;
+ bottom: 1rem;
+ right: 1rem;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 
-  .topnav a:not(:first-child) {
+}
+
+@keyframes slideOutToLeft {
+  0% {
+    display: block;
+    transform: translateX(0);
+  }
+  100% {
     display: none;
-    opacity: 0;
-    height: 0;
+    transform: translateX(-10%);
+  }
+}
+
+/***********************************
+  Mobile Single Game Page Styling
+************************************/
+
+.singleGame {
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+}
+
+.singleGame .card {
+  border: none;
+  margin: 0rem auto;
+  padding: 0rem;
+  width: 100%;
+}
+
+.singleGame .title_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 10rem;
+}
+
+.arrow_container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-right: 1rem;
+  animation: 1s ease-out 0s 1 slideInFromRight;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(200%);
+  }
+  100% {
+    transform: translateX(0);
   }
 
-  .topnav .Logo {
-    margin-left: -1.4rem;
-    padding-left: 1rem;
-    padding-top: 0.75rem;
+}
+
+.material-icons.md-36 {
+  color: gray;
+  font-size: 36px;
+}
+
+.title_block {
+  background-image: url('../images/gplaypattern.png');
+}
+
+.title_block h2 {
+  color: #02558b;
+}
+
+.title_block a {
+  color: gray;
+}
+
+.singleGame h3 {
+  margin-bottom: 0rem;
+}
+
+.singleGame .game_category {
+  padding-top: 0rem;
+}
+
+.icon_bar {
+  border-bottom: 1px solid lightgray;
+  border-radius: 0px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0rem auto;
+  padding: 1rem;
+  width: 100%;
+}
+
+.icon_bar div {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%;
+}
+
+.icon_bar i {
+  color: #ff533d;
+  font-size: 32px;
+  margin-right: 0rem;
+  text-align: center;
+}
+
+.icon_bar p {
+  color: gray;
+  font-size: 0.7rem;
+  margin-bottom: 0rem;
+  text-align: center;
+}
+
+.icon_bar #card {
+  transform: rotate(180deg);
+  /* Safari */
+  -webkit-transform: rotate(180deg);
+  /* Firefox */
+  -moz-transform: rotate(180deg);
+  /* IE */
+  -ms-transform: rotate(180deg);
+  /* Opera */
+  -o-transform: rotate(180deg);
+}
+
+.game_objective {
+  background: linear-gradient(155deg, #02558b, #2cf);
+  border-radius: 0px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 7rem;
+  text-align: center;
+}
+
+.house_rules {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.arrowButton, .arrowButton2 {
+  align-items: center;
+  background-color: #ff553d;
+  border: none;
+  color: white;
+  display: flex;
+  font-size: 18px;
+  height: 2rem;
+  justify-content: center;
+  margin: 0.5rem;
+}
+
+.arrowButton {
+  border-radius: 20px;
+  margin: 0rem auto 0.5rem;
+  padding-bottom: 2rem;
+  width: 40%;
+}
+
+.arrowButton2 {
+  background-color: transparent;
+  color: gray;
+}
+
+.house_rules > .btn:focus, .house_rules > .btn.collapsed:focus {
+  outline: none;
+}
+
+.btn i {
+  margin-right: 0px;
+}
+
+.material-icons.rotate {
+  transform: rotate(135deg);
+  /* Safari */
+  -webkit-transform: rotate(135deg);
+  /* Firefox */
+  -moz-transform: rotate(135deg);
+  /* IE */
+  -ms-transform: rotate(135deg);
+  /* Opera */
+  -o-transform: rotate(135deg);
+
+  transition: transform 0.5s;
   }
 
-  .topnav .Logo span {
-    padding-top: 0.5rem;
+#demo {
+  margin-bottom: 0px;
+}
+
+.normal_rules {
+  color: gray;
+  min-height: 6rem;
+}
+
+#game_rules {
+  box-shadow: inset 0px -3px 10px 3px rgba(200, 200, 200, 0.2);
+  color: gray;
+  font-size: 18px;
+  height: 12rem;
+  margin: 0rem auto;
+  overflow: hidden;
+  padding: 1rem;
+  width: 100%;
+  transition: height 0.5s;
+}
+
+.read_more {
+  background: linear-gradient(to bottom, transparent, #fdfdff 30%);
+  color: #02558b;
+  height: 3rem;
+  margin-top: -1rem;
+  margin-bottom: 3rem;
+  padding: 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.alt_rules {
+  border-radius: 0px;
+  color: gray;
+  padding: 0rem 1rem;
+}
+
+/*.collapsed.alt_rules {
+  padding: 0;
+  margin: 0;
+  transition: padding 0.2s;
+}*/
+
+#delete_rules_button {
+  color: transparent;
+  float: right;
+  margin-top: 2rem;
+}
+
+.alert h4 {
+  font-size: 1.7rem;
+  text-transform: capitalize;
+}
+
+.alert {
+  margin-bottom: 0rem;
+}
+
+.alt_games_link, .alt_games_link:visited {
+  color: #2cf;
+}
+
+#altGamesList {
+  padding-top: 1rem;
+}
+
+.alt_list_header {
+  color: #02558b;
+  padding: 1rem;
+}
+
+.each_alternate {
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  margin: 0px auto 0.7rem auto;
+  min-height: 5rem;
+  padding: 1rem;
+  padding-left: 0px;
+  width: 100%;
+}
+
+.each_alternate .alt_game_label {
+  align-items: baseline;
+  display: flex;
+  /*justify-content: space-between;*/
+}
+
+.each_alternate .alternate_initial {
+  background-color: #ff533d;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 2rem;
+  padding: 0.3rem 0.6rem 0.6rem;
+  margin: 0rem 2rem 0rem 1rem;
+  text-transform: lowercase;
+}
+
+.alternate_initial img {
+  width: 2rem;
+}
+
+.title_container {
+  flex: 1 0 60%;
+}
+
+.each_alternate .alternate_title {
+  color: #2cf;
+  text-align: left;
+}
+
+.each_alternate .arrowButton {
+  color: gray;
+  flex-basis: 10%;
+  margin: 0rem;
+  padding: 0rem;
+}
+
+.each_alternate .alternate_objective, .each_alternate .alternate_rules {
+  color: gray;
+}
+
+.each_alternate .game_labels {
+  color: darkgray;
+  font-size: 0.9rem;
+  font-style: italic;
+  padding-top: 1.5rem;
+}
+
+#delete_button {
+  align-self: center;
+  /*background-color: #ff533d;*/
+  background-color: transparent;
+  color: white;
+  /*margin-top: 2rem;*/
+  width: 20%;
+}
+
+.material-icons.md-36.top_arrow {
+  background-color: #ff533d;
+  border-radius: 50%;
+  box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  color: white;
+  padding: 0.75rem;
+}
+
+#top_arrow {
+  position: fixed;
+  bottom: -5rem;
+  right: 0.4rem;
+  transition: bottom 0.8s;
+}
+
+#top_arrow.slideUp {
+  bottom: 1rem;
+  transition: bottom 0.8s;
+}
+
+#top_arrow.slideDown {
+  bottom: -5rem;
+  transition: bottom 0.8s;
+}
+
+.footer {
+  background: linear-gradient(155deg, #02558b, #2cf);
+  height: 3rem;
+}
+
+/***********************************
+  Mobile Add Game Page Styling
+************************************/
+
+.gameForm {
+  background-image: url('../images/gplaypattern.png');
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 92vh;
+  padding: 1rem;
+  overflow: scroll;
+}
+
+.filedset {
+  padding-top: 1rem;
+  height: 2rem;
+}
+
+fieldset.form-group {
+  padding-top: 0rem;
+}
+
+legend {
+  color: gray;
+  font-size: 16px;
+  margin-bottom: 0rem;
+  margin-left: 0.75rem;
+}
+
+label {
+  color: #ff533d;
+}
+
+.radio_buttons_cat {
+  display: flex;
+  justify-content: space-between;
+  margin: 0rem auto;
+  width: 95%;
+}
+
+label input {
+      margin-right: 0.2rem;
+}
+
+.players_radios {
+  font-size: 1.25rem;
+}
+
+textarea {
+  height: 9rem;
+  resize: none;
+}
+
+.form_submits {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.gameForm button {
+  background-color: #ff533d;
+  color: white;
+  margin: 0.5rem auto;
+  width: 40%;
+}
+
+.another_game_link {
+  color: #2cf;
+}
+
+/***********************************
+   Mobile About Page Styling
+************************************/
+
+.about-page {
+  background: #fdfdff;
+  min-height: 90vh;
+  padding-top: 1rem;
+}
+
+.about-page h2 {
+  color: #ff533d;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.about-page #accordian {
+  height: 100%;
+}
+
+.about-page .card-header {
+  background-color: #fdfdff;
+  border: none;
+}
+
+.about-page a {
+  color: #2cf;
+}
+
+/***********************************
+ Add alternate form Styling
+************************************/
+
+.alternateForm {
+  /*background-color: #02558b;*/
+  background: linear-gradient(155deg, #02558b, #2cf);
+  padding: 2rem 1rem;
+}
+
+.alternateForm h4 {
+  color: #fdfdff;
+  text-align: center;
+}
+
+.alternateForm input, .alternateForm textarea {
+  margin: 1.5rem auto;
+  width: 90%;
+}
+
+.alternateForm textarea {
+  height: 10rem;
+}
+
+.alternateForm .btn {
+  background-color: #ff533d;
+  color: white;
+}
+
+@media screen and (min-width: 800px) {
+
+  /* colors used:
+    #fdfdff
+    #ddd
+    #02558b
+    #2cf
+    #ff533d
+  */
+
+  .topnav, .login, .signup {
+    display: none;
   }
 
   .topnav .icon {
-    color: white;
-    display: block;
-    float: right;
-    font-size: 24px;
-    height: 2rem;
-    opacity: 1;
-    position: absolute;
-    right: 0.5rem;
-    text-align: center;
-    top: 0.5rem;
-    transition: transform 0.5s;
-    width: 2rem;
-  }
-
-  .topnav .GamesLink, .topnav .NewGameLink, .topnav .LogOutLink, .topnav .AboutLink {
-    animation: 0.9s ease-in 0s 1 slideOutToLeft;
-  }
-
-  .topnav a:hover {
-    background-color: transparent;
-  }
-
-  .form-group {
-    height: 50%;
-    margin: 0px auto;
-    padding-top: 3.5rem;
-    width: 90%;
-  }
-
-  div.form-group.login, div.form-group.signup {
-    height: 50%;
-  }
-
-  div.form-group.login {
-    padding-top: 3.5rem;
-  }
-
-  div.form-group.login .btn, div.form-group.signup .btn{
-    background-color: #ff533d;
-    color: white;
-    margin-top: 0.5rem;
-  }
-}
-
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 800px) {
-  .topnav.responsive {
-    height: 200px;
-    transition: height 0.5s;
-  }
-
-  .topnav.responsive .icon {
-    color: white;
-    position: absolute;
-    height: 2rem;
-    right: 0.5rem;
-    top: 0.5rem;
-    width: 2rem;
-  }
-
-  .topnav.responsive a {
-    float: none;
-    opacity: 1;
-    height: 20px;
-    text-align: left;
-  }
-
-  .topnav.responsive .Logo {
-    margin-left: 0rem;
-    padding-left: 1rem;
-  }
-
-  /*.topnav.responsive a:hover {
-      background-color: #ddd;
-  }*/
-
-  .topnav.responsive .GamesLink {
-    display:block;
-    animation: 0.5s ease-out 0s 1 slideInFromLeft;
-    margin-top: 8px;
-    vertical-align: top;
-  }
-
-  .topnav.responsive .NewGameLink {
-    display:block;
-    animation: 0.7s ease-out 0s 1 slideInFromLeft;
-    margin-top: 8px;
-  }
-
-  .topnav.responsive .AboutLink {
-    display:block;
-    animation: 0.9s ease-out 0s 1 slideInFromLeft;
-    margin-top: 8px;
-  }
-
-  .topnav.responsive .LogOutLink {
-    display:block;
-    animation: 1.1s ease-out 0s 1 slideInFromLeft;
-    margin-top: 8px;
-  }
-
-  .icon.rotate {
-    transform: rotate(90deg);
-    /* Safari */
-    -webkit-transform: rotate(90deg);
-    /* Firefox */
-    -moz-transform: rotate(90deg);
-    /* IE */
-    -ms-transform: rotate(90deg);
-    /* Opera */
-    -o-transform: rotate(90deg);
-
-    transition: transform 0.5s;
-  }
-
-/***********************************
-  Mobile Game List Page Styling
-************************************/
-
-  .GameList {
-    background-color: #fdfdff;
-  }
-
-  .GameList .filter-bar {
-    background-image: url('../images/gplaypattern.png');
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 0.7rem;
-  }
-
-  .GameList .filter-bar a {
-    color: #ff533d;
-    flex-basis: 18%;
-    text-align: center;
-  }
-
-  .filter_header {
-    color: darkgray;
-    font-size: 16px;
-    flex-basis: 100%;
-    text-align: center;
-  }
-
-  .filter-bar .material-icons {
-    font-size: 48px;
-  }
-
-  .filter-bar .card_hand {
-    transform: scale(-1, -1);
-  }
-
-  .filter-bar p {
-    color: #02558b;
-    font-size: 14px;
-    text-align: center;
-  }
-
-  .filter-bar .badge-pill {
-    background-color: #ff7043;
-    color: white;
-    font-size: 12px;
-    min-width: 50%;
-  }
-
-  .GameList .material-icons {
-    margin-right: 0rem;
-  }
-
-  .each_game {
-    border: none;
-    border-radius: 0px;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-    margin: 0px 0.7rem 0.7rem;
-    min-height: 2rem;
-    padding: 10px;
-    padding-left: 0px;
-    /*width: 95%;*/
-  }
-
-  .each_game a {
-    display: flex;
-  }
-
-  .game_initial {
-    align-items: center;
-    background-color: #02558b;
-    /*background-color: transparent;*/
-    border-radius: 50%;
-    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-basis: 3rem;
-    justify-content: center;
-    margin: 0rem 2.5rem 0rem 1rem;
-  }
-
-  .game_initial i {
-    color: white;
-  }
-
-  .game_initial #card {
-    transform: rotate(180deg);
-    /* Safari */
-    -webkit-transform: rotate(180deg);
-    /* Firefox */
-    -moz-transform: rotate(180deg);
-    /* IE */
-    -ms-transform: rotate(180deg);
-    /* Opera */
-    -o-transform: rotate(180deg);
-  }
-
-  .game_initial h3 {
-    color: white;
-    padding-top: 0.25rem;
-    text-transform: lowercase;
-  }
-
-  .game_title {
-    color: #2cf;
-    margin-bottom: 0px;
-  }
-
-  .game_category {
-    color: darkgray;
-    font-style: italic;
-    margin-bottom: 0px;
-  }
-
- .material-icons.md-36.FAB {
-   background-color: #ff533d;
-   border-radius: 50%;
-   box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2);
-   color: white;
-   padding: 0.75rem;
-   position: fixed;
-   bottom: 1rem;
-   right: 1rem;
- }
-
-  @keyframes slideInFromLeft {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-
-  }
-
-  @keyframes slideOutToLeft {
-    0% {
-      display: block;
-      transform: translateX(0);
-    }
-    100% {
       display: none;
-      transform: translateX(-10%);
-    }
   }
 
-  /***********************************
-    Mobile Single Game Page Styling
-  ************************************/
+  .App {
+    padding: 3rem;
+    min-height: 100vh;
+  }
 
-  .singleGame {
+  #desktop_message {
+    display: block;
+  }
+
+  #message {
     display: flex;
-    flex-direction: column;
-    min-height: 90vh;
+    margin: 1rem auto;
+    width: 80%;
   }
 
-  .singleGame .card {
-    border: none;
-    margin: 0rem auto;
-    padding: 0rem;
-    width: 100%;
-  }
-
-  .singleGame .title_block {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 10rem;
-  }
-
-  .arrow_container {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin-right: 1rem;
-    animation: 1s ease-out 0s 1 slideInFromRight;
-  }
-
-  @keyframes slideInFromRight {
-    0% {
-      transform: translateX(200%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-
-  }
-
-  .material-icons.md-36 {
-    color: gray;
-    font-size: 36px;
-  }
-
-  .title_block {
-    background-image: url('../images/gplaypattern.png');
-  }
-
-  .title_block h2 {
-    color: #02558b;
-  }
-
-  .title_block a {
-    color: gray;
-  }
-
-  .singleGame h3 {
-    margin-bottom: 0rem;
-  }
-
-  .singleGame .game_category {
-    padding-top: 0rem;
-  }
-
-  .icon_bar {
-    border-bottom: 1px solid lightgray;
-    border-radius: 0px;
-    display: flex;
-    justify-content: space-around;
-    margin: 0rem auto;
-    padding: 1rem;
-    width: 100%;
-  }
-
-  .icon_bar div {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    flex-basis: 30%;
-  }
-
-  .icon_bar i {
+  #message span {
     color: #ff533d;
-    font-size: 32px;
-    margin-right: 0rem;
-    text-align: center;
   }
 
-  .icon_bar p {
-    color: gray;
-    font-size: 0.7rem;
-    margin-bottom: 0rem;
-    text-align: center;
-  }
-
-  .icon_bar #card {
-    transform: rotate(180deg);
-    /* Safari */
-    -webkit-transform: rotate(180deg);
-    /* Firefox */
-    -moz-transform: rotate(180deg);
-    /* IE */
-    -ms-transform: rotate(180deg);
-    /* Opera */
-    -o-transform: rotate(180deg);
-  }
-
-  .game_objective {
-    background: linear-gradient(155deg, #02558b, #2cf);
-    border-radius: 0px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    min-height: 7rem;
-    text-align: center;
-  }
-
-  .house_rules {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-  }
-
-  .arrowButton, .arrowButton2 {
-    align-items: center;
-    background-color: #ff553d;
-    border: none;
-    color: white;
-    display: flex;
-    font-size: 18px;
-    height: 2rem;
-    justify-content: center;
-    margin: 0.5rem;
-  }
-
-  .arrowButton {
-    border-radius: 20px;
-    margin: 0rem auto 0.5rem;
-    padding-bottom: 2rem;
-    width: 40%;
-  }
-
-  .arrowButton2 {
-    background-color: transparent;
-    color: gray;
-  }
-
-  .house_rules > .btn:focus, .house_rules > .btn.collapsed:focus {
-    outline: none;
-  }
-
-  .btn i {
-    margin-right: 0px;
-  }
-
-  .material-icons.rotate {
-    transform: rotate(135deg);
-    /* Safari */
-    -webkit-transform: rotate(135deg);
-    /* Firefox */
-    -moz-transform: rotate(135deg);
-    /* IE */
-    -ms-transform: rotate(135deg);
-    /* Opera */
-    -o-transform: rotate(135deg);
-
-    transition: transform 0.5s;
-    }
-
-  #demo {
-    margin-bottom: 0px;
-  }
-
-  .normal_rules {
-    color: gray;
-    min-height: 6rem;
-  }
-
-  #game_rules {
-    box-shadow: inset 0px -3px 10px 3px rgba(200, 200, 200, 0.2);
-    color: gray;
-    font-size: 18px;
-    height: 12rem;
-    margin: 0rem auto;
-    overflow: hidden;
-    padding: 1rem;
-    width: 100%;
-    transition: height 0.5s;
-  }
-
-  .read_more {
-    background: linear-gradient(to bottom, transparent, #fdfdff 30%);
-    color: #02558b;
-    height: 3rem;
-    margin-top: -1rem;
-    margin-bottom: 3rem;
-    padding: 0.5rem;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
-  .alt_rules {
-    border-radius: 0px;
-    color: gray;
-    padding: 0rem 1rem;
-  }
-
-  /*.collapsed.alt_rules {
-    padding: 0;
-    margin: 0;
-    transition: padding 0.2s;
-  }*/
-
-  #delete_rules_button {
-    color: transparent;
-    float: right;
-    margin-top: 2rem;
-  }
-
-  .alert h4 {
-    font-size: 1.7rem;
-    text-transform: capitalize;
-  }
-
-  .alert {
-    margin-bottom: 0rem;
-  }
-
-  .alt_games_link, .alt_games_link:visited {
+  #message #windows, #message #mac {
     color: #2cf;
   }
 
-  #altGamesList {
-    padding-top: 1rem;
-  }
-
-  .alt_list_header {
+  #message h3 {
     color: #02558b;
-    padding: 1rem;
   }
 
-  .each_alternate {
-    border: none;
-    border-radius: 3px;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-    margin: 0px auto 0.7rem auto;
-    min-height: 5rem;
-    padding: 1rem;
-    padding-left: 0px;
-    width: 100%;
+  #message h5 {
+    color: gray;
+    font-size: 1.1rem;
+    line-height: 1.7rem;
   }
 
-  .each_alternate .alt_game_label {
-    align-items: baseline;
-    display: flex;
-    /*justify-content: space-between;*/
+  #image {
+    align-self: flex-end;
+    margin-left: 1rem;
   }
 
-  .each_alternate .alternate_initial {
-    background-color: #ff533d;
+  #message img {
     border-radius: 50%;
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.3);
-    color: white;
-    font-size: 2rem;
-    padding: 0.3rem 0.6rem 0.6rem;
-    margin: 0rem 2rem 0rem 1rem;
-    text-transform: lowercase;
+    height: 50%;
+    width: 100%;
   }
 
-  .alternate_initial img {
-    width: 2rem;
-  }
-
-  .title_container {
-    flex: 1 0 60%;
-  }
-
-  .each_alternate .alternate_title {
-    color: #2cf;
-    text-align: left;
-  }
-
-  .each_alternate .arrowButton {
+  #message p {
     color: gray;
-    flex-basis: 10%;
-    margin: 0rem;
-    padding: 0rem;
+    font-size: 0.6rem;
+    margin-top: 0.3rem;
   }
 
-  .each_alternate .alternate_objective, .each_alternate .alternate_rules {
-    color: gray;
-  }
-
-  .each_alternate .game_labels {
-    color: darkgray;
-    font-size: 0.9rem;
-    font-style: italic;
-    padding-top: 1.5rem;
-  }
-
-  #delete_button {
-    align-self: center;
-    /*background-color: #ff533d;*/
-    background-color: transparent;
-    color: white;
-    /*margin-top: 2rem;*/
-    width: 20%;
-  }
-
-  .material-icons.md-36.top_arrow {
-    background-color: #ff533d;
-    border-radius: 50%;
-    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2);
-    color: white;
-    padding: 0.75rem;
-  }
-
-  #top_arrow {
-    position: fixed;
-    bottom: -5rem;
-    right: 0.4rem;
-    transition: bottom 0.8s;
-  }
-
-  #top_arrow.slideUp {
-    bottom: 1rem;
-    transition: bottom 0.8s;
-  }
-
-  #top_arrow.slideDown {
-    bottom: -5rem;
-    transition: bottom 0.8s;
-  }
-
-  .footer {
-    background: linear-gradient(155deg, #02558b, #2cf);
-    height: 3rem;
-  }
-
-  /***********************************
-    Mobile Add Game Page Styling
-  ************************************/
-
-  .gameForm {
-    background-image: url('../images/gplaypattern.png');
+  #HR-screens {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
-    min-height: 92vh;
-    padding: 1rem;
-    overflow: scroll;
   }
 
-  .filedset {
-    padding-top: 1rem;
-    height: 2rem;
+  #HR-screens .screens {
+    width: 18%;
+    height: 18%;
   }
 
-  fieldset.form-group {
-    padding-top: 0rem;
-  }
-
-  legend {
-    color: gray;
-    font-size: 16px;
-    margin-bottom: 0rem;
-    margin-left: 0.75rem;
-  }
-
-  label {
-    color: #ff533d;
-  }
-
-  .radio_buttons_cat {
-    display: flex;
-    justify-content: space-between;
-    margin: 0rem auto;
-    width: 95%;
-  }
-
-  label input {
-        margin-right: 0.2rem;
-  }
-
-  .players_radios {
-    font-size: 1.25rem;
-  }
-
-  textarea {
-    height: 9rem;
-    resize: none;
-  }
-
-  .form_submits {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .gameForm button {
-    background-color: #ff533d;
-    color: white;
-    margin: 0.5rem auto;
-    width: 40%;
-  }
-
-  .another_game_link {
-    color: #2cf;
-  }
-
-  /***********************************
-     Mobile About Page Styling
-  ************************************/
-
-  .about-page {
-    background: #fdfdff;
-    min-height: 90vh;
-    padding-top: 1rem;
-  }
-
-  .about-page h2 {
-    color: #ff533d;
-    padding-bottom: 1rem;
-    text-align: center;
-  }
-
-  .about-page #accordian {
+  .screens img {
+    width: 100%;
     height: 100%;
   }
-
-  .about-page .card-header {
-    background-color: #fdfdff;
-    border: none;
-  }
-
-  .about-page a {
-    color: #2cf;
-  }
-
-/***********************************
-   Add alternate form Styling
-************************************/
-
-  .alternateForm {
-    /*background-color: #02558b;*/
-    background: linear-gradient(155deg, #02558b, #2cf);
-    padding: 2rem 1rem;
-  }
-
-  .alternateForm h4 {
-    color: #fdfdff;
-    text-align: center;
-  }
-
-  .alternateForm input, .alternateForm textarea {
-    margin: 1.5rem auto;
-    width: 90%;
-  }
-
-  .alternateForm textarea {
-    height: 10rem;
-  }
-
-  .alternateForm .btn {
-    background-color: #ff533d;
-    color: white;
-  }
-
 }

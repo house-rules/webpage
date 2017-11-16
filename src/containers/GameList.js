@@ -24,9 +24,6 @@ class GameList extends Component {
 
   render () {
 
-    // map over game data array
-    let gamesList;
-
     function compare(a, b) {
       const titleA = a.title.toUpperCase();
       const titleB = b.title.toUpperCase();
@@ -40,6 +37,9 @@ class GameList extends Component {
       return comparison;
     }
     this.props.gamesList.sort(compare);
+
+    // map over game data array
+    let gamesList;
 
     if (this.state.filter === 'all') {
       gamesList = this.props.gamesList.map((game) => {

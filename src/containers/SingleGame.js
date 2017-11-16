@@ -114,7 +114,7 @@ export default class SingleGame extends Component {
         gameIcon = "golf_course";
         break;
       default:
-        gameIcon = "widgets"
+        gameIcon = "fiber_manual_record"
     }
 
     let alternatesList = this.state.alternates.map((game) => {
