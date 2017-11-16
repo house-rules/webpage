@@ -9,7 +9,7 @@ export default class SingleGame extends Component {
       game: {},
       alternates: []
     }
-  }
+  };
 
   scrollTo = (element) => {
     window.scroll({
@@ -17,7 +17,7 @@ export default class SingleGame extends Component {
       left: 0,
       top: element.offsetTop
     });
-  }
+  };
 
   handleScroll = () => {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -25,7 +25,7 @@ export default class SingleGame extends Component {
     } else {
       document.getElementById("top_arrow").className = "slideDown";
     }
-  }
+  };
 
   arrowToggle = () => {
     var backArrow = document.getElementById('myArrow');
@@ -35,7 +35,7 @@ export default class SingleGame extends Component {
     } else {
       backArrow.className = "material-icons";
     }
-  }
+  };
 
   toggleReadMore = () => {
     let gameRules = document.getElementById('game_rules');
@@ -50,7 +50,7 @@ export default class SingleGame extends Component {
       gameRules.style.transition = 'height 0.5s';
       readMore.textContent = "Read Less";
     }
-  }
+  };
 
   handleDeleteGame = (gameId) => {
 
@@ -66,7 +66,7 @@ export default class SingleGame extends Component {
 
     this.props.history.push('/webpage/games');
 
-  }
+  };
 
   handleDeleteHouseRules = (gameId, rulesId) => {
 
@@ -80,7 +80,7 @@ export default class SingleGame extends Component {
       console.log("FAILURE TO DELETE: ", error);
     })
     // push??
-  }
+  };
 
   componentDidMount() {
     let match = this.props.match;
@@ -96,12 +96,12 @@ export default class SingleGame extends Component {
     })
 
     window.addEventListener('scroll', this.handleScroll);
-  }
+  };
 
   componentShouldUnmount() {
     console.log('componentWillUnmount invoked');
     window.addEventListener('scroll', this.handleScroll);
-  }
+  };
 
   render() {
     let game = this.state.game;
@@ -123,7 +123,7 @@ export default class SingleGame extends Component {
         break;
       default:
         gameIcon = "fiber_manual_record"
-    }
+    };
 
     let alternatesList = this.state.alternates.map((game) => {
       return (
