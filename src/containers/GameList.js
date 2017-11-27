@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { getGameList } from '../actions/action';
 import { Link } from 'react-router-dom';
+import Loader from '../components/Loader.js'
 
 class GameList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loader: <Loader />,
       games: [],
       filter: 'all'
     }
@@ -23,6 +25,12 @@ class GameList extends Component {
   };
 
   render () {
+    console.log(this.props.gamesList);
+    if (this.props.gamesList) {
+
+    } else {
+
+    }
 
     function compare(a, b) {
       const titleA = a.title.toUpperCase();
@@ -112,6 +120,9 @@ class GameList extends Component {
                </div>;
       })
     }
+
+    let displayedObject = (gamesList.length ? gamesList:this.state.loader);
+
     return (
       <div className="GameList">
 
@@ -144,8 +155,12 @@ class GameList extends Component {
           </Link>
 
         </div>
-
-        {gamesList}
+        
+        {/*<div>
+          {this.state.loader}
+        </div>
+        {gamesList}*/}
+        {displayedObject}
 
         <div>
           <Link to='/webpage/newGame'>
