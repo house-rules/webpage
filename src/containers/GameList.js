@@ -25,13 +25,8 @@ class GameList extends Component {
   };
 
   render () {
-    console.log(this.props.gamesList);
-    if (this.props.gamesList) {
 
-    } else {
-
-    }
-
+    // sorts array alphabetically
     function compare(a, b) {
       const titleA = a.title.toUpperCase();
       const titleB = b.title.toUpperCase();
@@ -121,7 +116,7 @@ class GameList extends Component {
       })
     }
 
-    let displayedObject = (gamesList.length ? gamesList:this.state.loader);
+    let displayedObject = (gamesList.length ? gamesList : this.state.loader);
 
     return (
       <div className="GameList">
@@ -155,11 +150,7 @@ class GameList extends Component {
           </Link>
 
         </div>
-        
-        {/*<div>
-          {this.state.loader}
-        </div>
-        {gamesList}*/}
+
         {displayedObject}
 
         <div>
