@@ -23,7 +23,8 @@ class App extends Component {
 
   handleRegister = (event) => {
     event.preventDefault();
-    // const register = this.props.register;
+    console.log('fired');
+// const register = this.props.register;
     register(this.state, () => {
       this.setState({
         email: "",
@@ -31,20 +32,21 @@ class App extends Component {
         password: "",
         loginUsername: "",
         loginPassword: ""
-       })
+      });
+      console.log("This.state: ",this.state);
      });
    }
 
 
   handleLogin = (event) => {
     event.preventDefault();
-
-    // const login = this.props.login;
+// const login = this.props.login;
     login(this.state.loginUsername, this.state.loginPassword, () => {
       this.setState({
           email: "",
           password: ""
       });
+      console.log('This.state: ', this.state);
     });
    }
 
@@ -56,6 +58,11 @@ class App extends Component {
 
 
   render() {
+    // console.log("Username: ", this.state.username);
+    // console.log("Email: ", this.state.email);
+    // console.log("Password: ", this.state.password);
+    // console.log("Login Username: ", this.state.loginUsername);
+    // console.log("Login Password: ", this.state.loginPassword);
     return (
       <div className="App">
 
@@ -113,6 +120,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
+  //map register and login to props???
     return {
         loadToken: () => dispatch(loadTokenFromCookie())
     }

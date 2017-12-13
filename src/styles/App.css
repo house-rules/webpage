@@ -215,7 +215,7 @@ Spinning Loader Component Styling
 ************************************/
 
 .Loader {
-
+  padding-top: 6rem;
 }
 
 #spinner, #loading-message {
@@ -819,7 +819,7 @@ label {
 }
 
 label input {
-      margin-right: 0.2rem;
+  margin-right: 0.2rem;
 }
 
 .players_radios {

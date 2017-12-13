@@ -20,11 +20,7 @@ const setError = makeActionCreator(SET_ERROR);
 const baseURL = "https://dry-forest-51238.herokuapp.com/api";
 const api = (path) => baseURL + path;
 
-export const register = ({
-    email,
-    password,
-    username
-}) => {
+export const register = ({email, password, username}) => {
     return (dispatch, getState) => {
         // dispatch(incrLoading(1));
         request
