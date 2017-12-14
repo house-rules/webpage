@@ -41,12 +41,12 @@ label:focus,
 }
 
 .topnav {
+  background: linear-gradient(155deg, #02558b 30%, #2cf );
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 1);
   height: 55px;
+  overflow: hidden;
   transition: height 0.5s;
   width: 100%;
-  background: linear-gradient(155deg, #02558b 30%, #2cf );
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
 }
 
 .topnav a:not(:first-child) {
@@ -294,6 +294,7 @@ Mobile Game List Page Styling
 
 .GameList {
   background-color: #fdfdff;
+  padding-bottom: 3rem;
 }
 
 .GameList .filter-bar {
@@ -402,6 +403,17 @@ Mobile Game List Page Styling
   margin-bottom: 0px;
 }
 
+.click-arrow {
+  align-self: center;
+  margin-left: auto;
+}
+
+.click-arrow i {
+  color: darkgray;
+  font-size: 30px;
+  vertical-align: middle;
+}
+
 .material-icons.md-36.FAB {
  background-color: #ff533d;
  border-radius: 50%;
@@ -411,7 +423,16 @@ Mobile Game List Page Styling
  position: fixed;
  bottom: 1rem;
  right: 1rem;
+ z-index: 1;
 }
+
+/*#footer {
+  background: linear-gradient(155deg, #02558b, #2cf);
+  height: 3rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0rem;
+}*/
 
 @keyframes slideInFromLeft {
   0% {

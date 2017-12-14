@@ -69,10 +69,15 @@ class GameList extends Component {
 
         return <div key={game.id} className="each_game card-block card">
                   <Link to={`/webpage/games/${game.id}`}>
-                    <div className="game_initial"><i className="material-icons group" id={game.category}>{gameIcon}</i></div>
+                    <div className="game_initial">
+                      <i className="material-icons group" id={game.category}>{gameIcon}</i>
+                    </div>
                     <div>
                        <h4 className="game_title card-title">{game.title}</h4>
                        <p className="game_category"> {game.alternates.length < 1 ? "1 way to play" : `${game.alternates.length + 1} ways to play`} </p>
+                    </div>
+                    <div className="click-arrow">
+                      <i className="material-icons">keyboard_arrow_right</i>
                     </div>
                  </Link>
                </div>;
@@ -158,6 +163,10 @@ class GameList extends Component {
             <i className="material-icons md-36 FAB">add</i>
           </Link>
         </div>
+
+        {/*<div id="footer">
+        </div>*/}
+
       </div>
     );
   }
