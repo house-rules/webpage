@@ -18,7 +18,7 @@ const reducer = (state = initialState, action) => {
                 error: {
                     $set: action.payload
                 }
-            })
+            });
         case SET_TOKEN:
             return update(state, {
                 token: {
@@ -26,25 +26,25 @@ const reducer = (state = initialState, action) => {
                 }
             });
         case GAME_SELECTED:
-              return update(state, {
-                selectedGame: {
-                  $set: action.payload
-                }
-              })
+            return update(state, {
+              selectedGame: {
+                $set: action.payload
+              }
+            });
         case SET_DATA:
             return update(state, {
               gamesList: {
                 $set: action.payload
               }
-            })
+            });
         case SET_USER:
-          return update(state, {
-            user: {
-              $set: action.payload
-            }
-          })
+            return update(state, {
+              user: {
+                $set: action.payload
+              }
+            });
         default:
-            return state;
+          return state;
     }
 }
 

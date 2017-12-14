@@ -38,22 +38,22 @@ export const register = ({email, password, username}) => {
 }
 
 export const login = (email, password) => {
-    return (dispatch) => {
-        request
-            .post(api("/games"))
-            .send({email: email, password: password})
-            .end((err, res) => {
-                if (err) {
-                    return dispatch(setError(res.body.errors));
-                } else {
-                    dispatch(setError(null));
-                }
+  return (dispatch) => {
+    request
+      .post(api("/games"))
+      .send({email: email, password: password})
+      .end((err, res) => {
+        if (err) {
+            return dispatch(setError(res.body.errors));
+        } else {
+            dispatch(setError(null));
+        }
 
-                dispatch(setToken(res.body['auth_token']));
-                dispatch(getGamePage(res.body['auth_token']));
-                Cookies.set('token', res.body['auth_token'], {expires: 90});
-            })
-    }
+        dispatch(setToken(res.body['auth_token']));
+        dispatch(getGamePage(res.body['auth_token']));
+        Cookies.set('token', res.body['auth_token'], {expires: 90});
+      })
+  }
 }
 
 const getGamePage = (token) => {
@@ -76,13 +76,13 @@ const getGamePage = (token) => {
 }
 
 export const loadTokenFromCookie = () => {
-    return (dispatch) => {
-        const token = Cookies.get('token');
-        if (token) {
-            dispatch(setToken(token));
-            dispatch(getGamePage());
-        }
+  return (dispatch) => {
+    const token = Cookies.get('token');
+    if (token) {
+        dispatch(setToken(token));
+        dispatch(getGamePage());
     }
+  }
 }
 
 export function selectGame(gameId) {

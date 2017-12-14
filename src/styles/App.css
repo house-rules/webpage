@@ -60,7 +60,7 @@ label:focus,
   float: left;
   display: block;
   text-align: center;
-  padding: 14px 16px;
+  padding: 1.2rem 1rem;
   text-decoration: none;
   font-size: 17px;
   font-family: 'Righteous', sans-serif;
@@ -142,7 +142,7 @@ div.form-group.login .btn, div.form-group.signup .btn{
 }
 
 .topnav.responsive {
-  height: 200px;
+  height: 250px;
   transition: height 0.5s;
 }
 

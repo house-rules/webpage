@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import AddAlternate from '../components/AddAlternate';
 
-export default class SingleGame extends Component {
+class SingleGame extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -85,15 +86,32 @@ export default class SingleGame extends Component {
   componentDidMount() {
     let match = this.props.match;
     const id = match.params.id;
-    const URL = `https://house-rules-jgwrbs.herokuapp.com/api/game/${id}`;
 
-    fetch(URL)
-    .then(response => {
-      return response.json()
-    })
-    .then(data => {
-      this.setState({game: data, alternates: data.alternates})
-    })
+    let singleGame = this.props.gamesList.filter(game => {
+      return game.id === Number(id);
+    });
+
+    if (singleGame[0]) {
+
+      // filtering from gamelist for better performance
+      console.log('FILTER Game');
+      this.setState({game: singleGame[0], alternates: singleGame[0].alternates});
+
+    } else {
+
+      // using a fetch call if the filter is undefined
+      console.log('FETCH Game');
+      const URL = `https://house-rules-jgwrbs.herokuapp.com/api/game/${id}`;
+
+      fetch(URL)
+        .then(response => {
+          return response.json()
+        })
+        .then(data => {
+          this.setState({game: data, alternates: data.alternates})
+      });
+
+    };
 
     window.addEventListener('scroll', this.handleScroll);
   };
@@ -104,6 +122,7 @@ export default class SingleGame extends Component {
   };
 
   render() {
+
     let game = this.state.game;
     let gameCategory = this.state.game.category;
     let gameIcon;
@@ -155,7 +174,7 @@ export default class SingleGame extends Component {
 
         </div>
       )
-    })
+    });
 
     return (
       <div className="singleGame" id="singleGame">
@@ -244,3 +263,13 @@ export default class SingleGame extends Component {
     );
   }
 };
+
+const mapStateToProps = (state) => {
+
+  return {
+    gamesList: state.gamesList,
+    filter: state.filter
+  }
+};
+
+export default connect(mapStateToProps)(SingleGame);
