@@ -42,7 +42,6 @@ label:focus,
 
 .topnav {
   background: linear-gradient(155deg, #02558b 30%, #2cf );
-  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 1);
   height: 55px;
   overflow: hidden;
   transition: height 0.5s;
