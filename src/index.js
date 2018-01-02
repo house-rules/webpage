@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import App from './components/App';
+import App from './components/App/App.js';
 import registerServiceWorker from './registerServiceWorker';
 
 // additional imports from react-router-dom and redux
@@ -12,12 +12,12 @@ import reduxThunk from 'redux-thunk';
 import reducers from './reducers/reducer';
 
 // import components here
-import Splash from './components/Splash';
-import BaseLayout from './components/BaseLayout';
+import Splash from './components/Splash/Splash';
+import BaseLayout from './components/BaseLayout/BaseLayout';
 import GameList from './containers/GameList/GameList';
-import GameForm from './components/GameForm';
+import GameForm from './components/GameForm/GameForm';
 import SingleGame from './containers/SingleGame/SingleGame';
-import About from './components/About';
+import About from './components/About/About';
 
 const store = createStore(
     reducers,

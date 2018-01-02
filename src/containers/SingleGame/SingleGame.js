@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import AddAlternate from '../../components/AddAlternate';
+import AddAlternate from '../../components/AddAlternate/AddAlternate';
 import './SingleGame.css';
 
 class SingleGame extends Component {

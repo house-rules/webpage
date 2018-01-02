@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
-import { loadTokenFromCookie, register, login } from "../actions/action";
+import '../../styles/App.css';
+import { loadTokenFromCookie, register, login } from "../../actions/action";
 import { connect } from 'react-redux';
 
 class App extends Component {
@@ -86,25 +86,25 @@ class App extends Component {
               <h5>Until then, view this site through the browser of your iPhone or Android device, or open the Chrome developer tools on your computer <span>( <span id="mac">mac:</span> command + option + i, <span id="windows">windows:</span> F12 or control + shift + i)</span> and click the 'Toggle device toolbar'.</h5>
             </div>
             <div id="image">
-              <img src={require('../images/chrome-dev-toggle-device.png')} alt="#"/>
+              <img src={require('../../images/chrome-dev-toggle-device.png')} alt="#"/>
               <p>Toggle device toolbar</p>
             </div>
           </div>
           <div id="HR-screens">
             <div className="screens">
-              <img src={require('../images/HR-gameList-screen.png')} alt="#"/>
+              <img src={require('../../images/HR-gameList-screen.png')} alt="#"/>
               <span>Game List</span>
             </div>
             <div className="screens">
-              <img src={require('../images/HR-singleGame-screen.png')} alt="#"/>
+              <img src={require('../../images/HR-singleGame-screen.png')} alt="#"/>
               <span>Single Game</span>
             </div>
             <div className="screens">
-              <img src={require('../images/HR-HouseRules-screen.png')} alt="#"/>
+              <img src={require('../../images/HR-HouseRules-screen.png')} alt="#"/>
               <span>House Rules</span>
             </div>
             <div className="screens">
-              <img src={require('../images/HR-addRules-screen.png')} alt="#"/>
+              <img src={require('../../images/HR-addRules-screen.png')} alt="#"/>
               <span>Adding Rules</span>
             </div>
           </div>

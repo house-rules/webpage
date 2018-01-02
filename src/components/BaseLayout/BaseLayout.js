@@ -42,7 +42,7 @@ class BaseLayout extends Component {
           <nav className="topnav" id="myNavBar">
 
             <Link className="Logo" to='#' onClick={() => this.handleNaviagation('/webpage/')}>
-            <img src={require('../images/house-rules-white.png')} alt="#"/>
+            <img src={require('../../images/house-rules-white.png')} alt="#"/>
             <span>House Rules</span></Link>
 
             <Link
