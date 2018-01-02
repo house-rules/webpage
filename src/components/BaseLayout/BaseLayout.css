@@ -44,9 +44,9 @@
   width: 15%;
 }
 
-.topnav .Logo span {
-  padding-top: 0.5rem;
-}
+/* .topnav .Logo span {
+  margin-top: 1rem;
+} */
 
 .topnav .icon {
   color: white;
@@ -102,26 +102,26 @@
 }*/
 
 .topnav.responsive .GamesLink {
-  display:block;
+  display: flex;
   animation: 0.5s ease-out 0s 1 slideInFromLeft;
   margin-top: 8px;
   vertical-align: top;
 }
 
 .topnav.responsive .NewGameLink {
-  display:block;
+  display: flex;
   animation: 0.7s ease-out 0s 1 slideInFromLeft;
   margin-top: 8px;
 }
 
 .topnav.responsive .AboutLink {
-  display:block;
+  display: flex;
   animation: 0.9s ease-out 0s 1 slideInFromLeft;
   margin-top: 8px;
 }
 
 .topnav.responsive .LogOutLink {
-  display:block;
+  display: flex;
   animation: 1.1s ease-out 0s 1 slideInFromLeft;
   margin-top: 8px;
 }

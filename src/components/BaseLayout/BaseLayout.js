@@ -8,7 +8,7 @@ class BaseLayout extends Component {
     super(props);
   //bind functions for navbar toggle and navigation here
   this.navToggle = this.navToggle.bind(this);
-  }
+};
 
   // opens and closes the nav bar on click
   navToggle(endpoint) {
@@ -43,8 +43,9 @@ class BaseLayout extends Component {
           <nav className="topnav" id="myNavBar">
 
             <Link className="Logo" to='#' onClick={() => this.handleNaviagation('/webpage/')}>
-            <img src={require('../../images/house-rules-white.png')} alt="#"/>
-            <span>House Rules</span></Link>
+              <img src={require('../../images/house-rules-white.png')} alt="#"/>
+              <span>House Rules</span>
+            </Link>
 
             <Link
             className="GamesLink" to='#' onClick={() => this.handleNaviagation('/webpage/games')}>
@@ -64,7 +65,7 @@ class BaseLayout extends Component {
             </Link>
 
             <Link className="LogOutLink" to="#" onClick={() => this.handleNaviagation('/webpage/')}>
-              <i className="material-icons">chevron_left</i>
+              <i className="material-icons">power_settings_new</i>
               Log Out
             </Link>
 
