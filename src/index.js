@@ -37,6 +37,7 @@ ReactDOM.render(
         <Route exact path='/webpage/newGame' component={GameForm} />
         <Route exact path='/webpage/about' component={About} />
         <Route exact path='/' component={Splash} />
+        <Route component={Splash} />
       </Switch>
     </BaseLayout>
   </BrowserRouter>
