@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
-import {loadTokenFromCookie, register, login} from "../actions/action";
-import {connect} from 'react-redux';
+import { loadTokenFromCookie, register, login } from "../actions/action";
+import { connect } from 'react-redux';
 
 class App extends Component {
   constructor(props) {

@@ -14,9 +14,9 @@ import reducers from './reducers/reducer';
 // import components here
 import Splash from './components/Splash';
 import BaseLayout from './components/BaseLayout';
-import GameList from './containers/GameList';
+import GameList from './containers/GameList/GameList';
 import GameForm from './components/GameForm';
-import SingleGame from './containers/SingleGame';
+import SingleGame from './containers/SingleGame/SingleGame';
 import About from './components/About';
 
 const store = createStore(

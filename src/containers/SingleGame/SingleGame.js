@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import AddAlternate from '../components/AddAlternate';
+import AddAlternate from '../../components/AddAlternate';
+import './SingleGame.css';
 
 class SingleGame extends Component {
   constructor(props) {
@@ -94,13 +95,13 @@ class SingleGame extends Component {
     if (singleGame[0]) {
 
       // filtering from gamelist for better performance
-      console.log('FILTER Game');
+      console.log('Game FILTERED');
       this.setState({game: singleGame[0], alternates: singleGame[0].alternates});
 
     } else {
 
       // using a fetch call if the filter is undefined
-      console.log('FETCH Game');
+      console.log('Game FETCHED');
       const URL = `https://house-rules-jgwrbs.herokuapp.com/api/game/${id}`;
 
       fetch(URL)
@@ -150,7 +151,7 @@ class SingleGame extends Component {
           <div className="alt_game_label">
             <div className="initial_container">
               <h3 className="alternate_initial">
-                <img src={require('../images/house-rules-white.png')} alt="#"/>
+                <img src={require('../../images/house-rules-white.png')} alt="#"/>
               </h3>
             </div>
             <div className="title_container">

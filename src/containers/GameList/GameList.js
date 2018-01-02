@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import { getGameList } from '../actions/action';
+import { connect } from 'react-redux';
+import { getGameList } from '../../actions/action';
 import { Link } from 'react-router-dom';
-import Loader from '../components/Loader.js'
+import Loader from '../../components/Loader.js';
+import './GameList.css';
 
 class GameList extends Component {
   constructor(props) {
@@ -14,12 +15,12 @@ class GameList extends Component {
     }
   }
 
-// setting the state of the filter based on an icon that is clicked
+  // setting the state of the filter based on an icon that is clicked
   handleFilterChange = (filter) => {
     this.setState({filter: filter});
   };
 
-// Function for the api 'GET' call. Returns the entire game list
+  // Function for the api 'GET' call. Returns the entire game list
   componentDidMount() {
     this.props.getGameList();
   };
