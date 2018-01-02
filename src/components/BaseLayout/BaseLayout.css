@@ -1,0 +1,141 @@
+/* colors used:
+  #fdfdff
+  #ddd
+  #02558b
+  #2cf
+  #ff533d
+*/
+
+.topnav {
+  background: linear-gradient(155deg, #02558b 30%, #2cf );
+  height: 55px;
+  overflow: hidden;
+  transition: height 0.5s;
+  width: 100%;
+}
+
+.topnav a:not(:first-child) {
+  display: none;
+  opacity: 0;
+  height: 0;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 1.2rem 1rem;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: 'Righteous', sans-serif;
+}
+
+.topnav .Logo {
+  margin-left: -1.4rem;
+  padding-left: 1rem;
+  padding-top: 0.75rem;
+  font-family: 'Righteous', sans-serif;
+  width: 50%;
+}
+
+.Logo img {
+  margin-right: 0.5rem;
+  width: 15%;
+}
+
+.topnav .Logo span {
+  padding-top: 0.5rem;
+}
+
+.topnav .icon {
+  color: white;
+  display: block;
+  float: right;
+  font-size: 24px;
+  height: 2rem;
+  opacity: 1;
+  position: absolute;
+  right: 0.5rem;
+  text-align: center;
+  top: 0.5rem;
+  transition: transform 0.5s;
+  width: 2rem;
+}
+
+.topnav .GamesLink, .topnav .NewGameLink, .topnav .LogOutLink, .topnav .AboutLink {
+  animation: 0.9s ease-in 0s 1 slideOutToLeft;
+}
+
+.topnav a:hover {
+  background-color: transparent;
+}
+
+.topnav.responsive {
+  height: 250px;
+  transition: height 0.5s;
+}
+
+.topnav.responsive .icon {
+  color: white;
+  position: absolute;
+  height: 2rem;
+  right: 0.5rem;
+  top: 0.5rem;
+  width: 2rem;
+}
+
+.topnav.responsive a {
+  float: none;
+  opacity: 1;
+  height: 20px;
+  text-align: left;
+}
+
+.topnav.responsive .Logo {
+  margin-left: 0rem;
+  padding-left: 1rem;
+}
+
+/*.topnav.responsive a:hover {
+    background-color: #ddd;
+}*/
+
+.topnav.responsive .GamesLink {
+  display:block;
+  animation: 0.5s ease-out 0s 1 slideInFromLeft;
+  margin-top: 8px;
+  vertical-align: top;
+}
+
+.topnav.responsive .NewGameLink {
+  display:block;
+  animation: 0.7s ease-out 0s 1 slideInFromLeft;
+  margin-top: 8px;
+}
+
+.topnav.responsive .AboutLink {
+  display:block;
+  animation: 0.9s ease-out 0s 1 slideInFromLeft;
+  margin-top: 8px;
+}
+
+.topnav.responsive .LogOutLink {
+  display:block;
+  animation: 1.1s ease-out 0s 1 slideInFromLeft;
+  margin-top: 8px;
+}
+
+.icon.rotate {
+  transform: rotate(90deg);
+  /* Safari */
+  -webkit-transform: rotate(90deg);
+  /* Firefox */
+  -moz-transform: rotate(90deg);
+  /* IE */
+  -ms-transform: rotate(90deg);
+  /* Opera */
+  -o-transform: rotate(90deg);
+
+  transition: transform 0.5s;
+}

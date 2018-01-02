@@ -1,0 +1,36 @@
+/***********************************
+ Add alternate form Styling
+************************************/
+
+/* colors used:
+  #fdfdff
+  #ddd
+  #02558b
+  #2cf
+  #ff533d
+*/
+
+.alternateForm {
+  /*background-color: #02558b;*/
+  background: linear-gradient(155deg, #02558b, #2cf);
+  padding: 2rem 1rem;
+}
+
+.alternateForm h4 {
+  color: #fdfdff;
+  text-align: center;
+}
+
+.alternateForm input, .alternateForm textarea {
+  margin: 1.5rem auto;
+  width: 90%;
+}
+
+.alternateForm textarea {
+  height: 10rem;
+}
+
+.alternateForm .btn {
+  background-color: #ff533d;
+  color: white;
+}

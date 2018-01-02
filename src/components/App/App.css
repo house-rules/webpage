@@ -1,0 +1,46 @@
+/***********************************
+Signup / Login Page Styling
+************************************/
+
+/* colors used:
+  #fdfdff
+  #ddd
+  #02558b
+  #2cf
+  #ff533d
+*/
+
+.App {
+  background-image: url('../../images/gplaypattern.png');
+  text-align: center;
+  height: 92vh;
+}
+
+.App input {
+  margin-top: 7px;
+}
+
+.form-group {
+  height: 50%;
+  margin: 0px auto;
+  padding-top: 3.5rem;
+  width: 90%;
+}
+
+div.form-group.login, div.form-group.signup {
+  height: 50%;
+}
+
+div.form-group.login {
+  padding-top: 3.5rem;
+}
+
+div.form-group.login .btn, div.form-group.signup .btn{
+  background-color: #ff533d;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+#desktop_message {
+  display: none;
+}

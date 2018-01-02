@@ -1,0 +1,78 @@
+/***********************************
+  Mobile Add Game Page Styling
+************************************/
+
+/* colors used:
+  #fdfdff
+  #ddd
+  #02558b
+  #2cf
+  #ff533d
+*/
+
+.gameForm {
+  background-image: url('../../images/gplaypattern.png');
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 92vh;
+  padding: 1rem;
+  overflow: scroll;
+}
+
+.filedset {
+  padding-top: 1rem;
+  height: 2rem;
+}
+
+fieldset.form-group {
+  padding-top: 0rem;
+}
+
+legend {
+  color: gray;
+  font-size: 16px;
+  margin-bottom: 0rem;
+  margin-left: 0.75rem;
+}
+
+label {
+  color: #ff533d;
+}
+
+.radio_buttons_cat {
+  display: flex;
+  justify-content: space-between;
+  margin: 0rem auto;
+  width: 95%;
+}
+
+label input {
+  margin-right: 0.2rem;
+}
+
+.players_radios {
+  font-size: 1.25rem;
+}
+
+textarea {
+  height: 9rem;
+  resize: none;
+}
+
+.form_submits {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.gameForm button {
+  background-color: #ff533d;
+  color: white;
+  margin: 0.5rem auto;
+  width: 40%;
+}
+
+.another_game_link {
+  color: #2cf;
+}

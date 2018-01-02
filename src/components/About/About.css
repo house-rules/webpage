@@ -1,0 +1,36 @@
+/***********************************
+   Mobile About Page Styling
+************************************/
+
+/* colors used:
+  #fdfdff
+  #ddd
+  #02558b
+  #2cf
+  #ff533d
+*/
+
+.about-page {
+  background: #fdfdff;
+  min-height: 90vh;
+  padding-top: 1rem;
+}
+
+.about-page h2 {
+  color: #ff533d;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.about-page #accordian {
+  height: 100%;
+}
+
+.about-page .card-header {
+  background-color: #fdfdff;
+  border: none;
+}
+
+.about-page a {
+  color: #2cf;
+}

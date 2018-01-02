@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './GameForm.css';
 
 export default class GameForm extends Component {
   constructor(props) {

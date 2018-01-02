@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getGameList } from '../../actions/action';
 import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
+
 import './GameList.css';
 
 class GameList extends Component {

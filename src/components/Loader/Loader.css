@@ -1,0 +1,85 @@
+/***********************************
+Spinning Loader Component Styling
+************************************/
+
+/* colors used:
+  #fdfdff
+  #ddd
+  #02558b
+  #2cf
+  #ff533d
+*/
+
+.Loader {
+  padding-top: 6rem;
+}
+
+#spinner, #loading-message {
+  color: #ff533d;
+}
+
+#loading-message {
+  color: #02558b;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+#spinner {
+  margin: 0rem;
+  text-align: center;
+}
+
+#spinner i {
+  animation: 5s 1s infinite spinningLoader;
+  font-size: 48px;
+  margin-top: 2rem;
+  position: absolute;
+  left: 12rem;
+
+}
+
+@keyframes spinningLoader {
+  0% {
+    color: #ff533d;
+    align-self: flex-start;
+    left: -1rem;
+    margin-top: 0.75rem;
+    transform: rotateZ(0deg);
+  }
+  7% {
+    margin-top: 2rem;
+  }
+  10% {
+    margin-top: 1rem;
+  }
+  13% {
+    margin-top: 2rem;
+  }
+  16% {
+    margin-top: 1.3rem;
+  }
+  19% {
+    margin-top: 2rem;
+  }
+  22% {
+    margin-top: 1.7rem;
+  }
+  25% {
+    color: #02558b;
+    margin-top: 2rem;
+  }
+  50% {
+    color: #2cf;
+    margin-top: 2rem;
+  }
+  95% {
+    transform: rotateZ(1710deg);
+  }
+  100% {
+    color: #ff533d;
+    align-self: center;
+    left: 15rem;
+    margin-top: 2rem;
+    transform: rotateZ(1710deg);
+  }
+}

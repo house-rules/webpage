@@ -1,0 +1,174 @@
+/***********************************
+Mobile Game List Page Styling
+************************************/
+
+/* colors used:
+  #fdfdff
+  #ddd
+  #02558b
+  #2cf
+  #ff533d
+*/
+
+.GameList {
+  background-color: #fdfdff;
+  padding-bottom: 3rem;
+}
+
+.GameList .filter-bar {
+  background-image: url('../../images/gplaypattern.png');
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 0.7rem;
+}
+
+.GameList .filter-bar a {
+  color: #ff533d;
+  flex-basis: 18%;
+  text-align: center;
+}
+
+.filter_header {
+  color: darkgray;
+  font-size: 16px;
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.filter-bar .material-icons {
+  font-size: 48px;
+}
+
+.filter-bar .card_hand {
+  transform: scale(-1, -1);
+}
+
+.filter-bar p {
+  color: #02558b;
+  font-size: 14px;
+  text-align: center;
+}
+
+.filter-bar .badge-pill {
+  background-color: #ff7043;
+  color: white;
+  font-size: 12px;
+  min-width: 50%;
+}
+
+.GameList .material-icons {
+  margin-right: 0rem;
+}
+
+.each_game {
+  border: none;
+  border-radius: 0px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  margin: 0px 0.7rem 0.7rem;
+  min-height: 2rem;
+  padding: 10px;
+  padding-left: 0px;
+  /*width: 95%;*/
+}
+
+.each_game a {
+  display: flex;
+}
+
+.game_initial {
+  align-items: center;
+  background-color: #02558b;
+  /*background-color: transparent;*/
+  border-radius: 50%;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-basis: 3rem;
+  justify-content: center;
+  margin: 0rem 2.5rem 0rem 1rem;
+}
+
+.game_initial i {
+  color: white;
+}
+
+.game_initial #card {
+  transform: rotate(180deg);
+  /* Safari */
+  -webkit-transform: rotate(180deg);
+  /* Firefox */
+  -moz-transform: rotate(180deg);
+  /* IE */
+  -ms-transform: rotate(180deg);
+  /* Opera */
+  -o-transform: rotate(180deg);
+}
+
+.game_initial h3 {
+  color: white;
+  padding-top: 0.25rem;
+  text-transform: lowercase;
+}
+
+.game_title {
+  color: #2cf;
+  margin-bottom: 0px;
+}
+
+.game_category {
+  color: darkgray;
+  font-style: italic;
+  margin-bottom: 0px;
+}
+
+.click-arrow {
+  align-self: center;
+  margin-left: auto;
+}
+
+.click-arrow i {
+  color: darkgray;
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.material-icons.md-36.FAB {
+ background-color: #ff533d;
+ border-radius: 50%;
+ box-shadow: 5px 8px 10px 2px rgba(0, 0, 0, 0.2);
+ color: white;
+ padding: 0.75rem;
+ position: fixed;
+ bottom: 1rem;
+ right: 1rem;
+ z-index: 1;
+}
+
+/*#footer {
+  background: linear-gradient(155deg, #02558b, #2cf);
+  height: 3rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0rem;
+}*/
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+
+}
+
+@keyframes slideOutToLeft {
+  0% {
+    display: block;
+    transform: translateX(0);
+  }
+  100% {
+    display: none;
+    transform: translateX(-10%);
+  }
+}

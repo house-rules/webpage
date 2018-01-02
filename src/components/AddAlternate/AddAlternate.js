@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './AddAlternate.css';
 
 export default class AddAlternate extends Component {
   constructor(props) {
