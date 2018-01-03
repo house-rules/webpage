@@ -8,7 +8,6 @@
 
 .Splash {
   align-items: center;
-  background: linear-gradient(155deg, #2cf, #fdfdff 75%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,20 +17,68 @@
   left: 0;
   width: 100%;
   z-index: 5;
+  /* for the background gradient animation */
+  background: linear-gradient(165deg, #fdfdff 33%, #2cf 65%);
+  background-size: 225% 225%;
+  -webkit-animation: changeBackGround 12s ease infinite;
+  -moz-animation: changeBackGround 12s ease infinite;
+  animation: changeBackGround 12s ease infinite;
+}
+@-webkit-keyframes changeBackGround {
+    0%{background-position:-0% -0%}
+    40%{background-position: 20% 50%}
+    100%{background-position:0% 0%}
+}
+@-moz-keyframes changeBackGround {
+    0%{background-position:-0% -0%}
+    40%{background-position: 20% 50%}
+    100%{background-position:0% 0%}
+}
+@keyframes changeBackGround {
+    0%{background-position:-0% -0%}
+    40%{background-position: 20% 50%}
+    100%{background-position:0% 0%}
 }
 
 .Splash img {
   padding: 1rem;
   width: 40%;
+  animation: 0.9s ease-in 0s 1 imageScale;
+}
+
+@keyframes imageScale {
+  0%{
+    opacity: 0.5;
+    transform: scale(0.5);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.Splash h3 {
+  display: none;
 }
 
 .Splash .btn {
-  /*animation: 1s ease-in 0s 1 fillWidth;*/
   background-color: #ff533d;
   border-radius: 20px;
   color: #fdfdff;
   margin-top: 3rem;
   width: 8rem;
+  animation: 1.5s ease 0s 1 slideUp;
+}
+
+@keyframes slideUp {
+  0%{
+    opacity: 0;
+    transform: translateY(200%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
 
 .swipeIcon {
@@ -45,14 +92,14 @@
 }
 
 .swiper {
-  display: none;
+  /* display: none; */
   animation: 1s ease-in 0s infinite swiper;
   background-color: darkgray;
   border-radius: 50%;
   height: 43%;
   margin: 0.2rem auto;
-  /*left: 192px;*/
-  /*position: absolute;*/
+  /* left: 192px; */
+  /* position: absolute; */
   width: 90%;
 }
 

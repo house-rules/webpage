@@ -188,6 +188,10 @@
   min-height: 6rem;
 }
 
+.normal_rules div {
+  width: 100%;
+}
+
 #game_rules {
   box-shadow: inset 0px -3px 10px 3px rgba(200, 200, 200, 0.2);
   color: gray;
@@ -240,6 +244,11 @@
 
 .alt_games_link, .alt_games_link:visited {
   color: #2cf;
+  /* background-color: #2cf; */
+  /* color: white;
+  font-size: 16px;
+  margin: 1rem 1.5rem 0rem;
+  padding: 0.5rem 0.7rem; */
 }
 
 #altGamesList {

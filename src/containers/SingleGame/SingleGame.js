@@ -224,7 +224,7 @@ class SingleGame extends Component {
           <div className='house_rules alert normal_rules'>
             <div>
               <h4>Traditional rules</h4>
-              <div className="alt_games_link" onClick={() => this.scrollTo(document.getElementById('altGamesList'))}>...how about a different spin on the game?</div>
+              <div className="alt_games_link " onClick={() => this.scrollTo(document.getElementById('altGamesList'))}>...or try a different spin on the game</div>
             </div>
           </div>
 
