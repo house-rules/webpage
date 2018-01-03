@@ -70,49 +70,40 @@ class GameList extends Component {
 
     // map over game data array
     let gamesList;
+    let returnGameJSX = (game, gameIcon) => {
+      return <div key={game.id} className="each_game card-block card">
+              <Link to={`/webpage/games/${game.id}`}>
+                <div className="game_initial">
+                  <i className="material-icons group" id={game.category}>{gameIcon}</i>
+                </div>
+                <div>
+                   <h4 className="game_title card-title">{game.title}</h4>
+                   <p className="game_category">{game.alternates.length < 1 ? "1 way to play" : `${game.alternates.length + 1} ways to play`}</p>
+                </div>
+                <div className="click-arrow">
+                  <i className="material-icons">keyboard_arrow_right</i>
+                </div>
+             </Link>
+           </div>;
+      }
 
     if (this.state.filter === 'all') {
+
       gamesList = this.props.gamesList.map((game) => {
-
         let gameIcon = this.handleSwitch(game);
-
-        return <div key={game.id} className="each_game card-block card">
-                  <Link to={`/webpage/games/${game.id}`}>
-                    <div className="game_initial">
-                      <i className="material-icons group" id={game.category}>{gameIcon}</i>
-                    </div>
-                    <div>
-                       <h4 className="game_title card-title">{game.title}</h4>
-                       <p className="game_category"> {game.alternates.length < 1 ? "1 way to play" : `${game.alternates.length + 1} ways to play`} </p>
-                    </div>
-                    <div className="click-arrow">
-                      <i className="material-icons">keyboard_arrow_right</i>
-                    </div>
-                 </Link>
-               </div>;
+        return returnGameJSX(game, gameIcon);
       })
+
     } else {
+
       let filteredGames = this.props.gamesList.filter(game => {
         return game.category === this.state.filter;
       });
-
       gamesList = filteredGames.map((game) => {
-
         let gameIcon = this.handleSwitch(game);
-
-        return <div key={game.id} className="each_game card-block card">
-                  <Link to={`/webpage/games/${game.id}`}>
-                    <div className="game_initial"><i className="material-icons group" id={game.category}>{gameIcon}</i></div>
-                    <div>
-                       <h4 className="game_title card-title">{game.title}</h4>
-                       <p className="game_category">{game.alternates.length < 1 ? "1 way to play" : `${game.alternates.length + 1} ways to play`}</p>
-                    </div>
-                    <div className="click-arrow">
-                      <i className="material-icons">keyboard_arrow_right</i>
-                    </div>
-                 </Link>
-               </div>;
+        return returnGameJSX(game, gameIcon);
       })
+
     }
 
     let displayedObject = (gamesList.length ? gamesList : this.state.loader);
@@ -167,7 +158,6 @@ class GameList extends Component {
 }
 
 const mapStateToProps = (state) => {
-
   return {
     gamesList: state.gamesList,
     filter: state.filter
