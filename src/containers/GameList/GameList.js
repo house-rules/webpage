@@ -21,6 +21,31 @@ class GameList extends Component {
     this.setState({filter: filter});
   };
 
+  // handling the icon that shows for each game in the game list
+  handleSwitch = (game) => {
+
+    let gameCategory = game.category;
+    let gameIcon;
+
+    switch (gameCategory) {
+      case "card":
+        gameIcon = 'style';
+        break;
+      case "board":
+        gameIcon = 'dashboard';
+        break;
+      case "dice":
+        gameIcon = 'casino';
+        break;
+      case "recreational sports":
+        gameIcon = "golf_course";
+        break;
+      default:
+        gameIcon = "widgets"
+    }
+    return gameIcon;
+  }
+
   // Function for the api 'GET' call. Returns the entire game list
   componentDidMount() {
     this.props.getGameList();
@@ -49,25 +74,7 @@ class GameList extends Component {
     if (this.state.filter === 'all') {
       gamesList = this.props.gamesList.map((game) => {
 
-        let gameCategory = game.category;
-        let gameIcon;
-
-        switch (gameCategory) {
-          case "card":
-            gameIcon = 'style';
-            break;
-          case "board":
-            gameIcon = 'dashboard';
-            break;
-          case "dice":
-            gameIcon = 'casino';
-            break;
-          case "recreational sports":
-            gameIcon = "golf_course";
-            break;
-          default:
-            gameIcon = "widgets"
-        }
+        let gameIcon = this.handleSwitch(game);
 
         return <div key={game.id} className="each_game card-block card">
                   <Link to={`/webpage/games/${game.id}`}>
@@ -86,30 +93,12 @@ class GameList extends Component {
       })
     } else {
       let filteredGames = this.props.gamesList.filter(game => {
-
         return game.category === this.state.filter;
       });
+
       gamesList = filteredGames.map((game) => {
 
-        let gameCategory = game.category;
-        let gameIcon;
-
-        switch (gameCategory) {
-          case "card":
-            gameIcon = 'style';
-            break;
-          case "board":
-            gameIcon = 'dashboard';
-            break;
-          case "dice":
-            gameIcon = 'casino';
-            break;
-          case "recreational sports":
-            gameIcon = "golf_course";
-            break;
-          default:
-            gameIcon = "widgets"
-        }
+        let gameIcon = this.handleSwitch(game);
 
         return <div key={game.id} className="each_game card-block card">
                   <Link to={`/webpage/games/${game.id}`}>
