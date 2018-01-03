@@ -107,6 +107,9 @@ class GameList extends Component {
                        <h4 className="game_title card-title">{game.title}</h4>
                        <p className="game_category">{game.alternates.length < 1 ? "1 way to play" : `${game.alternates.length + 1} ways to play`}</p>
                     </div>
+                    <div className="click-arrow">
+                      <i className="material-icons">keyboard_arrow_right</i>
+                    </div>
                  </Link>
                </div>;
       })
