@@ -13,6 +13,10 @@ Mobile Game List Page Styling
 .GameList {
   background-color: #fdfdff;
   padding-bottom: 3rem;
+
+  /* background: linear-gradient(180deg, #2cf, #ff533d); */
+  /* overflow: scroll;
+  height: 92.5vh; */
 }
 
 .GameList .filter-bar {
@@ -27,6 +31,8 @@ Mobile Game List Page Styling
   color: #ff533d;
   flex-basis: 18%;
   text-align: center;
+
+  /* color: white; */
 }
 
 .filter_header {
@@ -34,10 +40,15 @@ Mobile Game List Page Styling
   font-size: 16px;
   flex-basis: 100%;
   text-align: center;
+
+  /* color: white; */
 }
 
 .filter-bar .material-icons {
   font-size: 48px;
+
+  /* color: #ff533d; */
+  /* -webkit-text-stroke: 2px #9938f9; */
 }
 
 .filter-bar .card_hand {
@@ -48,6 +59,8 @@ Mobile Game List Page Styling
   color: #02558b;
   font-size: 14px;
   text-align: center;
+
+  /* color: white; */
 }
 
 .filter-bar .badge-pill {
@@ -62,6 +75,7 @@ Mobile Game List Page Styling
 }
 
 .each_game {
+  background-color: transparent;
   border: none;
   border-radius: 0px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -69,6 +83,8 @@ Mobile Game List Page Styling
   min-height: 2rem;
   padding: 10px;
   padding-left: 0px;
+
+  /* border-top: 1px solid white; */
 }
 
 /* .each_game {
@@ -96,6 +112,10 @@ Mobile Game List Page Styling
 
 .game_initial i {
   color: white;
+
+  /* color: transparent;
+  -webkit-text-stroke: 1px white;
+  font-size: 36px; */
 }
 
 .game_initial #card {
@@ -119,12 +139,16 @@ Mobile Game List Page Styling
 .game_title {
   color: #2cf;
   margin-bottom: 0px;
+
+  /* color: white; */
 }
 
 .game_category {
   color: darkgray;
   font-style: italic;
   margin-bottom: 0px;
+
+  /* color: white; */
 }
 
 .click-arrow {
@@ -133,9 +157,11 @@ Mobile Game List Page Styling
 }
 
 .click-arrow i {
-  color: darkgray;
+  /* color: darkgray; */
   font-size: 30px;
   vertical-align: middle;
+
+  /* color: white; */
 }
 
 .material-icons.md-36.FAB {
@@ -148,6 +174,9 @@ Mobile Game List Page Styling
  bottom: 1rem;
  right: 1rem;
  z-index: 1;
+
+ /* background-color: white;
+ color: #9938f9; */
 }
 
 /*#footer {

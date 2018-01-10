@@ -6,12 +6,18 @@
   #ff533d
 */
 
+.BaseLayout {
+
+}
+
 .topnav {
   background: linear-gradient(155deg, #02558b 30%, #2cf );
   height: 55px;
   overflow: hidden;
   transition: height 0.5s;
   width: 100%;
+
+  /* margin-bottom: 1rem; */
 }
 
 .topnav a:not(:first-child) {
@@ -70,6 +76,8 @@
 .topnav.responsive {
   height: 250px;
   transition: height 0.5s;
+
+  /* border-bottom: 2px solid white; */
 }
 
 .topnav.responsive .icon {
