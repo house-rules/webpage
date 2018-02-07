@@ -49,13 +49,13 @@ class BaseLayout extends Component {
                 {nav.text}
               </Link>
     })
-    
+
     return (
       <div className='BaseLayout'>
 
           <nav className={this.state.navOpen ? "topnav responsive" : 'topnav'} id="myNavBar">
 
-            <Link className="Logo" to='#' onClick={() => this.handleNaviagation('/webpage/')}>
+            <Link className="Logo" to='#' onClick={() => this.handleNavigation('/webpage/')}>
               <img src={require('../../images/house-rules-white.png')} alt="#"/>
               <span>House Rules</span>
             </Link>
