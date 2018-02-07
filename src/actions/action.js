@@ -7,6 +7,7 @@ export const SET_DATA = "SET_DATA";
 export const SET_USER = "SET_USER";
 export const SET_TOKEN = 'SET_TOKEN';
 export const SET_ERROR = 'SET_ERROR';
+export const SET_FILTER = 'SET_FILTER';
 
 const makeActionCreator = function(actionType) {
     return function(payload) {
@@ -18,6 +19,7 @@ const setToken     = makeActionCreator(SET_TOKEN);
 const setError     = makeActionCreator(SET_ERROR);
 const setData      = makeActionCreator(SET_DATA);
 const setUser      = makeActionCreator(SET_USER);
+export const setFilter    = makeActionCreator(SET_FILTER);
 export const gameSelected = makeActionCreator(GAME_SELECTED);
 
 const baseURL = "https://dry-forest-51238.herokuapp.com/api";

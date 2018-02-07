@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getGameList, gameSelected } from '../../actions/action';
+import { getGameList, gameSelected, setFilter } from '../../actions/action';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import Loader from '../../components/Loader/Loader';
+import GameFilter from '../GameFilter/GameFilter';
 
 import './GameList.css';
 
@@ -12,15 +13,9 @@ class GameList extends Component {
     super(props);
     this.state = {
       loader: <Loader />,
-      games: [],
-      filter: 'all'
+      games: []
     }
   }
-
-  // setting the state of the filter based on an icon that is clicked
-  handleFilterChange = (filter) => {
-    this.setState({filter: filter});
-  };
 
   // handling the icon that shows for each game in the game list
   handleSwitch = (game) => {
@@ -69,7 +64,6 @@ class GameList extends Component {
     this.props.gamesList.sort(compare);
 
     // map over game data array
-    let gamesList;
     let returnGameJSX = (game, gameIcon) => {
       return <div key={game.id}
       onClick={() => this.props.gameSelected(game)} className="each_game card-block card">
@@ -88,59 +82,17 @@ class GameList extends Component {
            </div>;
       }
 
-    if (this.state.filter === 'all') {
-
-      gamesList = this.props.gamesList.map((game) => {
+    let gamesList = this.props.gamesList.map((game) => {
         let gameIcon = this.handleSwitch(game);
         return returnGameJSX(game, gameIcon);
       })
-
-    } else {
-
-      let filteredGames = this.props.gamesList.filter(game => {
-        return game.category === this.state.filter;
-      });
-      gamesList = filteredGames.map((game) => {
-        let gameIcon = this.handleSwitch(game);
-        return returnGameJSX(game, gameIcon);
-      })
-
-    }
 
     let displayedObject = (gamesList.length ? gamesList : this.state.loader);
 
     return (
       <div className="GameList">
 
-        <div className="filter-bar">
-          <h5 className="filter_header"> Filter Game Types</h5>
-
-          <Link to="#" onClick={() => this.handleFilterChange('all')}>
-            <i className="material-icons all_games_filter">dns</i>
-            <p><span className="">All</span></p>
-          </Link>
-
-          <Link to="#" onClick={() => this.handleFilterChange('card')}>
-            <i className="material-icons card_hand">style</i>
-            <p><span className="">Card</span></p>
-          </Link>
-
-          <Link to="#" onClick={() => this.handleFilterChange('board')}>
-            <i className="material-icons">dashboard</i>
-            <p><span className="">Board</span></p>
-          </Link>
-
-          <Link to="#" onClick={() => this.handleFilterChange('dice')}>
-            <i className="material-icons">casino</i>
-            <p><span className="">Dice</span></p>
-          </Link>
-
-          <Link to="#" onClick={() => this.handleFilterChange('recreational sports')}>
-            <i className="material-icons">golf_course</i>
-            <p><span className="">Sports</span></p>
-          </Link>
-
-        </div>
+        <GameFilter />
 
         {displayedObject}
 
@@ -159,8 +111,14 @@ class GameList extends Component {
 }
 
 const mapStateToProps = (state) => {
+  let gamesList;
+  if (state.filter === 'all') {
+    gamesList = state.gamesList
+  } else {
+    gamesList = state.gamesList.filter(game => game.category === state.filter)
+  }
   return {
-    gamesList: state.gamesList,
+    gamesList: gamesList,
     filter: state.filter
   }
 }
@@ -168,7 +126,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         getGameList: getGameList,
-        gameSelected: gameSelected
+        gameSelected: gameSelected,
+        setFilter: setFilter
     }, dispatch)
 }
 

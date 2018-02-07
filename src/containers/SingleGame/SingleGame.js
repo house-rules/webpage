@@ -60,11 +60,7 @@ class SingleGame extends Component {
     services.deleteGame(gameId);
     this.props.history.push('/webpage/games');
   };
-
-  handleDeleteHouseRules = (gameId, rulesId) => {
-    services.deleteHouseRules(gameId, rulesId);
-  };
-
+  
   componentDidMount() {
     const id = this.props.match.params.id;
 
@@ -129,7 +125,7 @@ class SingleGame extends Component {
 
           <div id={game.id} className="collapse alt_rules">
 
-            <Link to="#" id="delete_rules_button" className="btn" onClick={() => this.handleDeleteHouseRules(`${this.state.game.id}`, `${game.id}`)}><i className="material-icons">delete</i></Link>
+            <Link to="#" id="delete_rules_button" className="btn" onClick={() => services.deleteHouseRules(`${this.state.game.id}`, `${game.id}`)}><i className="material-icons">delete</i></Link>
 
             <div>
               <h5 className="game_labels">Objective</h5>
@@ -234,7 +230,6 @@ class SingleGame extends Component {
 const mapStateToProps = (state) => {
   return {
     gamesList: state.gamesList,
-    filter: state.filter,
     selectedGame: state.selectedGame
   }
 };
