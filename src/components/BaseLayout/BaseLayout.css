@@ -52,15 +52,17 @@
 
 .topnav .icon {
   color: white;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   float: right;
   font-size: 24px;
   height: 2rem;
   opacity: 1;
   position: absolute;
-  right: 0.5rem;
+  right: 1rem;
   text-align: center;
-  top: 0.5rem;
+  top: 0.7rem;
   transition: transform 0.5s;
   width: 2rem;
 }
@@ -82,10 +84,11 @@
 
 .topnav.responsive .icon {
   color: white;
-  position: absolute;
+  /* position: absolute; */
   height: 2rem;
-  right: 0.5rem;
-  top: 0.5rem;
+  /* right: 0.5rem;
+  top: 0.5rem; */
+
   width: 2rem;
 }
 

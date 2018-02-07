@@ -7,8 +7,7 @@ class BaseLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      navOpen: false,
-      rotateIcon: false
+      navOpen: false
     }
 };
 
@@ -16,13 +15,11 @@ class BaseLayout extends Component {
   navToggle = (endpoint) => {
       if ((this.state.navOpen === false) && (endpoint !== '/webpage/')) {
         this.setState({
-          navOpen: !this.state.navOpen,
-          rotateIcon: !this.state.rotateIcon
+          navOpen: !this.state.navOpen
         })
       } else if (this.state.navOpen === true) {
         this.setState({
-          navOpen: !this.state.navOpen,
-          rotateIcon: !this.state.rotateIcon
+          navOpen: !this.state.navOpen
         })
       }
   };
@@ -62,7 +59,7 @@ class BaseLayout extends Component {
 
             {navLinks}
 
-            <div id='icon' className={this.state.rotateIcon ? 'icon rotate' : 'icon'} onClick={this.navToggle}>&#9776;</div>
+            <div id='icon' className={this.state.navOpen ? 'icon rotate' : 'icon'} onClick={this.navToggle}>&#9776;</div>
           </nav>
 
             {this.props.children}
