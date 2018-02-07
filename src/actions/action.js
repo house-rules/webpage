@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import request from "superagent";
-
+import services from '../services/services';
 
 export const GAME_SELECTED = "GAME_SELECTED";
 export const SET_DATA = "SET_DATA";
@@ -14,8 +14,11 @@ const makeActionCreator = function(actionType) {
     }
 }
 
-const setToken = makeActionCreator(SET_TOKEN);
-const setError = makeActionCreator(SET_ERROR);
+const setToken     = makeActionCreator(SET_TOKEN);
+const setError     = makeActionCreator(SET_ERROR);
+const setData      = makeActionCreator(SET_DATA);
+const setUser      = makeActionCreator(SET_USER);
+export const gameSelected = makeActionCreator(GAME_SELECTED);
 
 const baseURL = "https://dry-forest-51238.herokuapp.com/api";
 const api = (path) => baseURL + path;
@@ -85,38 +88,12 @@ export const loadTokenFromCookie = () => {
   }
 }
 
-export function selectGame(gameId) {
-  return {
-    type: GAME_SELECTED,
-    payload: gameId
-  };
-}
-
-// setting the api data to the initialState
-export function setData(payload) {
-  return {
-    type: SET_DATA,
-    payload: payload
-  };
-}
-
-export function setUser(payload) {
-  return {
-    type: SET_USER,
-    payload: payload
-  };
-}
-
-
 // calling the api for the entire gamelist
 export const getGameList = () => {
   return(dispatch, getState) => {
-    fetch('https://house-rules-jgwrbs.herokuapp.com/api/gameList')
-    .then(response => {
-      return response.json()
-    })
-    .then(data => {
-      dispatch(setData(data));
-    })
+    return services.fetchGameList()
+           .then(data => {
+             dispatch(setData(data))
+           })
   }
 }

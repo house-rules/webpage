@@ -1,7 +1,6 @@
 import { GAME_SELECTED, SET_DATA, SET_TOKEN, SET_ERROR, SET_USER } from '../actions/action';
 import update from 'immutability-helper';
 
-
 const initialState = {
     token: null,
     error: null,
@@ -9,7 +8,7 @@ const initialState = {
     filter: 'all',
     user: null,
     selectedGame: ''
-}
+};
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -46,6 +45,6 @@ const reducer = (state = initialState, action) => {
         default:
           return state;
     }
-}
+};
 
 export default reducer;

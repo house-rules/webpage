@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getGameList } from '../../actions/action';
+import { getGameList, gameSelected } from '../../actions/action';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import Loader from '../../components/Loader/Loader';
 
 import './GameList.css';
@@ -52,7 +53,6 @@ class GameList extends Component {
   };
 
   render () {
-
     // sorts array alphabetically
     function compare(a, b) {
       const titleA = a.title.toUpperCase();
@@ -71,7 +71,8 @@ class GameList extends Component {
     // map over game data array
     let gamesList;
     let returnGameJSX = (game, gameIcon) => {
-      return <div key={game.id} className="each_game card-block card">
+      return <div key={game.id}
+      onClick={() => this.props.gameSelected(game)} className="each_game card-block card">
               <Link to={`/webpage/games/${game.id}`}>
                 <div className="game_initial">
                   <i className="material-icons group" id={game.category}>{gameIcon}</i>
@@ -165,9 +166,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        getGameList: () => dispatch(getGameList())
-    }
+    return bindActionCreators({
+        getGameList: getGameList,
+        gameSelected: gameSelected
+    }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameList);

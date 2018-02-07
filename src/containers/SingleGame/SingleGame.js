@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { gameSelected } from '../../actions/action';
 import AddAlternate from '../../components/AddAlternate/AddAlternate';
+import services from '../../services/services';
 import './SingleGame.css';
 
 class SingleGame extends Component {
@@ -55,65 +57,29 @@ class SingleGame extends Component {
   };
 
   handleDeleteGame = (gameId) => {
-
-    fetch(`https://house-rules-jgwrbs.herokuapp.com/api/game/${gameId}/delete`, {
-      method: "DELETE"
-    })
-    .then(response => {
-      console.log("DELETE SUCCESSFUL: ", response);
-    })
-    .catch(error => {
-      console.log("Failure to delete: ", error);
-    })
-
+    services.deleteGame(gameId);
     this.props.history.push('/webpage/games');
-
   };
 
   handleDeleteHouseRules = (gameId, rulesId) => {
-
-    fetch(`https://house-rules-jgwrbs.herokuapp.com/api/game/${gameId}/alternate/${rulesId}/delete`, {
-      method: "DELETE"
-    })
-    .then(response => {
-      console.log("DELETE SUCCESSFUL: ", response);
-    })
-    .catch(error => {
-      console.log("FAILURE TO DELETE: ", error);
-    })
-    // push??
+    services.deleteHouseRules(gameId, rulesId);
   };
 
   componentDidMount() {
-    let match = this.props.match;
-    const id = match.params.id;
+    const id = this.props.match.params.id;
 
-    let singleGame = this.props.gamesList.filter(game => {
-      return game.id === Number(id);
-    });
-
-    if (singleGame[0]) {
-
+    if (this.props.selectedGame) {
       // filtering from gamelist for better performance
       console.log('Game FILTERED');
-      this.setState({game: singleGame[0], alternates: singleGame[0].alternates});
-
+      this.setState({game: this.props.selectedGame, alternates: this.props.selectedGame.alternates});
     } else {
-
       // using a fetch call if the filter is undefined
       console.log('Game FETCHED');
-      const URL = `https://house-rules-jgwrbs.herokuapp.com/api/game/${id}`;
-
-      fetch(URL)
-        .then(response => {
-          return response.json()
-        })
-        .then(data => {
-          this.setState({game: data, alternates: data.alternates})
+      services.fetchSingleGame(id)
+      .then(data => {
+        this.setState({game: data, alternates: data.alternates})
       });
-
     };
-
     window.addEventListener('scroll', this.handleScroll);
   };
 
@@ -123,7 +89,7 @@ class SingleGame extends Component {
   };
 
   render() {
-
+// console.log(this.props.selectedGame);
     let game = this.state.game;
     let gameCategory = this.state.game.category;
     let gameIcon;
@@ -266,11 +232,17 @@ class SingleGame extends Component {
 };
 
 const mapStateToProps = (state) => {
-
   return {
     gamesList: state.gamesList,
-    filter: state.filter
+    filter: state.filter,
+    selectedGame: state.selectedGame
   }
 };
 
-export default connect(mapStateToProps)(SingleGame);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        gameSelected: (payload) => dispatch(gameSelected(payload))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleGame);
