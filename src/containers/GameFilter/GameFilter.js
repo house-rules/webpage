@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 class GameFilter extends Component {
 
   render() {
-
+    // TODO add a function to create the links below to keep code dry
+    
     return(
       <div className="filter-bar">
         <h5 className="filter_header"> Filter Game Types</h5>
