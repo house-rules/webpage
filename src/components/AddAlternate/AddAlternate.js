@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './AddAlternate.css';
+import services from '../../services/services';
 
 export default class AddAlternate extends Component {
   constructor(props) {
@@ -27,25 +28,28 @@ export default class AddAlternate extends Component {
         rules: event.target.value
       })
 
-      let alternateGame = JSON.stringify(this.state);
+      // let alternateGame = JSON.stringify(this.state);
 
       if ((this.state.title !== "") &&
           (this.state.objective !== "") &&
           (this.state.rules) !== "") {
 
-        fetch(`https://house-rules-jgwrbs.herokuapp.com/api/game/${this.props.game.id}/alternate`, {
-          method: "POST",
-          body: alternateGame,
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-        .then(response => {
-          console.log("RESPONSE: ", response);
-        })
-        .catch(error => {
-          console.log("ERROR: ", error);
-        })
+        services.addHouseRules( this.props.game.id, this.state)
+        // console.log(alternateGame);
+
+        // fetch(`https://house-rules-jgwrbs.herokuapp.com/api/game/${this.props.game.id}/alternate`, {
+        //   method: "POST",
+        //   body: alternateGame,
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        //   }
+        // })
+        // .then(response => {
+        //   console.log("RESPONSE: ", response);
+        // })
+        // .catch(error => {
+        //   console.log("ERROR: ", error);
+        // })
 
         this.setState({
           title: '',
@@ -67,6 +71,7 @@ export default class AddAlternate extends Component {
   }
 
   render() {
+
     return (
       <div className="alternateForm">
 

@@ -31,13 +31,13 @@ class BaseLayout extends Component {
   }
 
   render () {
-    //TODO add a map function to create the nav links below and keep code DRY
+    // creating the nav links below in a map fuction and keep code DRY
     const navOptions = [
       {className: "GamesLink", endpoint: '/webpage/games', icon: 'casino', text: "Games"},
       {className: "NewGameLink", endpoint: '/webpage/newGame', icon: 'add', text: "Add Game"},
       {className: "AboutLink", endpoint: '/webpage/about', icon: 'local_library', text: "About"},
       {className: "LogOutLink", endpoint: '/webpage/', icon: 'power_settings_new', text: "Log Out"},
-    ]
+    ];
 
     let navLinks = navOptions.map((nav, index) => {
       return  <Link key={index}
@@ -59,7 +59,10 @@ class BaseLayout extends Component {
 
             {navLinks}
 
-            <div id='icon' className={this.state.navOpen ? 'icon rotate' : 'icon'} onClick={this.navToggle}>&#9776;</div>
+            <div id='icon' className={this.state.navOpen ? 'icon rotate' : 'icon'} onClick={this.navToggle}>
+              &#9776;
+            </div>
+
           </nav>
 
             {this.props.children}

@@ -38,6 +38,22 @@ const services = {
     .then(data => {
       return data;
     })
+  },
+  addHouseRules: (gameId, body) => {
+    console.log(gameId, body);
+    return fetch(`https://house-rules-jgwrbs.herokuapp.com/api/game/${gameId}/alternate`, {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      console.log("RESPONSE: ", response);
+    })
+    .catch(error => {
+      console.log("ERROR: ", error);
+    })
   }
 }
 
