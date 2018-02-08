@@ -61,9 +61,9 @@ class SingleGame extends Component {
         this.setState({game: data, alternates: data.alternates})
       });
     };
+
+    utils.scrollTo('myNavBar');
   };
-
-
 
   render() {
 // console.log(this.props.selectedGame);

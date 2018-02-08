@@ -10,15 +10,8 @@ const utils = {
       case "recreational sports":
         return "golf_course";
       default:
-        return "fiber_manual_record"
-    };
-  },
-  handleScroll: () => {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        document.getElementById("top_arrow").className = "slideUp";
-    } else {
-      document.getElementById("top_arrow").className = "slideDown";
-    };
+        return "fiber_manual_record";
+    }
   },
   scrollTo: (element) => {
     window.scroll({
@@ -26,6 +19,19 @@ const utils = {
       left: 0,
       top: document.getElementById(element).offsetTop
     });
+  },
+  sortGames: (a,b) => {
+      // sorts array alphabetically by title
+      const titleA = a.title.toUpperCase();
+      const titleB = b.title.toUpperCase();
+
+      let comparison = 0;
+      if (titleA > titleB) {
+        comparison = 1;
+      } else if (titleA < titleB) {
+        comparison = -1;
+      }
+      return comparison;
   }
 };
 
