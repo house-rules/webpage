@@ -7,47 +7,47 @@ import './GameFilter.css';
 class GameFilter extends Component {
 
   render() {
-    // TODO add a function to create the links below to keep code dry
+    let filters = [
+                   {filter: 'all', iconClass: 'all_games_filter', iconName: 'dns', text: 'All'},
+                   {filter: 'card', iconClass: 'card_hand', iconName: 'style', text: 'Card'},
+                   {filter: 'board', iconClass: '', iconName: 'dashboard', text: 'Board'},
+                   {filter: 'dice', iconClass: '', iconName: 'casino', text: 'Dice'},
+                   {filter: 'recreational sports', iconClass: '', iconName: 'golf_course', text: 'Sport'}
+                  ];
+
+    let filterButtons = filters.map((filter, index) => {
+      return  <Link to="#" key={index}
+                style={filter.filter === this.props.filter ? {color: '#eb1b00'} : {color: '#FF533D'}}
+                onClick={() => this.props.setFilter(filter.filter)}>
+                <i className={'material-icons ' + filter.iconClass}>
+                  {filter.iconName}
+                </i>
+                <p>
+                  <span className="">{filter.text}</span>
+                </p>
+              </Link>
+    });
 
     return(
       <div className="filter-bar">
         <h5 className="filter_header"> Filter Game Types</h5>
 
-        <Link to="#" onClick={() => this.props.setFilter('all')}>
-          <i className="material-icons all_games_filter">dns</i>
-          <p><span className="">All</span></p>
-        </Link>
-
-        <Link to="#" onClick={() => this.props.setFilter('card')}>
-          <i className="material-icons card_hand">style</i>
-          <p><span className="">Card</span></p>
-        </Link>
-
-        <Link to="#" onClick={() => this.props.setFilter('board')}>
-          <i className="material-icons">dashboard</i>
-          <p><span className="">Board</span></p>
-        </Link>
-
-        <Link to="#" onClick={() => this.props.setFilter('dice')}>
-          <i className="material-icons">casino</i>
-          <p><span className="">Dice</span></p>
-        </Link>
-
-        <Link to="#" onClick={() => this.props.setFilter('recreational sports')}>
-          <i className="material-icons">golf_course</i>
-          <p><span className="">Sports</span></p>
-        </Link>
+        {filterButtons}
 
       </div>
     )
   }
 }
 
+const mapStateToProps = (state) => {
+  return { filter: state.filter }
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     setFilter: (payload) =>
       dispatch(setFilter(payload))
   }
-}
+};
 
-export default connect(null, mapDispatchToProps)(GameFilter);
+export default connect(mapStateToProps, mapDispatchToProps)(GameFilter);

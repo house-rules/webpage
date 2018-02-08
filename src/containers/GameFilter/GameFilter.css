@@ -7,7 +7,8 @@ Game Filter bar Styling
   #ddd
   #02558b
   #2cf
-  #ff533d
+  #ff533d or rgba(255, 83, 61, 1)
+  #CC200A
 */
 
 .GameList .filter-bar {
@@ -19,9 +20,9 @@ Game Filter bar Styling
 }
 
 .GameList .filter-bar a {
-  color: #ff533d;
   flex-basis: 18%;
   text-align: center;
+  transition: color 0.4s;
 
   /* color: white; */
 }
