@@ -23,7 +23,7 @@ class GameFilter extends Component {
                   {filter.iconName}
                 </i>
                 <p>
-                  <span className="">{filter.text}</span>
+                  <span style={filter.filter === this.props.filter ? {color: '#eb1b00'} : {color: '#02558b'}}>{filter.text}</span>
                 </p>
               </Link>
     });

@@ -1,6 +1,8 @@
+const urlBase = 'https://house-rules-jgwrbs.herokuapp.com/api/';
+
 const services = {
   fetchGameList: () => {
-    return fetch('https://house-rules-jgwrbs.herokuapp.com/api/gameList')
+    return fetch(urlBase + 'gameList')
     .then(response => {
       return response.json()
     })
@@ -9,7 +11,7 @@ const services = {
     })
   },
   deleteGame: (gameId) => {
-    fetch(`https://house-rules-jgwrbs.herokuapp.com/api/game/${gameId}/delete`, {
+    fetch(`${urlBase}game/${gameId}/delete`, {
       method: "DELETE"
     })
     .then(response => {
@@ -20,7 +22,7 @@ const services = {
     })
   },
   deleteHouseRules: (gameId, rulesId) => {
-    fetch(`https://house-rules-jgwrbs.herokuapp.com/api/game/${gameId}/alternate/${rulesId}/delete`, {
+    fetch(`${urlBase}game/${gameId}/alternate/${rulesId}/delete`, {
       method: "DELETE"
     })
     .then(response => {
@@ -31,7 +33,7 @@ const services = {
     })
   },
   fetchSingleGame: (id) => {
-     return fetch(`https://house-rules-jgwrbs.herokuapp.com/api/game/${id}`)
+     return fetch(`${urlBase}game/${id}`)
     .then(results => {
       return results.json()
     })
@@ -40,7 +42,7 @@ const services = {
     })
   },
   addHouseRules: (gameId, body) => {
-    return fetch(`https://house-rules-jgwrbs.herokuapp.com/api/game/${gameId}/alternate`, {
+    return fetch(`${urlBase}game/${gameId}/alternate`, {
       method: "POST",
       body: JSON.stringify(body),
       headers: {

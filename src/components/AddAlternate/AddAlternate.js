@@ -45,10 +45,18 @@ export default class AddAlternate extends Component {
 
       } else {
         console.log("na ah ah, you didnt say the magic word");
+        let fields = []
+        for (var prop in this.state) {
+          if (this.state[prop] === '') {
+            fields.push(prop + " cannot be empty")
+          } else {
+            fields.push(this.state[prop])
+          }
+        };
         this.setState({
-          title: '',
-          objective: '',
-          rules: ''
+          title: fields[0],
+          objective: fields[1],
+          rules: fields[2]
         });
       };
     }
@@ -62,7 +70,7 @@ export default class AddAlternate extends Component {
         <h4>Add your favorite house rules</h4>
 
         <div>
-          <input className="form-control" onChange={this.handleUpdateState('title')} value={this.state.title} placeholder="Game title" required autoFocus/>
+          <input className="form-control" onChange={this.handleUpdateState('title')} value={this.state.title} placeholder="Game Title" required autoFocus/>
         </div>
 
         <div>

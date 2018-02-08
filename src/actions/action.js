@@ -9,6 +9,9 @@ export const SET_TOKEN = 'SET_TOKEN';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_FILTER = 'SET_FILTER';
 
+//TODO once reducers are created for ADD_GAME, DELETE_GAME, DELETE_HOUSE_RULES, and ADD_HOUSE_RULES; create the necessary actions.
+//TODO We then want to make the api call followed by updating the state with the returned info.
+
 const makeActionCreator = function(actionType) {
     return function(payload) {
         return {type: actionType, payload: payload}
@@ -22,6 +25,7 @@ const setUser      = makeActionCreator(SET_USER);
 export const setFilter    = makeActionCreator(SET_FILTER);
 export const gameSelected = makeActionCreator(GAME_SELECTED);
 
+// TODO change this url once backend can log in and out
 const baseURL = "https://dry-forest-51238.herokuapp.com/api";
 const api = (path) => baseURL + path;
 

@@ -48,9 +48,9 @@ Game Filter bar Styling
 }
 
 .filter-bar p {
-  color: #02558b;
   font-size: 14px;
   text-align: center;
+  transition: color 0.4s;
 
   /* color: white; */
 }
