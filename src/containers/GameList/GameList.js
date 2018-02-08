@@ -12,8 +12,7 @@ class GameList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loader: <Loader />,
-      games: []
+      loader: <Loader />
     }
   }
 

@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { gameSelected } from '../../actions/action';
 import AddAlternate from '../../components/AddAlternate/AddAlternate';
+import TopButton from '../../components/TopButton/TopButton';
 import services from '../../services/services';
+import utils from '../../utilities/utilities';
 import './SingleGame.css';
 
 class SingleGame extends Component {
@@ -12,22 +14,6 @@ class SingleGame extends Component {
     this.state = {
       game: {},
       alternates: []
-    }
-  };
-
-  scrollTo = (element) => {
-    window.scroll({
-      behavior: 'smooth',
-      left: 0,
-      top: element.offsetTop
-    });
-  };
-
-  handleScroll = () => {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        document.getElementById("top_arrow").className = "slideUp";
-    } else {
-      document.getElementById("top_arrow").className = "slideDown";
     }
   };
 
@@ -60,52 +46,29 @@ class SingleGame extends Component {
     services.deleteGame(gameId);
     this.props.history.push('/webpage/games');
   };
-  
-  componentDidMount() {
-    const id = this.props.match.params.id;
 
+  componentDidMount() {
     if (this.props.selectedGame) {
       // filtering from gamelist for better performance
       console.log('Game FILTERED');
       this.setState({game: this.props.selectedGame, alternates: this.props.selectedGame.alternates});
     } else {
       // using a fetch call if the filter is undefined
+      const id = this.props.match.params.id;
       console.log('Game FETCHED');
       services.fetchSingleGame(id)
       .then(data => {
         this.setState({game: data, alternates: data.alternates})
       });
     };
-    window.addEventListener('scroll', this.handleScroll);
   };
 
-  componentShouldUnmount() {
-    console.log('componentWillUnmount invoked');
-    window.addEventListener('scroll', this.handleScroll);
-  };
+
 
   render() {
 // console.log(this.props.selectedGame);
     let game = this.state.game;
     let gameCategory = this.state.game.category;
-    let gameIcon;
-
-    switch (gameCategory) {
-      case "card":
-        gameIcon = 'style';
-        break;
-      case "board":
-        gameIcon = 'dashboard';
-        break;
-      case "dice":
-        gameIcon = 'casino';
-        break;
-      case "recreational sports":
-        gameIcon = "golf_course";
-        break;
-      default:
-        gameIcon = "fiber_manual_record"
-    };
 
     let alternatesList = this.state.alternates.map((game) => {
       return (
@@ -159,7 +122,7 @@ class SingleGame extends Component {
           <div className='alert icon_bar'>
 
             <div>
-              <i className="material-icons group" id={game.category}>{gameIcon}</i>
+              <i className="material-icons group" id={game.category}>{utils.getIconType(gameCategory)}</i>
               <p>Category</p>
               <p>{game.category}</p>
             </div>
@@ -186,7 +149,7 @@ class SingleGame extends Component {
           <div className='house_rules alert normal_rules'>
             <div>
               <h4>Traditional rules</h4>
-              <div className="alt_games_link " onClick={() => this.scrollTo(document.getElementById('altGamesList'))}>...or try a different spin on the game</div>
+              <div className="alt_games_link " onClick={() => utils.scrollTo('altGamesList')}>...or try a different spin on the game</div>
             </div>
           </div>
 
@@ -213,11 +176,7 @@ class SingleGame extends Component {
 
         <Link to="#" id="delete_button" className="btn" ><i className="material-icons">delete</i></Link>
 
-        <div id="top_arrow">
-          <div onClick={() => this.scrollTo(document.getElementById('myNavBar'))}>
-            <i className="material-icons md-36 top_arrow slideDown">arrow_upward</i>
-          </div>
-        </div>
+        <TopButton />
 
         <div className="footer">
         </div>

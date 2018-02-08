@@ -40,7 +40,6 @@ const services = {
     })
   },
   addHouseRules: (gameId, body) => {
-    console.log(gameId, body);
     return fetch(`https://house-rules-jgwrbs.herokuapp.com/api/game/${gameId}/alternate`, {
       method: "POST",
       body: JSON.stringify(body),
@@ -49,10 +48,15 @@ const services = {
       }
     })
     .then(response => {
-      console.log("RESPONSE: ", response);
+      return response.json();
+    })
+    .then(data => {
+      console.log("Response data: ",data);
+      return data;
     })
     .catch(error => {
       console.log("ERROR: ", error);
+      return error;
     })
   }
 }
