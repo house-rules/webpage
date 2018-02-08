@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { setFilter } from '../../actions/action';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import './GameFilter.css';
 
 class GameFilter extends Component {
 
   render() {
     // TODO add a function to create the links below to keep code dry
-    
+
     return(
       <div className="filter-bar">
         <h5 className="filter_header"> Filter Game Types</h5>

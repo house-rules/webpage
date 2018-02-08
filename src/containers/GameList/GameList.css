@@ -19,57 +19,6 @@ Mobile Game List Page Styling
   height: 92.5vh; */
 }
 
-.GameList .filter-bar {
-  background-image: url('../../images/gplaypattern.png');
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-top: 0.7rem;
-}
-
-.GameList .filter-bar a {
-  color: #ff533d;
-  flex-basis: 18%;
-  text-align: center;
-
-  /* color: white; */
-}
-
-.filter_header {
-  color: darkgray;
-  font-size: 16px;
-  flex-basis: 100%;
-  text-align: center;
-
-  /* color: white; */
-}
-
-.filter-bar .material-icons {
-  font-size: 48px;
-
-  /* color: #ff533d; */
-  /* -webkit-text-stroke: 2px #9938f9; */
-}
-
-.filter-bar .card_hand {
-  transform: scale(-1, -1);
-}
-
-.filter-bar p {
-  color: #02558b;
-  font-size: 14px;
-  text-align: center;
-
-  /* color: white; */
-}
-
-.filter-bar .badge-pill {
-  background-color: #ff7043;
-  color: white;
-  font-size: 12px;
-  min-width: 50%;
-}
-
 .GameList .material-icons {
   margin-right: 0rem;
 }
