@@ -60,6 +60,24 @@ const services = {
       console.log("ERROR: ", error);
       return error;
     })
+  },
+  addGame: (gameItem) => {
+    return fetch("https://house-rules-jgwrbs.herokuapp.com/api/game/new",
+      {
+        method: "POST",
+        body: gameItem,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    ).then(response => {
+      return response.json();
+    }).then(data => {
+      return data;
+    }).catch(err => {
+      console.log("ERROR: ", err);
+      return;
+    });
   }
 }
 

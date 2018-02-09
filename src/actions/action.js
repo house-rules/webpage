@@ -8,6 +8,7 @@ export const SET_USER = "SET_USER";
 export const SET_TOKEN = 'SET_TOKEN';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_FILTER = 'SET_FILTER';
+export const ADD_GAME = 'ADD_GAME';
 
 //TODO once reducers are created for ADD_GAME, DELETE_GAME, DELETE_HOUSE_RULES, and ADD_HOUSE_RULES; create the necessary actions.
 //TODO We then want to make the api call followed by updating the state with the returned info.
@@ -22,6 +23,7 @@ const setToken     = makeActionCreator(SET_TOKEN);
 const setError     = makeActionCreator(SET_ERROR);
 const setData      = makeActionCreator(SET_DATA);
 const setUser      = makeActionCreator(SET_USER);
+const addGame      = makeActionCreator(ADD_GAME);
 export const setFilter    = makeActionCreator(SET_FILTER);
 export const gameSelected = makeActionCreator(GAME_SELECTED);
 
@@ -100,6 +102,15 @@ export const getGameList = () => {
     return services.fetchGameList()
            .then(data => {
              dispatch(setData(data))
+           })
+  }
+}
+
+export const newGame = (gameItem) => {
+  return(dispatch, getState) => {
+    return services.addGame(gameItem)
+           .then(data => {
+             dispatch(addGame(data))
            })
   }
 }

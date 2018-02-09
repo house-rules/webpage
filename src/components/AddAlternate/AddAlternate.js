@@ -78,7 +78,7 @@ export default class AddAlternate extends Component {
         </div>
 
         <div>
-          <textarea className="form-control" onChange={this.handleUpdateState('rules')} value={this.state.rules} placeholder="House Rules" required></textarea>
+          <textarea className="form-control" onChange={this.handleUpdateState('rules')} value={this.state.rules} placeholder="Your House Rules" required></textarea>
         </div>
 
         <div className="form_submits">

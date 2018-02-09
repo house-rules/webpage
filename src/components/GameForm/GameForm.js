@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+// import services from '../../services/services';
+import { newGame } from '../../actions/action';
+import { connect } from 'react-redux';
 import './GameForm.css';
 
-export default class GameForm extends Component {
+class GameForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,9 +25,7 @@ export default class GameForm extends Component {
 
   handleSubmit = (endpoint) => {
     return (event) => {
-
       event.preventDefault();
-
       this.setState({
         title: event.target.value,
         category: event.target.value,
@@ -43,19 +44,7 @@ export default class GameForm extends Component {
           (this.state.numberOfPlayers !== "") &&
           (this.state.playerAgeRange !== "")) {
 
-        fetch("https://house-rules-jgwrbs.herokuapp.com/api/game/new",
-          {
-            method: "POST",
-            body: gameItem,
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          }
-        ).then(response => {
-          console.log("RESPONSE: ", response);
-        }).catch(err => {
-          console.log("ERROR: ", err);
-        });
+        this.props.newGame(gameItem);
 
         this.setState({
           title: '',
@@ -226,3 +215,12 @@ export default class GameForm extends Component {
     );
   }
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    newGame: (payload) =>
+    dispatch(newGame(payload))
+  }
+};
+
+export default connect(null, mapDispatchToProps)(GameForm)

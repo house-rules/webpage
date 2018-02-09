@@ -1,4 +1,4 @@
-import { GAME_SELECTED, SET_DATA, SET_TOKEN, SET_ERROR, SET_USER, SET_FILTER } from '../actions/action';
+import { GAME_SELECTED, SET_DATA, SET_TOKEN, SET_ERROR, SET_USER, SET_FILTER, ADD_GAME } from '../actions/action';
 import update from 'immutability-helper';
 
 const initialState = {
@@ -49,6 +49,12 @@ const reducer = (state = initialState, action) => {
               $set: action.payload
             }
           });
+        case ADD_GAME:
+          return update(state, {
+            gamesList: {
+              $push: [action.payload]
+            }
+          })
         default:
           return state;
     }

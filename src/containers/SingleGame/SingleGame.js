@@ -50,12 +50,13 @@ class SingleGame extends Component {
   componentDidMount() {
     if (this.props.selectedGame) {
       // filtering from gamelist for better performance
-      console.log('Game FILTERED');
-      this.setState({game: this.props.selectedGame, alternates: this.props.selectedGame.alternates});
+      this.setState({
+        game: this.props.selectedGame,
+        alternates: this.props.selectedGame.alternates
+      });
     } else {
       // using a fetch call if the filter is undefined
       const id = this.props.match.params.id;
-      console.log('Game FETCHED');
       services.fetchSingleGame(id)
       .then(data => {
         this.setState({game: data, alternates: data.alternates})
@@ -197,6 +198,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         gameSelected: (payload) => dispatch(gameSelected(payload))
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleGame);
