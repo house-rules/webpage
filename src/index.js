@@ -1,3 +1,4 @@
+// boilerplate imports from create-react-app
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
@@ -11,11 +12,11 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 import reducers from './reducers/reducer';
 
-// import components here
+// import components and containers here
 import Splash from './components/Splash/Splash';
 import BaseLayout from './components/BaseLayout/BaseLayout';
 import GameList from './containers/GameList/GameList';
-import GameForm from './components/GameForm/GameForm';
+import GameForm from './containers/GameForm/GameForm';
 import SingleGame from './containers/SingleGame/SingleGame';
 import About from './components/About/About';
 

@@ -17,13 +17,13 @@ class GameFilter extends Component {
 
     let filterButtons = filters.map((filter, index) => {
       return  <Link to="#" key={index}
-                style={filter.filter === this.props.filter ? {color: '#eb1b00'} : {color: '#FF533D'}}
+                style={filter.filter === this.props.filter ? {color: '#b30700'} : {color: '#FF533D'}}
                 onClick={() => this.props.setFilter(filter.filter)}>
                 <i className={'material-icons ' + filter.iconClass}>
                   {filter.iconName}
                 </i>
                 <p>
-                  <span style={filter.filter === this.props.filter ? {color: '#eb1b00'} : {color: '#02558b'}}>{filter.text}</span>
+                  <span style={filter.filter === this.props.filter ? {color: '#b30700'} : {color: '#02558b'}}>{filter.text}</span>
                 </p>
               </Link>
     });

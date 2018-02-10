@@ -10,7 +10,7 @@ const initialState = {
     selectedGame: ''
 };
 
-// TODO create ADD_GAME, DELETE_GAME, DELETE_HOUSE_RULES, ADD_HOUSE_RULES and create thier actions. Need some help from the backend to receive the proper info
+// TODO create DELETE_GAME, DELETE_HOUSE_RULES, ADD_HOUSE_RULES and create thier actions. Need some help from the backend to receive the proper info
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_ERROR:
