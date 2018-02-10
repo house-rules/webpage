@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './About.css';
 
-export default class About extends Component {
-
+class About extends Component {
 
   render() {
     return (
@@ -71,3 +71,9 @@ export default class About extends Component {
     )
   }
 };
+
+const mapStateToProps = (state) => {
+  return {state: state}
+};
+
+export default connect(mapStateToProps)(About);

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
+import { destroyCookie } from '../../actions/action';
+import { connect } from 'react-redux';
 import './BaseLayout.css';
 
 class BaseLayout extends Component {
@@ -9,11 +11,11 @@ class BaseLayout extends Component {
     this.state = {
       navOpen: false
     }
-};
+  };
 
   // opens and closes the nav bar on click
   navToggle = (endpoint) => {
-      if ((this.state.navOpen === false) && (endpoint !== '/webpage/')) {
+      if ((this.state.navOpen === false) && (endpoint !== '/webpage/games')) {
         this.setState({
           navOpen: !this.state.navOpen
         })
@@ -26,7 +28,10 @@ class BaseLayout extends Component {
 
   // this function handles the navigation and then calls the navToggle above to close the navbar
   handleNavigation = (endpoint) => {
-    this.props.history.push(endpoint)
+    if (endpoint === '/webpage/logout') {
+      this.props.destroyCookie();
+    }
+    this.props.history.replace(endpoint)
     this.navToggle(endpoint);
   }
 
@@ -36,7 +41,7 @@ class BaseLayout extends Component {
       {className: "GamesLink", endpoint: '/webpage/games', icon: 'casino', text: "Games"},
       {className: "NewGameLink", endpoint: '/webpage/newGame', icon: 'add', text: "Add Game"},
       {className: "AboutLink", endpoint: '/webpage/about', icon: 'local_library', text: "About"},
-      {className: "LogOutLink", endpoint: '/webpage/', icon: 'power_settings_new', text: "Log Out"},
+      {className: "LogOutLink", endpoint: '/webpage/logout', icon: 'power_settings_new', text: "Log Out"},
     ];
 
     let navLinks = navOptions.map((nav, index) => {
@@ -52,7 +57,7 @@ class BaseLayout extends Component {
 
           <nav className={this.state.navOpen ? "topnav responsive" : 'topnav'} id="myNavBar">
 
-            <Link className="Logo" to='#' onClick={() => this.handleNavigation('/webpage/')}>
+            <Link className="Logo" to='#' onClick={() => this.handleNavigation('/webpage/games')}>
               <img src={require('../../images/house-rules-white.png')} alt="#"/>
               <span>House Rules</span>
             </Link>
@@ -74,4 +79,16 @@ class BaseLayout extends Component {
   }
 };
 
-export default withRouter(BaseLayout);
+const mapStateToProps = (state) => {
+  return {state: state}
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    destroyCookie: () =>
+    dispatch(destroyCookie())
+  }
+};
+
+// this is how to set up a connect with the withRouter from browserRouter
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BaseLayout))

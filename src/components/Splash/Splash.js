@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 export default class Splash extends Component {
 
+  // will render when current endpoint doesnt match an routes in index.js
+  // For example: When running as a PWA on initial load.
   render() {
     return(
       <div className="Splash">

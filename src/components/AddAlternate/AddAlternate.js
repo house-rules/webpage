@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { newAlternate } from '../../actions/action';
 import './AddAlternate.css';
-import services from '../../services/services';
 
-export default class AddAlternate extends Component {
+class AddAlternate extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,21 +32,11 @@ export default class AddAlternate extends Component {
           (this.state.objective !== "") &&
           (this.state.rules) !== "") {
 
-        services.addHouseRules( this.props.game.id, this.state)
-        .then(data => {
-          console.log(data);
-          this.setState({
-            title: '',
-            objective: '',
-            rules: ''
-          });
-        });
-
-        this.props.history.push(`/webpage/games/${this.props.game.id}`);
-
+        this.props.newAlternate({ id: this.props.game.id, state: this.state})
       } else {
         console.log("na ah ah, you didnt say the magic word");
         let fields = []
+        // checking all fields for empty strings
         for (var prop in this.state) {
           if (this.state[prop] === '') {
             fields.push(prop + " cannot be empty")
@@ -60,7 +51,7 @@ export default class AddAlternate extends Component {
         });
       };
     }
-  }
+  };
 
   render() {
 
@@ -89,3 +80,13 @@ export default class AddAlternate extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    newAlternate: (payload) => {
+      dispatch(newAlternate(payload))
+    }
+  }
+};
+
+export default connect(null, mapDispatchToProps)(AddAlternate);

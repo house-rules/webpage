@@ -16,9 +16,11 @@ const services = {
     })
     .then(response => {
       console.log("DELETE SUCCESSFUL: ", response);
+      return response;
     })
     .catch(error => {
       console.log("Failure to delete: ", error);
+      return error;
     })
   },
   deleteHouseRules: (gameId, rulesId) => {
@@ -27,9 +29,11 @@ const services = {
     })
     .then(response => {
       console.log("DELETE SUCCESSFUL: ", response);
+      return response;
     })
     .catch(error => {
       console.log("FAILURE TO DELETE: ", error);
+      return error;
     })
   },
   fetchSingleGame: (id) => {
@@ -41,10 +45,10 @@ const services = {
       return data;
     })
   },
-  addHouseRules: (gameId, body) => {
-    return fetch(`${urlBase}game/${gameId}/alternate`, {
+  addHouseRules: (body) => {
+    return fetch(`${urlBase}game/${body.id}/alternate`, {
       method: "POST",
-      body: JSON.stringify(body),
+      body: JSON.stringify(body.state),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -53,7 +57,6 @@ const services = {
       return response.json();
     })
     .then(data => {
-      console.log("Response data: ",data);
       return data;
     })
     .catch(error => {
@@ -76,7 +79,7 @@ const services = {
       return data;
     }).catch(err => {
       console.log("ERROR: ", err);
-      return;
+      return err;
     });
   }
 }

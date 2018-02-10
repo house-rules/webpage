@@ -7,6 +7,7 @@ import './GameFilter.css';
 class GameFilter extends Component {
 
   render() {
+    // using this data to create the filter buttons. Keeping code dry.
     let filters = [
                    {filter: 'all', iconClass: 'all_games_filter', iconName: 'dns', text: 'All'},
                    {filter: 'card', iconClass: 'card_hand', iconName: 'style', text: 'Card'},
@@ -17,8 +18,8 @@ class GameFilter extends Component {
 
     let filterButtons = filters.map((filter, index) => {
       return  <Link to="#" key={index}
-                style={filter.filter === this.props.filter ? {color: '#b30700'} : {color: '#FF533D'}}
-                onClick={() => this.props.setFilter(filter.filter)}>
+              style={filter.filter === this.props.filter ? {color: '#b30700'} : {color: '#FF533D'}}
+              onClick={() => this.props.setFilter(filter.filter)}>
                 <i className={'material-icons ' + filter.iconClass}>
                   {filter.iconName}
                 </i>

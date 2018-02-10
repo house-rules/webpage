@@ -39,7 +39,6 @@ class GameForm extends Component {
   handleSubmit = (endpoint) => {
     return (event) => {
       event.preventDefault();
-      console.log(typeof Number(this.state.minPlayers));
       let state = this.state;
       let gameItem = {
         title: state.title,
@@ -49,8 +48,8 @@ class GameForm extends Component {
         playerAgeRange: state.playerAgeRange,
         rules: state.rules
       };
-      console.log(gameItem);
       // checking for empty form fields and to verify that players are numbers and not strings
+      // TODO add different alerts for the user if they make a mistake while adding a game.
       if ((gameItem.title !== "") &&
           (gameItem.category !== "") &&
           (gameItem.objective !== "") &&
@@ -62,14 +61,13 @@ class GameForm extends Component {
           (state.maxPlayers !== '') &&
           (gameItem.numberOfPlayers !== "") &&
           (gameItem.playerAgeRange !== "")) {
-        // calling the add a new game function
+        // calling the add a new game action
         this.props.newGame(JSON.stringify(gameItem));
         // navigating to the specified endpoint after submitting game
         this.props.history.push(endpoint);
       } else {
         console.log("na ah ah, you didnt say the magic word");
       }
-
       // resetting the state after submitting the game data
       this.setState({
         title: '',
@@ -83,6 +81,12 @@ class GameForm extends Component {
       })
     }
   };
+
+  componentWillMount() {
+    // if (!this.props.state.token) {
+    //   this.props.history.push('/webpage/logout');
+    // }
+  }
 
   render() {
     return (
@@ -136,6 +140,9 @@ class GameForm extends Component {
     );
   }
 };
+const mapStateToProps = (state) => {
+  return {state: state}
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -144,4 +151,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(null, mapDispatchToProps)(GameForm)
+export default connect(mapStateToProps, mapDispatchToProps)(GameForm)

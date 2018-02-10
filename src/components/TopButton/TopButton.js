@@ -8,11 +8,11 @@ export default class TopButton extends Component {
     this.state = {
       showButton: false
     }
-  }
+  };
 
   componentDidMount() {
     window.addEventListener('scroll', this.showButton);
-  }
+  };
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.showButton);
@@ -24,7 +24,7 @@ export default class TopButton extends Component {
     } else {
       this.setState({buttonShown: false});
     }
-  }
+  };
 
   render() {
     return(

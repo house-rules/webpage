@@ -34,8 +34,8 @@ class GameList extends Component {
      </div>;
   };
 
-  // Function for the api 'GET' call. Returns the entire game list
   componentDidMount() {
+    // Function for the api 'GET' call. Returns the entire game list
     this.props.getGameList();
   };
 
@@ -74,7 +74,8 @@ const mapStateToProps = (state) => {
   }
   return {
     gamesList: gamesList,
-    filter: state.filter
+    filter: state.filter,
+    state: state
   }
 }
 
