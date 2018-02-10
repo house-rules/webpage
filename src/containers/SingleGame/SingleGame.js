@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { gameSelected } from '../../actions/action';
 import AddAlternate from '../../components/AddAlternate/AddAlternate';
 import TopButton from '../../components/TopButton/TopButton';
@@ -9,6 +9,10 @@ import utils from '../../utilities/utilities';
 import './SingleGame.css';
 
 class SingleGame extends Component {
+  constructor(props) {
+    super(props);
+
+  }
 
   // TODO need to use state to manipulate dom, not getElementById.
   arrowToggle = () => {
@@ -88,8 +92,8 @@ class SingleGame extends Component {
           const id = this.props.match.params.id;
           services.fetchSingleGame(id)
           .then(data => {
-            this.props.gameSelected(data.id);
-          alternatesList =  this.mapAlternates(data.alternates)
+            this.props.gameSelected(data);
+            alternatesList =  this.mapAlternates(data.alternates)
           });
         } else {
           alternatesList = this.mapAlternates(this.props.alternates);
@@ -197,4 +201,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleGame);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SingleGame));

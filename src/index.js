@@ -44,7 +44,7 @@ ReactDOM.render(
         <Route exact path='/webpage/games/:id' render={() => (
           loggedIn() ? <SingleGame/> : <Redirect to="/webpage/logout"/>
         )} />
-        <Route exact path='/webpage/games' render={() => (
+        <Route exact path='/webpage/games' component={() => (
           loggedIn() ? <GameList/> : <Redirect to="/webpage/logout"/>
         )} />
         <Route exact path='/webpage/newGame' render={() => (

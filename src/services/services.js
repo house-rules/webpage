@@ -44,6 +44,10 @@ const services = {
     .then(data => {
       return data;
     })
+    .catch(err => {
+      console.log(err);
+      return err;
+    })
   },
   addHouseRules: (body) => {
     return fetch(`${urlBase}game/${body.id}/alternate`, {
