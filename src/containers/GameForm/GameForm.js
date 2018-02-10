@@ -11,7 +11,9 @@ class GameForm extends Component {
       title: '',
       category: 'card',
       objective: '',
-      numberOfPlayers: '1-2',
+      minPlayers: '',
+      maxPlayers: '',
+      numberOfPlayers: '',
       playerAgeRange: 'under 7',
       rules: ''
     };
@@ -37,40 +39,48 @@ class GameForm extends Component {
   handleSubmit = (endpoint) => {
     return (event) => {
       event.preventDefault();
-      
-      let gameItem = JSON.stringify(this.state);
-      // checking for empty form fields
-      if ((this.state.title !== "") &&
-          (this.state.category !== "") &&
-          (this.state.objective !== "") &&
-          (this.state.rules !== "") &&
-          (this.state.numberOfPlayers !== "") &&
-          (this.state.playerAgeRange !== "")) {
+      console.log(typeof Number(this.state.minPlayers));
+      let state = this.state;
+      let gameItem = {
+        title: state.title,
+        category: state.category,
+        objective: state.objective,
+        numberOfPlayers: state.minPlayers + "-" + state.maxPlayers,
+        playerAgeRange: state.playerAgeRange,
+        rules: state.rules
+      };
+      console.log(gameItem);
+      // checking for empty form fields and to verify that players are numbers and not strings
+      if ((gameItem.title !== "") &&
+          (gameItem.category !== "") &&
+          (gameItem.objective !== "") &&
+          (gameItem.rules !== "") &&
+          (Number.isInteger(Number(state.minPlayers))) &&
+          (Number.isInteger(Number(state.maxPlayers))) &&
+          (state.minPLayers < state.maxPlayers) &&
+          (state.minPLayers !== '') &&
+          (state.maxPlayers !== '') &&
+          (gameItem.numberOfPlayers !== "") &&
+          (gameItem.playerAgeRange !== "")) {
         // calling the add a new game function
-        this.props.newGame(gameItem);
-
-        // resetting the state after submitting the game data
-        this.setState({
-          title: '',
-          category: 'card',
-          objective: '',
-          numberOfPlayers: '1-2',
-          playerAgeRange: 'under 7',
-          rules: ''
-        });
+        this.props.newGame(JSON.stringify(gameItem));
         // navigating to the specified endpoint after submitting game
         this.props.history.push(endpoint);
       } else {
         console.log("na ah ah, you didnt say the magic word");
-        this.setState({
-          title: '',
-          category: 'card',
-          objective: '',
-          rules: '',
-          numberOfPlayers: '1-2',
-          playerAgeRange: 'under 7'
-        })
       }
+
+      // resetting the state after submitting the game data
+      this.setState({
+        title: '',
+        category: 'card',
+        objective: '',
+        rules: '',
+        minPlayers: '',
+        maxPlayers: '',
+        numberOfPlayers: '',
+        playerAgeRange: 'under 7'
+      })
     }
   };
 
@@ -89,12 +99,12 @@ class GameForm extends Component {
           </div>
         </fieldset>
 
-        <fieldset className="">
+        {/*<fieldset className="">
           <legend>Number of Players</legend>
           <div className="radio_buttons_cat">
             {this.createRadioButtons(buttonData[1], 'numberOfPlayers')}
           </div>
-        </fieldset>
+        </fieldset>*/}
 
         <fieldset className="">
           <legend>Age Range</legend>
@@ -102,6 +112,12 @@ class GameForm extends Component {
             {this.createRadioButtons(buttonData[2], 'playerAgeRange')}
           </div>
         </fieldset>
+
+        <div className="" style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
+          <input style={{flexBasis: '40%'}} className="form-control" onChange={this.handleUpdateState('minPlayers')} value={this.state.minPlayers} placeholder="Minimum players" required/>
+          <div style={{backgroundColor: '#02558b', width: '3rem', height: '0.2rem'}}></div>
+          <input style={{flexBasis: '40%'}} className="form-control" onChange={this.handleUpdateState('maxPlayers')} value={this.state.maxPlayers} placeholder="Maximum players" required/>
+        </div>
 
         <div className="">
           <input className="form-control" onChange={this.handleUpdateState('objective')} value={this.state.objective} placeholder="Game Objective" required/>
