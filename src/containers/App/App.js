@@ -15,7 +15,8 @@ class App extends Component {
       email: '',
       loginEmail: '',
       loginPassword: '',
-      errorMessage: ''
+      errorMessage: '',
+      loggingIn: false
     }
   }
 
@@ -44,12 +45,17 @@ class App extends Component {
 
   handleLogin = (event) => {
     event.preventDefault();
+    this.setState({
+      logginIn: true
+    })
     const login = this.props.login;
     login({email: this.state.loginEmail, password: this.state.loginPassword})
     .then(data => {
+      console.log(data);
       this.setState({
           email: "",
-          password: ""
+          password: "",
+          loggingIn: false
       });
     })
   };
@@ -66,7 +72,7 @@ class App extends Component {
               <div style={{color: '#ff533d'}}>{this.props.state.error ? this.props.state.error : ''}</div>
               <input type='text' className="form-control" placeholder='Email' value={this.state.loginEmail} onChange={this.handleUpdateState('loginEmail')}/>
               <input type='password' className="form-control" placeholder='Password' value={this.state.loginPassword} onChange={this.handleUpdateState('loginPassword')}/>
-              <button className='btn' type='submit'onClick={this.handleLogin}>Log In</button>
+              <button className='btn' type='submit'onClick={this.handleLogin}>{this.state.logginIn ? this.props.state.error ? 'Log In' : 'Logging in ...' : 'Log In'}</button>
             </div>
 
             <div className='form-group signup'>
