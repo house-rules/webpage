@@ -9,10 +9,6 @@ import utils from '../../utilities/utilities';
 import './SingleGame.css';
 
 class SingleGame extends Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   // TODO need to use state to manipulate dom, not getElementById.
   arrowToggle = () => {
