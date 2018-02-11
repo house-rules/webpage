@@ -51,7 +51,6 @@ class App extends Component {
     const login = this.props.login;
     login({email: this.state.loginEmail, password: this.state.loginPassword})
     .then(data => {
-      console.log(data);
       this.setState({
           email: "",
           password: "",
