@@ -16,7 +16,7 @@ class Alert extends Component {
 
     return(
       <div className={classNm}>
-        {this.props.message}
+        <div className="alert-message">{this.props.message}</div>
         <i className="material-icons" onClick={() => this.props.setAlert(null)}>clear</i>
       </div>
     )

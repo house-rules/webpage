@@ -29,6 +29,12 @@
   transition: top 0.3s;
 }
 
+.alert-message {
+  max-width: 80%;
+  margin: 0rem auto;
+  text-align: center;
+}
+
 .Alert i {
   font-size: 1.6rem;
   position: absolute;

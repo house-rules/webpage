@@ -28,7 +28,7 @@ class App extends Component {
   handleRegister = (event) => {
     event.preventDefault();
     if ((!this.state.email) || (!this.state.username) || (!this.state.password)) {
-      this.props.setAlert("Must enter an email address, username, and password");
+      this.props.setAlert("Must enter an email address, username, and password to register");
     } else {
       const register = this.props.register;
       register(this.state, () => {
@@ -45,7 +45,7 @@ class App extends Component {
   handleLogin = (event) => {
     event.preventDefault();
     if ((!this.state.loginEmail) || (!this.state.loginPassword)) {
-      this.props.setAlert("Must enter an email address and password");
+      this.props.setAlert("Must enter an email address and password to log in");
     } else {
       this.setState({
         loggingIn: true
