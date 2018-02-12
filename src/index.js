@@ -15,7 +15,7 @@ import Cookies from 'js-cookie';
 
 // import components and containers here
 import Splash from './components/Splash/Splash';
-import BaseLayout from './components/BaseLayout/BaseLayout';
+import BaseLayout from './containers/BaseLayout/BaseLayout';
 import GameList from './containers/GameList/GameList';
 import GameForm from './containers/GameForm/GameForm';
 import SingleGame from './containers/SingleGame/SingleGame';

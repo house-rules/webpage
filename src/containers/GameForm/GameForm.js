@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { newGame } from '../../actions/action';
+import { newGame, setAlert } from '../../actions/action';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import buttonData from './buttonData';
 import './GameForm.css';
 
@@ -49,37 +50,38 @@ class GameForm extends Component {
         rules: state.rules
       };
       // checking for empty form fields and to verify that players are numbers and not strings
-      // TODO add different alerts for the user if they make a mistake while adding a game.
-      if ((gameItem.title !== "") &&
-          (gameItem.category !== "") &&
-          (gameItem.objective !== "") &&
-          (gameItem.rules !== "") &&
-          (Number.isInteger(Number(state.minPlayers))) &&
-          (Number.isInteger(Number(state.maxPlayers))) &&
-          (state.minPLayers < state.maxPlayers) &&
-          (state.minPLayers !== '') &&
-          (state.maxPlayers !== '') &&
-          (gameItem.numberOfPlayers !== "") &&
-          (gameItem.playerAgeRange !== "")) {
-        // calling the add a new game action
-        this.props.newGame(JSON.stringify(gameItem));
-        // navigating to the specified endpoint after submitting game
-        this.props.history.push(endpoint);
+      if ((gameItem.title !== '') && (gameItem.objective !== '') && (gameItem.rules !== '') && (state.minPLayers !== '') && (state.maxPlayers !== '') && (gameItem.numberOfPlayers !== '')) {
+
+          if ((Number.isInteger(Number(state.minPlayers))) &&      (Number.isInteger(Number(state.maxPlayers)))) {
+
+              if ((state.minPLayers < state.maxPlayers)) {
+                  // calling the add a new game action
+                  this.props.newGame(JSON.stringify(gameItem));
+                  // navigating to the specified endpoint after submitting game
+                  this.props.history.push(endpoint);
+                  // resetting the state after submitting the game data
+                  this.setState({
+                    title: '',
+                    category: 'card',
+                    objective: '',
+                    rules: '',
+                    minPlayers: '',
+                    maxPlayers: '',
+                    numberOfPlayers: '',
+                    playerAgeRange: 'under 7'
+                  });
+              } else {
+                  this.props.setAlert('Max players must be greater than Min players')
+              };
+          } else {
+            this.props.setAlert('Min and Max players must be integers');
+          };
       } else {
-        console.log("na ah ah, you didnt say the magic word");
-      }
-      // resetting the state after submitting the game data
-      this.setState({
-        title: '',
-        category: 'card',
-        objective: '',
-        rules: '',
-        minPlayers: '',
-        maxPlayers: '',
-        numberOfPlayers: '',
-        playerAgeRange: 'under 7'
-      })
-    }
+        console.log("GAMEITEM: ", gameItem);
+        console.log("THIS>STATE: ", this.state);
+        this.props.setAlert('All fields are required');
+      };
+    };
   };
 
   render() {
@@ -139,10 +141,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    newGame: (payload) =>
-    dispatch(newGame(payload))
-  }
+  return bindActionCreators({
+    newGame: newGame,
+    setAlert: setAlert
+  }, dispatch)
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameForm)

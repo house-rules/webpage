@@ -45,8 +45,8 @@ class BaseLayout extends Component {
 
   render () {
     let user = this.props.user ? `${this.props.user.username}` : ' ';
-    let logInOut = this.props.state.token ? `Log Out • ${user}` : "Log In";
-    let iconColor = this.props.state.token ? {color: '#ff533d', transform: 'scale(1.2)'} : {};
+    let logInOut = this.props.token ? `Log Out • ${user}` : "Log In";
+    let iconColor = this.props.token ? {color: '#ff533d', transform: 'scale(1.2)'} : {};
 
     // creating the nav links below in a map fuction and keep code DRY
     const navOptions = [
@@ -93,7 +93,7 @@ class BaseLayout extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    state: state,
+    token: state.token,
     user: state.user.user
   }
 };

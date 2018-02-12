@@ -7,16 +7,15 @@ class Alert extends Component {
 
   render() {
     let classNm;
-    if (this.props.message === null) {
+    if (this.props.alert === null) {
       classNm = "Alert hide"
     } else {
-      // console.log(this.props.message);
       classNm = "Alert"
     }
 
     return(
       <div className={classNm}>
-        <div className="alert-message">{this.props.message}</div>
+        <div className="alert-message">{this.props.alert}</div>
         <i className="material-icons" onClick={() => this.props.setAlert(null)}>clear</i>
       </div>
     )
@@ -24,7 +23,7 @@ class Alert extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return {message: state.alert};
+  return {alert: state.alert};
 }
 
 // TODO add action to remove an alert message with mapDispatchToProps.

@@ -11,14 +11,11 @@ const services = {
       headers: {
         'Content-Type': 'application/json'
       }
-    })
-    .then(response => {
+    }).then(response => {
       return response.json();
-    })
-    .then(data => {
+    }).then(data => {
       return data;
-    })
-    .catch(err => {
+    }).catch(err => {
       return err;
     })
   },
@@ -29,14 +26,11 @@ const services = {
       headers: {
         'Content-Type': 'application/json'
       }
-    })
-    .then(response => {
+    }).then(response => {
       return response.json();
-    })
-    .then(data => {
+    }).then(data => {
       return data;
-    })
-    .catch(err => {
+    }).catch(err => {
       return err;
     })
   },
@@ -44,34 +38,27 @@ const services = {
     return fetch(urlBase + 'gameList')
     .then(response => {
       return response.json()
-    })
-    .then(data => {
+    }).then(data => {
       return data;
+    }).catch(err => {
+      return err;
     })
   },
   deleteGame: (gameId) => {
     fetch(`${urlBase}game/${gameId}/delete`, {
       method: "DELETE"
-    })
-    .then(response => {
-      console.log("DELETE SUCCESSFUL: ", response);
+    }).then(response => {
       return response;
-    })
-    .catch(error => {
-      console.log("Failure to delete: ", error);
+    }).catch(error => {
       return error;
     })
   },
   deleteHouseRules: (gameId, rulesId) => {
     fetch(`${urlBase}game/${gameId}/alternate/${rulesId}/delete`, {
       method: "DELETE"
-    })
-    .then(response => {
-      console.log("DELETE SUCCESSFUL: ", response);
+    }).then(response => {
       return response;
-    })
-    .catch(error => {
-      console.log("FAILURE TO DELETE: ", error);
+    }).catch(error => {
       return error;
     })
   },
@@ -79,12 +66,9 @@ const services = {
      return fetch(`${urlBase}game/${id}`)
     .then(results => {
       return results.json()
-    })
-    .then(data => {
+    }).then(data => {
       return data;
-    })
-    .catch(err => {
-      console.log(err);
+    }).catch(err => {
       return err;
     })
   },
@@ -95,15 +79,11 @@ const services = {
       headers: {
         'Content-Type': 'application/json'
       }
-    })
-    .then(response => {
+    }).then(response => {
       return response.json();
-    })
-    .then(data => {
+    }).then(data => {
       return data;
-    })
-    .catch(error => {
-      console.log("ERROR: ", error);
+    }).catch(error => {
       return error;
     })
   },
@@ -121,7 +101,6 @@ const services = {
     }).then(data => {
       return data;
     }).catch(err => {
-      console.log("ERROR: ", err);
       return err;
     });
   }
