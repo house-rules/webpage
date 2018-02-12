@@ -40,6 +40,7 @@ class GameList extends Component {
   };
 
   render () {
+    console.log(this.props);
     this.props.gamesList.sort(utils.sortGames);
 
     let gamesList = this.props.gamesList.map((game) => {

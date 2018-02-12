@@ -1,6 +1,45 @@
 const urlBase = 'https://house-rules-jgwrbs.herokuapp.com/api/';
 
+const loginBaseURL = 'https://user-auth-test.herokuapp.com';
+const api = (path) => loginBaseURL + path;
+
 const services = {
+  login: (fields) => {
+    return fetch(api('/login'), {
+      method: "POST",
+      body: JSON.stringify({email: fields.email, password: fields.password}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      return data;
+    })
+    .catch(err => {
+      return err;
+    })
+  },
+  register: (fields) => {
+    return fetch(api('/register'), {
+      method: "POST",
+      body: JSON.stringify({email: fields.email, password: fields.password, full_name: fields.username, message: 'Hi ' + fields.username + '!'}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      return data;
+    })
+    .catch(err => {
+      return err;
+    })
+  },
   fetchGameList: () => {
     return fetch(urlBase + 'gameList')
     .then(response => {
@@ -69,7 +108,7 @@ const services = {
     })
   },
   addGame: (gameItem) => {
-    return fetch("https://house-rules-jgwrbs.herokuapp.com/api/game/new",
+    return fetch(`${urlBase}/game/new`,
       {
         method: "POST",
         body: gameItem,
