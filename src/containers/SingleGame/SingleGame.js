@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { gameSelected } from '../../actions/action';
-import AddAlternate from '../../components/AddAlternate/AddAlternate';
+import AddAlternate from '../AddAlternate/AddAlternate';
 import TopButton from '../../components/TopButton/TopButton';
 import services from '../../services/services';
 import utils from '../../utilities/utilities';

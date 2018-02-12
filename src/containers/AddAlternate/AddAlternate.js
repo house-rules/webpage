@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { newAlternate } from '../../actions/action';
+import { newAlternate, setAlert } from '../../actions/action';
+import { bindActionCreators } from 'redux';
 import './AddAlternate.css';
 
 class AddAlternate extends Component {
@@ -34,21 +35,16 @@ class AddAlternate extends Component {
 
         this.props.newAlternate({ id: this.props.game.id, state: this.state})
       } else {
-        console.log("na ah ah, you didnt say the magic word");
         let fields = []
         // checking all fields for empty strings
         for (var prop in this.state) {
           if (this.state[prop] === '') {
-            fields.push(prop + " cannot be empty")
+            fields.push(" " + prop.toUpperCase())
           } else {
-            fields.push(this.state[prop])
+            // fields.push(this.state[prop])
           }
         };
-        this.setState({
-          title: fields[0],
-          objective: fields[1],
-          rules: fields[2]
-        });
+        this.props.setAlert(`${fields} fields cannot be empty`);
       };
     }
   };
@@ -82,11 +78,10 @@ class AddAlternate extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    newAlternate: (payload) => {
-      dispatch(newAlternate(payload))
-    }
-  }
+  return bindActionCreators({
+    newAlternate: newAlternate,
+    setAlert: setAlert
+  }, dispatch)
 };
 
 export default connect(null, mapDispatchToProps)(AddAlternate);

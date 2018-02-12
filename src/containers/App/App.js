@@ -19,10 +19,6 @@ class App extends Component {
     }
   }
 
-  // TODO need to add some checks for empty fields to catch errors before sending to log in or register
-
-  // TODO eventually have users who are not logged in be able to view games, but not edit. Maybe use a ternary to decide to render certain components. Hiding addGame and addAlternates components.
-
   handleUpdateState = (field) => {
     return (event) => {
       this.setState({[field]: event.target.value})
@@ -31,31 +27,40 @@ class App extends Component {
 
   handleRegister = (event) => {
     event.preventDefault();
-    const register = this.props.register;
-    register(this.state, () => {
-      this.getEndpoint('/webpage/games');
-      this.setState({
-        email: "",
-        username: "",
-        password: ""
-      });
-     });
-   }
+    if ((!this.state.email) || (!this.state.username) || (!this.state.password)) {
+      this.props.setAlert("Must enter an email address, username, and password");
+    } else {
+      const register = this.props.register;
+      register(this.state, () => {
+        this.getEndpoint('/webpage/games');
+        this.setState({
+          email: "",
+          username: "",
+          password: ""
+        });
+       });
+    }
+  };
 
   handleLogin = (event) => {
     event.preventDefault();
-    this.setState({
-      loggingIn: true
-    })
-    const login = this.props.login;
-    login({email: this.state.loginEmail, password: this.state.loginPassword})
-    .then(data => {
+    if ((!this.state.loginEmail) || (!this.state.loginPassword)) {
+      this.props.setAlert("Must enter an email address and password");
+    } else {
       this.setState({
-          email: "",
-          password: "",
-          loggingIn: false
-      });
-    })
+        loggingIn: true
+      })
+      const login = this.props.login;
+      login({email: this.state.loginEmail, password: this.state.loginPassword})
+      .then(data => {
+        this.setState({
+            email: "",
+            password: "",
+            loggingIn: false
+        });
+      })
+    }
+
   };
 
   componentWillMount() {
