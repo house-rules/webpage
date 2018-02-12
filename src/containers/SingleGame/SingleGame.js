@@ -186,8 +186,7 @@ const mapStateToProps = (state) => {
   return {
     gamesList: state.gamesList,
     selectedGame: state.selectedGame,
-    alternates: state.selectedGame.alternates,
-    state: state
+    alternates: state.selectedGame.alternates
   }
 };
 

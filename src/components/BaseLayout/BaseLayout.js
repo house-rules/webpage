@@ -31,8 +31,8 @@ class BaseLayout extends Component {
     if (endpoint === '/webpage/logout') {
       this.props.destroyCookie();
     }
-    this.props.history.replace(endpoint)
     this.navToggle(endpoint);
+    this.props.history.replace(endpoint)
   }
 
   render () {

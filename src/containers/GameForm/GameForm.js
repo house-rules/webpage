@@ -82,12 +82,6 @@ class GameForm extends Component {
     }
   };
 
-  componentWillMount() {
-    // if (!this.props.state.token) {
-    //   this.props.history.push('/webpage/logout');
-    // }
-  }
-
   render() {
     return (
       <div className="gameForm">

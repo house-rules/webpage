@@ -68,14 +68,14 @@ class App extends Component {
     return (
           <div className="App">
             <div className='form-group login'>
-              <div style={{color: '#ff533d'}}>{this.props.state.error ? this.props.state.error : ''}</div>
+              <div style={{color: '#ff533d'}}>{this.props.error ? this.props.error : ''}</div>
               <input type='text' className="form-control" placeholder='Email' value={this.state.loginEmail} onChange={this.handleUpdateState('loginEmail')}/>
               <input type='password' className="form-control" placeholder='Password' value={this.state.loginPassword} onChange={this.handleUpdateState('loginPassword')}/>
-              <button className='btn' type='submit'onClick={this.handleLogin}>{this.state.logginIn ? this.props.state.error ? 'Log In' : 'Logging in ...' : 'Log In'}</button>
+              <button className='btn' type='submit'onClick={this.handleLogin}>{this.state.logginIn ? this.props.error ? 'Log In' : 'Logging in ...' : 'Log In'}</button>
             </div>
 
             <div className='form-group signup'>
-              <div style={{color: '#ff533d'}}>{/*this.props.state.error ? this.props.state.error + "!" : ''*/}</div>
+              <div style={{color: '#ff533d'}}>{/*this.props.error ? this.props.error + "!" : ''*/}</div>
               <input type='text' className="form-control" placeholder='Username' value={this.state.username} onChange={this.handleUpdateState('username')}/>
               <input type='email' className="form-control" placeholder='Email' value={this.state.email} onChange={this.handleUpdateState('email')}/>
               <input type='password' className="form-control" placeholder='Password' value={this.state.password} onChange={this.handleUpdateState('password')}/>
@@ -89,7 +89,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {state: state};
+    return {error: state.error};
 }
 
 const mapDispatchToProps = (dispatch) => {

@@ -40,7 +40,6 @@ class GameList extends Component {
   };
 
   render () {
-    console.log(this.props);
     this.props.gamesList.sort(utils.sortGames);
 
     let gamesList = this.props.gamesList.map((game) => {
@@ -75,8 +74,7 @@ const mapStateToProps = (state) => {
   }
   return {
     gamesList: gamesList,
-    filter: state.filter,
-    state: state
+    filter: state.filter
   }
 }
 
