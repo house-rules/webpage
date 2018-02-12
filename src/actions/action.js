@@ -7,11 +7,11 @@ export const GAME_SELECTED = "GAME_SELECTED",
              SET_USER      = "SET_USER",
              SET_TOKEN     = 'SET_TOKEN',
              REMOVE_TOKEN  = 'REMOVE_TOKEN',
-             SET_ERROR     = 'SET_ERROR',
              SET_FILTER    = 'SET_FILTER',
              ADD_GAME      = 'ADD_GAME',
              LOG_OUT       = 'LOG_OUT',
-             ADD_ALTERNATE = 'ADD_ALTERNATE';
+             ADD_ALTERNATE = 'ADD_ALTERNATE',
+             SET_ALERT     = 'SET_ALERT';
 
 // TODO once reducers are created for DELETE_GAME and DELETE_HOUSE_RULES create the necessary actions.
 // TODO We then want to make the api call followed by updating the state with the returned info.
@@ -24,14 +24,14 @@ const makeActionCreator = function(actionType) {
 
 export const setToken     = makeActionCreator(SET_TOKEN),
              removeToken  = makeActionCreator(REMOVE_TOKEN),
-             setError     = makeActionCreator(SET_ERROR),
              setData      = makeActionCreator(SET_DATA),
              setUser      = makeActionCreator(SET_USER),
              addGame      = makeActionCreator(ADD_GAME),
              addAlternate = makeActionCreator(ADD_ALTERNATE),
              logout       = makeActionCreator(LOG_OUT),
              setFilter    = makeActionCreator(SET_FILTER),
-             gameSelected = makeActionCreator(GAME_SELECTED);
+             gameSelected = makeActionCreator(GAME_SELECTED),
+             setAlert     = makeActionCreator(SET_ALERT);
 
 // TODO change this url once backend can log in and out
 // const baseURL = "https://dry-forest-51238.herokuapp.com/api";
@@ -42,11 +42,10 @@ export const register = (fields) => {
     return (dispatch, getState) => {
       return services.register(fields)
              .then(data =>{
-               console.log(data);
                if (data.errors) {
-                 return dispatch(setError(data.errors));
+                 return dispatch(setAlert(data.errors));
                } else {
-                 dispatch(setError(null))
+                 dispatch(setAlert(null))
                  dispatch(login({email: fields.email, password: fields.password, username: fields.username}))
                }
              });
@@ -58,9 +57,9 @@ export const login = (fields) => {
     return services.login(fields)
            .then(data => {
              if (data.errors) {
-               return dispatch(setError(data.errors));
+               return dispatch(setAlert(data.errors));
              } else {
-               dispatch(setError(null))
+               dispatch(setAlert(null))
                dispatch(setToken(data['auth_token']));
                dispatch(getGamePage(data['auth_token']));
                Cookies.set('token', data['auth_token'], {expires: 90});
@@ -81,7 +80,7 @@ const getGamePage = (token) => {
       .set('X-AUTH-TOKEN', getState()['token'])
       .end((err, res) => {
         if (err) {
-          return dispatch(setError(res.body.errors));
+          return dispatch(setAlert(res.body.errors));
         }
         dispatch(setUser({
           user: {

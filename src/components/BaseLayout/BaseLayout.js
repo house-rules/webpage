@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import { destroyCookie, loadTokenFromCookie } from '../../actions/action';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Alert from '../Alert/Alert';
 import './BaseLayout.css';
 
 class BaseLayout extends Component {
@@ -41,9 +42,10 @@ class BaseLayout extends Component {
     loadToken();
   }
 
+
   render () {
-    let user = this.props.user ? `( Logged in as ${this.props.user.username} )` : '';
-    let logInOut = this.props.state.token ? `Log Out ${user}` : "Log In";
+    let user = this.props.user ? `${this.props.user.username}` : ' ';
+    let logInOut = this.props.state.token ? `Log Out • ${user}` : "Log In";
     let iconColor = this.props.state.token ? {color: '#ff533d', transform: 'scale(1.2)'} : {};
 
     // creating the nav links below in a map fuction and keep code DRY
@@ -80,7 +82,9 @@ class BaseLayout extends Component {
 
           </nav>
 
-            {this.props.children}
+          <Alert />
+
+          {this.props.children}
 
       </div>
     );

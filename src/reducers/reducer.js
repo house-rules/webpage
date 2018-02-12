@@ -1,23 +1,23 @@
-import { GAME_SELECTED, SET_DATA, SET_TOKEN, REMOVE_TOKEN, SET_ERROR, SET_USER, SET_FILTER, ADD_GAME , LOG_OUT, ADD_ALTERNATE } from '../actions/action';
+import { GAME_SELECTED, SET_DATA, SET_TOKEN, REMOVE_TOKEN, SET_USER, SET_FILTER, ADD_GAME , LOG_OUT, ADD_ALTERNATE, SET_ALERT } from '../actions/action';
 import update from 'immutability-helper';
 import Cookies from 'js-cookie';
 
 const initialState = {
     token: Cookies.get('token'),
-    error: null,
     gamesList: [],
     filter: 'all',
     user: { username: null, email: null },
     selectedGame: '',
-    loggedIn: false
+    loggedIn: false,
+    alert: null
 };
 
-// TODO create DELETE_GAME, DELETE_HOUSE_RULES, ADD_HOUSE_RULES and create thier actions. Need some help from the backend to receive the proper info
+// TODO create DELETE_GAME, DELETE_HOUSE_RULES and create thier actions. Need some help from the backend to receive the proper info
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_ERROR:
+        case SET_ALERT:
             return update(state, {
-                error: {
+                alert: {
                     $set: action.payload
                 }
             });
