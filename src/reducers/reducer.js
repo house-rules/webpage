@@ -7,7 +7,7 @@ const initialState = {
     error: null,
     gamesList: [],
     filter: 'all',
-    user: {username: Cookies.get('name'), email: Cookies.get('email')},
+    user: { username: null, email: null },
     selectedGame: '',
     loggedIn: false
 };

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
-import { destroyCookie } from '../../actions/action';
+import { destroyCookie, loadTokenFromCookie } from '../../actions/action';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import './BaseLayout.css';
 
 class BaseLayout extends Component {
@@ -28,26 +29,35 @@ class BaseLayout extends Component {
 
   // this function handles the navigation and then calls the navToggle above to close the navbar
   handleNavigation = (endpoint) => {
-    if (endpoint === '/webpage/logout') {
+    if (endpoint === '/webpage/login') {
       this.props.destroyCookie();
     }
     this.navToggle(endpoint);
     this.props.history.replace(endpoint)
   }
 
+  componentWillMount() {
+    const loadToken = this.props.loadToken;
+    loadToken();
+  }
+
   render () {
+    let user = this.props.user ? `( Logged in as ${this.props.user.username} )` : '';
+    let logInOut = this.props.state.token ? `Log Out ${user}` : "Log In";
+    let iconColor = this.props.state.token ? {color: '#ff533d', transform: 'scale(1.2)'} : {};
+
     // creating the nav links below in a map fuction and keep code DRY
     const navOptions = [
       {className: "GamesLink", endpoint: '/webpage/games', icon: 'casino', text: "Games"},
       {className: "NewGameLink", endpoint: '/webpage/newGame', icon: 'add', text: "Add Game"},
       {className: "AboutLink", endpoint: '/webpage/about', icon: 'local_library', text: "About"},
-      {className: "LogOutLink", endpoint: '/webpage/logout', icon: 'power_settings_new', text: "Log Out"},
+      {className: "LogOutLink", endpoint: '/webpage/login', icon: 'power_settings_new', text: logInOut, style: iconColor},
     ];
 
     let navLinks = navOptions.map((nav, index) => {
       return  <Link key={index}
               className={nav.className} to='#' onClick={() => this.handleNavigation(`${nav.endpoint}`)}>
-                <i className="material-icons">{nav.icon}</i>
+                <i className="material-icons" style={nav.style ? nav.style : {}}>{nav.icon}</i>
                 {nav.text}
               </Link>
     })
@@ -72,22 +82,24 @@ class BaseLayout extends Component {
 
             {this.props.children}
 
-          <div id="top_arrow">
-          </div>
       </div>
     );
   }
 };
 
 const mapStateToProps = (state) => {
-  return {state: state}
+  return {
+    state: state,
+    user: state.user.user
+  }
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    destroyCookie: () =>
-    dispatch(destroyCookie())
-  }
+  return bindActionCreators({
+    destroyCookie: destroyCookie,
+    loadToken: loadTokenFromCookie
+  }, dispatch)
+
 };
 
 // this is how to set up a connect with the withRouter from browserRouter

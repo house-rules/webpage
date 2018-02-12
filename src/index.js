@@ -38,23 +38,26 @@ ReactDOM.render(
   <BrowserRouter>
     <BaseLayout>
       <Switch>
-        <Route exact path="/webpage/logout" render={() => (
+        <Route exact path="/webpage/login" render={() => (
           loggedIn() ? <GameList/> : <App/>
         )} />
-        <Route exact path='/webpage/games/:id' render={() => (
-          loggedIn() ? <SingleGame/> : <Redirect to="/webpage/logout"/>
-        )} />
-        <Route exact path='/webpage/games' component={() => (
-          loggedIn() ? <GameList/> : <Redirect to="/webpage/logout"/>
-        )} />
+        <Route exact path='/webpage/games/:id' component={SingleGame} />
+        <Route exact path='/webpage/games' component={GameList} />
         <Route exact path='/webpage/newGame' render={() => (
-          loggedIn() ? <GameForm/> : <Redirect to="/webpage/logout"/>
+          loggedIn() ? <GameForm/> : <Redirect to="/webpage/login"/>
         )} />
-        <Route exact path='/webpage/about' render={() => (
-          loggedIn() ? <About/> : <Redirect to="/webpage/logout"/>
-        )} />
+        <Route exact path='/webpage/about' component={About} />
         <Route exact path='/' component={Splash} />
         <Route component={Splash} />
+        {/*<Route exact path='/webpage/games/:id' render={() => (
+          loggedIn() ? <SingleGame/> : <Redirect to="/webpage/login"/>
+        )} />*/}
+        {/*}<Route exact path='/webpage/games' component={() => (
+          loggedIn() ? <GameList/> : <Redirect to="/webpage/login"/>
+        )} />*/}
+        {/*<Route exact path='/webpage/about' render={() => (
+          loggedIn() ? <About/> : <Redirect to="/webpage/logout"/>
+        )} />*/}
       </Switch>
     </BaseLayout>
   </BrowserRouter>

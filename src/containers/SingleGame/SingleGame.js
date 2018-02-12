@@ -152,11 +152,16 @@ class SingleGame extends Component {
           <p id="game_rules">{game.rules}</p>
           <div className="read_more" id="read_more" onClick={() => this.toggleReadMore()}>Read more</div>
 
-          <button className='btn arrowButton' data-toggle="collapse" data-target="#demo"onClick={this.arrowToggle}>Add Rules<i className="material-icons" id="myArrow">add</i></button>
+          {this.props.loggedIn ?
+            <button className='btn arrowButton' data-toggle="collapse" data-target="#demo"onClick={this.arrowToggle}>
+              Add Rules
+              <i className="material-icons" id="myArrow">add</i>
+            </button>
+          : '' }
 
-          <div id="demo" className="collapse">
+          {this.props.loggedIn ? <div id="demo" className="collapse">
             <AddAlternate game={this.props.selectedGame} history={this.props.history} arrowToggle={() => this.arrowToggle()} />
-          </div>
+          </div> : ''}
 
           <div id="altGamesList">
             <h3 className="alt_list_header">{alternatesList && alternatesList.length === 0 ? 'Be the first to add House Rules for this game' : 'House Rules'}</h3>
@@ -186,7 +191,8 @@ const mapStateToProps = (state) => {
   return {
     gamesList: state.gamesList,
     selectedGame: state.selectedGame,
-    alternates: state.selectedGame.alternates
+    alternates: state.selectedGame.alternates,
+    loggedIn: !!state.token
   }
 };
 

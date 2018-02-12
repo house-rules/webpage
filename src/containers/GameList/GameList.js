@@ -14,7 +14,7 @@ class GameList extends Component {
     this.state = {
       loader: <Loader />
     }
-  }
+  };
 
   returnGameJSX = (game, gameIcon) => {
     return <div key={game.id}
@@ -54,16 +54,17 @@ class GameList extends Component {
 
         {gamesList.length ? gamesList : this.state.loader}
 
+        {this.props.loggedIn ?
         <div>
           <Link to='/webpage/newGame'>
             <i className="material-icons md-36 FAB">add</i>
           </Link>
-        </div>
+        </div> : ''}
 
       </div>
     );
   }
-}
+};
 
 const mapStateToProps = (state) => {
   let gamesList;
@@ -74,9 +75,10 @@ const mapStateToProps = (state) => {
   }
   return {
     gamesList: gamesList,
-    filter: state.filter
+    filter: state.filter,
+    loggedIn: !!state.token
   }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
@@ -84,6 +86,6 @@ const mapDispatchToProps = (dispatch) => {
         gameSelected: gameSelected,
         setFilter: setFilter
     }, dispatch)
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameList);

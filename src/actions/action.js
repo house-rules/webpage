@@ -98,7 +98,7 @@ export const loadTokenFromCookie = () => {
     const token = Cookies.get('token');
     if (token) {
         dispatch(setToken(token));
-        dispatch(getGamePage());
+        dispatch(getGamePage(token));
     }
   }
 }
@@ -110,6 +110,12 @@ export const destroyCookie = () => {
     Cookies.remove('email');
     dispatch(removeToken(token));
     dispatch(logout());
+    dispatch(setUser({
+      user: {
+        email: null,
+        username: null
+      }
+    }))
   }
 }
 
