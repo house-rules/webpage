@@ -94,7 +94,7 @@ class BaseLayout extends Component {
 const mapStateToProps = (state) => {
   return {
     token: state.token,
-    user: state.user.user
+    user: state.user
   }
 };
 

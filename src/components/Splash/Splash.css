@@ -16,13 +16,14 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 5;
+  z-index: 3;
   /* for the background gradient animation */
-  background: linear-gradient(165deg, #fdfdff 33%, #2cf 65%);
+  /* background: linear-gradient(165deg, #fdfdff 33%, #2cf 65%); */
+  background: linear-gradient(165deg, #02558b 33%, #2cf 65%);
   background-size: 225% 225%;
-  -webkit-animation: changeBackGround 12s ease infinite;
-  -moz-animation: changeBackGround 12s ease infinite;
-  animation: changeBackGround 12s ease infinite;
+  -webkit-animation: changeBackGround 12s ease-in-out infinite;
+  -moz-animation: changeBackGround 12s ease-in-out infinite;
+  animation: changeBackGround 12s ease-in-out infinite;
 }
 @-webkit-keyframes changeBackGround {
     0%{background-position:-0% -0%}
@@ -61,7 +62,25 @@
   display: none;
 }
 
-.Splash .btn {
+.welcome {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 0rem;
+  text-transform: capitalize;
+}
+
+.not-me {
+  color: rgba(255,255,255,0.6);
+  font-style: italic;
+  margin-top: 0rem;
+  text-transform: capitalize;
+}
+
+.not-me span {
+  color: #ff533d;
+}
+
+.Splash a {
   background-color: #ff533d;
   border-radius: 20px;
   color: #fdfdff;
@@ -78,43 +97,5 @@
   100%{
     opacity: 1;
     transform: translateY(0%);
-  }
-}
-
-.swipeIcon {
-  display: none;
-  background-color: transparent;
-  border: 3px solid darkgray;
-  border-radius: 25px;
-  margin-top: 5rem;
-  height: 5rem;
-  width: 2.5rem;
-}
-
-.swiper {
-  /* display: none; */
-  animation: 1s ease-in 0s infinite swiper;
-  background-color: darkgray;
-  border-radius: 50%;
-  height: 43%;
-  margin: 0.2rem auto;
-  /* left: 192px; */
-  /* position: absolute; */
-  width: 90%;
-}
-
-.Splash p {
-  display: none;
-  color: darkgray;
-}
-
-@keyframes swiper {
-  0% {
-    display: block;
-    transform: translateY(100%);
-  }
-  100% {
-    display: block;
-    transform: translateY(0);
   }
 }

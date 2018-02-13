@@ -35,6 +35,7 @@
   text-decoration: none;
   font-size: 17px;
   font-family: 'Righteous', sans-serif;
+  text-transform: capitalize;
 }
 
 .topnav .Logo {

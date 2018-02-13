@@ -39,7 +39,7 @@ ReactDOM.render(
     <BaseLayout>
       <Switch>
         <Route exact path="/webpage/login" render={() => (
-          loggedIn() ? <GameList/> : <App/>
+          loggedIn() ? <GameList/> : <Splash/>
         )} />
         <Route exact path='/webpage/games/:id' component={SingleGame} />
         <Route exact path='/webpage/games' component={GameList} />

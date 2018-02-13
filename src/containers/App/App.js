@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DesktopMessage from '../../components/DesktopMessage/DesktopMessage';
-import '../../styles/App.css';
+// import '../../styles/App.css';
 import './App.css';
 import { loadTokenFromCookie, register, login, setAlert } from "../../actions/action";
 import { bindActionCreators } from 'redux';
@@ -17,7 +17,7 @@ class App extends Component {
       loginPassword: '',
       loggingIn: false
     }
-  }
+  };
 
   handleUpdateState = (field) => {
     return (event) => {

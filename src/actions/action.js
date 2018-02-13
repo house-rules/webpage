@@ -57,7 +57,8 @@ export const login = (fields) => {
     return services.login(fields)
            .then(data => {
              if (data.errors) {
-               return dispatch(setAlert(data.errors));
+              dispatch(setAlert(data.errors));
+              return data;
              } else {
                dispatch(setAlert(null))
                dispatch(setToken(data['auth_token']));
@@ -67,6 +68,7 @@ export const login = (fields) => {
                if (fields.username) {
                  Cookies.set('name', fields.username, {expires: 90});
                }
+               return data;
              }
            });
   };
@@ -83,10 +85,8 @@ const getGamePage = (token) => {
           return dispatch(setAlert(res.body.errors));
         }
         dispatch(setUser({
-          user: {
             email: res.body.email,
             username: res.body.full_name
-          }
         }))
       })
   }
@@ -110,10 +110,8 @@ export const destroyCookie = () => {
     dispatch(removeToken(token));
     dispatch(logout());
     dispatch(setUser({
-      user: {
         email: null,
         username: null
-      }
     }))
   }
 }

@@ -71,14 +71,12 @@ class GameForm extends Component {
                     playerAgeRange: 'under 7'
                   });
               } else {
-                  this.props.setAlert('Max players must be greater than Min players')
+                  this.props.setAlert('Maximum players must be greater than Minimum players')
               };
           } else {
-            this.props.setAlert('Min and Max players must be integers');
+            this.props.setAlert('Minimum / Maximum players must be numbers');
           };
       } else {
-        console.log("GAMEITEM: ", gameItem);
-        console.log("THIS>STATE: ", this.state);
         this.props.setAlert('All fields are required');
       };
     };
@@ -98,13 +96,6 @@ class GameForm extends Component {
             {this.createRadioButtons(buttonData[0], 'category')}
           </div>
         </fieldset>
-
-        {/*<fieldset className="">
-          <legend>Number of Players</legend>
-          <div className="radio_buttons_cat">
-            {this.createRadioButtons(buttonData[1], 'numberOfPlayers')}
-          </div>
-        </fieldset>*/}
 
         <fieldset className="">
           <legend>Age Range</legend>
