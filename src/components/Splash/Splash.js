@@ -27,7 +27,7 @@ class Splash extends Component {
     return(
       <div className="Splash">
 
-        <div className='Logo'>
+        <div className='Main-Logo'>
           <img src={require('../../images/house-rules-white-red.png')} alt="#"/>
         </div>
 
