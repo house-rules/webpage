@@ -44,7 +44,7 @@ class AddAlternate extends Component {
             // fields.push(this.state[prop])
           }
         };
-        this.props.setAlert(`${fields} fields cannot be empty`);
+        this.props.setAlert({type: 'error', message: `${fields} fields cannot be empty`});
       };
     }
   };

@@ -43,9 +43,9 @@ export const register = (fields) => {
       return services.register(fields)
              .then(data =>{
                if (data.errors) {
-                 return dispatch(setAlert(data.errors));
+                 return dispatch(setAlert({type: 'error', message: data.errors}));
                } else {
-                 dispatch(setAlert(null))
+                 dispatch(setAlert({type: 'success', message: fields.username + ' successfully registered'}))
                  dispatch(login({email: fields.email, password: fields.password, username: fields.username}))
                }
              });
@@ -57,10 +57,10 @@ export const login = (fields) => {
     return services.login(fields)
            .then(data => {
              if (data.errors) {
-              dispatch(setAlert(data.errors));
+              dispatch(setAlert({type: 'error', message: data.errors}));
               return data;
              } else {
-               dispatch(setAlert(null))
+               dispatch(setAlert({type: null, message: null}))
                dispatch(setToken(data['auth_token']));
                dispatch(getGamePage(data['auth_token']));
                Cookies.set('token', data['auth_token'], {expires: 90});
@@ -82,7 +82,7 @@ const getGamePage = (token) => {
       .set('X-AUTH-TOKEN', getState()['token'])
       .end((err, res) => {
         if (err) {
-          return dispatch(setAlert(res.body.errors));
+          return dispatch(setAlert({type: 'error', message: res.body.errors}));
         }
         dispatch(setUser({
             email: res.body.email,
@@ -131,7 +131,15 @@ export const newGame = (gameItem) => {
   return(dispatch, getState) => {
     return services.addGame(gameItem)
            .then(data => {
-             dispatch(addGame(data))
+             if (data.errors) {
+               dispatch(setAlert({type: 'error', message: data.errors}));
+               return data.errors;
+             } else {
+               dispatch(addGame(data))
+               dispatch(setAlert({type: 'success', message: data.title + ' successfully added'}))
+               return data;
+             }
+             // return data;
            })
   }
 }

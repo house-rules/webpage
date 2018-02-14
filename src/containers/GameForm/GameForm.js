@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { newGame, setAlert } from '../../actions/action';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import buttonData from './buttonData';
 import './GameForm.css';
 
@@ -39,6 +40,7 @@ class GameForm extends Component {
 
   handleSubmit = (endpoint) => {
     return (event) => {
+      // TODO clean up the logic in this function
       event.preventDefault();
       let state = this.state;
       let gameItem = {
@@ -53,8 +55,10 @@ class GameForm extends Component {
       if ((gameItem.title !== '') && (gameItem.objective !== '') && (gameItem.rules !== '') && (state.minPLayers !== '') && (state.maxPlayers !== '') && (gameItem.numberOfPlayers !== '')) {
 
           if ((Number.isInteger(Number(state.minPlayers))) &&      (Number.isInteger(Number(state.maxPlayers)))) {
+            let min = Number(state.minPlayers);
+            let max = Number(state.maxPlayers);
 
-              if ((state.minPLayers < state.maxPlayers)) {
+              if (min < max) {
                   // calling the add a new game action
                   this.props.newGame(JSON.stringify(gameItem));
                   // navigating to the specified endpoint after submitting game
@@ -71,13 +75,13 @@ class GameForm extends Component {
                     playerAgeRange: 'under 7'
                   });
               } else {
-                  this.props.setAlert('Maximum players must be greater than Minimum players')
+                  this.props.setAlert({type: 'error', message: 'Maximum players must be greater than Minimum players'})
               };
           } else {
-            this.props.setAlert('Minimum / Maximum players must be numbers');
+            this.props.setAlert({type: 'error', message: 'Minimum / Maximum players must be numbers'});
           };
       } else {
-        this.props.setAlert('All fields are required');
+        this.props.setAlert({type: 'error', message: 'All fields are required'});
       };
     };
   };
@@ -138,4 +142,4 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch)
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GameForm)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(GameForm));

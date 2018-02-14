@@ -24,7 +24,7 @@ class Login extends Component {
   handleLogin = (event) => {
     event.preventDefault();
     if ((!this.state.email) || (!this.state.password)) {
-      this.props.setAlert("Must enter an email address and password to log in");
+      this.props.setAlert({type: 'error', message: 'Must enter an email address and password to log in'});
     } else {
       this.setState({
         loggingIn: true

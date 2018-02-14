@@ -25,7 +25,7 @@ class Register extends Component {
   handleRegister = (event) => {
     event.preventDefault();
     if ((!this.state.email) || (!this.state.username) || (!this.state.password)) {
-      this.props.setAlert("Must enter an email address, username, and password to register");
+      this.props.setAlert({type: 'error', message: 'Must enter an email address, username, and password to register'});
     } else {
       const register = this.props.register;
       register(this.state, () => {

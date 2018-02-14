@@ -7,7 +7,6 @@
 */
 
 .Alert {
-  background-color: rgba(255, 83, 61, 0.9);
   border-radius: 5px;
   color: white;
   display: flex;
@@ -20,13 +19,13 @@
   top: 4rem;
   left: 0.55rem;
   z-index: 5;
-  transition: top 0.3s;
+  transition: top 0.3s, background-color 0.4s ease;
 }
 
 .Alert.hide {
   position: fixed;
   top: -8rem;
-  transition: top 0.3s;
+  transition: top 0.3s, background-color 0.4s ease;
 }
 
 .alert-message {

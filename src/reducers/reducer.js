@@ -9,7 +9,7 @@ const initialState = {
     user: { username: null, email: null },
     selectedGame: '',
     loggedIn: false,
-    alert: null
+    alert: { type: null, message: null }
 };
 
 // TODO create DELETE_GAME, DELETE_HOUSE_RULES and create thier actions. Need some help from the backend to receive the proper info
