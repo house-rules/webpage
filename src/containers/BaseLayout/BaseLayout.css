@@ -46,7 +46,7 @@
   width: 50%;
 }
 
-.Logo img {
+.BaseLayout .Logo img {
   margin-right: 0.5rem;
   width: 15%;
 }

@@ -15,7 +15,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  overflow: scroll; 
+  overflow: scroll;
   width: 100%;
   text-align: center;
   z-index: 3;
@@ -45,7 +45,7 @@
     100%{background-position:0% 0%}
 }
 
-.Splash .Logo img {
+.Splash .Main-Logo img {
   padding: 1rem;
   height: 55%;
   width: 40%;
@@ -64,7 +64,7 @@
   }
 }
 
-.Logo {
+.Main-Logo {
   width: 100%;
   /* flex-basis: 50%; */
   min-height: 50vh;
