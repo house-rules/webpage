@@ -19,13 +19,13 @@
   text-align: center;
   z-index: 3;
   /* for the background gradient animation */
-  /* background: linear-gradient(165deg, #fdfdff 33%, #2cf 65%); */
   background: linear-gradient(165deg, #02558b 33%, #2cf 65%);
   background-size: 225% 225%;
   -webkit-animation: changeBackGround 12s ease-in-out infinite;
   -moz-animation: changeBackGround 12s ease-in-out infinite;
   animation: changeBackGround 12s ease-in-out infinite;
 }
+
 @-webkit-keyframes changeBackGround {
     0%{background-position:-0% -0%}
     40%{background-position: 20% 50%}
@@ -42,17 +42,11 @@
     100%{background-position:0% 0%}
 }
 
-/* .Logo {
-  flex-basis: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .Splash .Logo img {
   padding: 1rem;
   height: 55%;
   width: 40%;
+  margin: 2rem 0rem 0rem;
   animation: 0.9s ease-in 0s 1 imageScale;
 }
 

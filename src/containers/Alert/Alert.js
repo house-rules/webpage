@@ -6,12 +6,11 @@ import './Alert.css';
 class Alert extends Component {
 
   render() {
-    console.log(this.props.alert);
     let classNm,
         blue = 'rgba(34, 204, 255, 0.9)',
         red  = 'rgba(255, 83, 61, 0.9)',
         gray = 'rgba(125,125,125,0.8)';
-        
+
     if (this.props.alert.message === null) {
       classNm = "Alert hide"
     } else {

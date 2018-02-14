@@ -35,19 +35,17 @@ class Splash extends Component {
 
         {this.props.user.username !== null ?
           <div className="enter">
-            <p key={1} className="welcome">
+            <p className="welcome">
               {"Welcome back " + this.props.user.username}
             </p>
-            <p key={2} className="not-me">{'Not ' + this.props.user.username + '? '}
+            <p className="not-me">{'Not ' + this.props.user.username + '? '}
               <span onClick={() => this.props.destroyCookie()}>
                 Log in
               </span>
             </p>
-            <Link key={3} to="/webpage/games" className="btn">Enter</Link>
+            <Link to="/webpage/games" className="btn">Enter</Link>
           </div> : ''}
 
-        {/*!this.props.token ? '' :
-          <Link to="/webpage/games" className="btn">Enter</Link> */}
 
           {this.props.token ? '' :
           <div className="login-register">
