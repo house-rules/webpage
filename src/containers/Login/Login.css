@@ -1,6 +1,7 @@
 .Login {
   text-align: center;
   flex-basis: 5%;
+  margin-top: 0;
 }
 
 .Login input {

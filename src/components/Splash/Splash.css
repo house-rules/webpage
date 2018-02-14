@@ -16,7 +16,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  transition: justify-content 0.5s;
+  text-align: center;
   z-index: 3;
   /* for the background gradient animation */
   /* background: linear-gradient(165deg, #fdfdff 33%, #2cf 65%); */
@@ -42,8 +42,16 @@
     100%{background-position:0% 0%}
 }
 
-.Splash img {
+/* .Logo {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.Splash .Logo img {
   padding: 1rem;
+  height: 55%;
   width: 40%;
   animation: 0.9s ease-in 0s 1 imageScale;
 }
@@ -59,12 +67,21 @@
   }
 }
 
-.Splash h3 {
-  display: none;
+.Logo {
+  width: 100%;
+  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enter, .login-register {
+  color: white;
+  width: 100%;
+  flex-basis: 50%;
 }
 
 .welcome {
-  color: white;
   font-size: 1.2rem;
   margin-bottom: 0rem;
   text-transform: capitalize;
@@ -105,4 +122,8 @@
     opacity: 1;
     transform: translateY(0%);
   }
+}
+
+.Splash .form-group {
+  padding-top: 0;
 }

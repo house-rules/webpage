@@ -26,41 +26,44 @@ class Splash extends Component {
   render() {
     return(
       <div className="Splash">
-        <img src={require('../../images/house-rules-white-red.png')} alt="#"/>
+
+        <div className='Logo'>
+          <img src={require('../../images/house-rules-white-red.png')} alt="#"/>
+        </div>
+
+
 
         {this.props.user.username !== null ?
-          <p className="welcome">
-            {"Welcome back " + this.props.user.username}
-          </p> : ''}
+          <div className="enter">
+            <p key={1} className="welcome">
+              {"Welcome back " + this.props.user.username}
+            </p>
+            <p key={2} className="not-me">{'Not ' + this.props.user.username + '? '}
+              <span onClick={() => this.props.destroyCookie()}>
+                Log in
+              </span>
+            </p>
+            <Link key={3} to="/webpage/games" className="btn">Enter</Link>
+          </div> : ''}
 
-        {this.props.user.username !== null ?
-          <p className="not-me">{'Not ' + this.props.user.username + '? '}
-            <span onClick={() => this.props.destroyCookie()}>
-              Log in
-            </span>
-          </p> : ''}
+        {/*!this.props.token ? '' :
+          <Link to="/webpage/games" className="btn">Enter</Link> */}
 
-        {!this.props.token ? '' :
-          <Link to="/webpage/games" className="btn">Enter</Link> }
-
-        {this.props.token ? '' : this.state.showRegister ?
-          <Register /> :
-          <Login user={this.props.user} /> }
-
-        {this.props.token ? '' :
-          <p className='not-member'>
-            {this.state.showRegister ? 'Already a member?' : 'Not a member?'}
-            <span onClick={() => this.setState({showRegister: !this.state.showRegister})}>
-              {this.state.showRegister ? 'Log In' : 'Sign up'}
-            </span>
-          </p>}
+          {this.props.token ? '' :
+          <div className="login-register">
+            {this.state.showRegister ? <Register /> : <Login user={this.props.user} />}
+            <p className='not-member'>
+              {this.state.showRegister ? 'Already a member?' : 'Not a member?'}
+              <span onClick={() => this.setState({showRegister: !this.state.showRegister})}>
+                {this.state.showRegister ? 'Log In' : 'Sign up'}
+              </span>
+            </p>
+          </div>}
 
       </div>
     );
   }
 };
-
-const link = <Link to="/webpage/games" className="btn">Enter</Link>;
 
 const mapStateToProps = (state) => {
   return {
