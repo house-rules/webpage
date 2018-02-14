@@ -21,6 +21,8 @@
   /* for the background gradient animation */
   background: linear-gradient(165deg, #02558b 33%, #2cf 65%);
   background-size: 225% 225%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   -webkit-animation: changeBackGround 12s ease-in-out infinite;
   -moz-animation: changeBackGround 12s ease-in-out infinite;
   animation: changeBackGround 12s ease-in-out infinite;
@@ -73,8 +75,10 @@
 .enter, .login-register {
   color: white;
   width: 100%;
-  /* flex-basis: 50%; */
   height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .welcome {
@@ -97,7 +101,7 @@
 
 .not-member {
   color: rgba(255,255,255,0.6);
-  margin-top: 5rem;
+  margin-top: 0rem;
 }
 
 .Splash a {

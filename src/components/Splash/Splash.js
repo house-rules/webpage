@@ -47,16 +47,16 @@ class Splash extends Component {
           </div> : ''}
 
 
-          {this.props.token ? '' :
-          <div className="login-register">
-            {this.state.showRegister ? <Register /> : <Login user={this.props.user} />}
-            <p className='not-member'>
-              {this.state.showRegister ? 'Already a member?' : 'Not a member?'}
-              <span onClick={() => this.setState({showRegister: !this.state.showRegister})}>
-                {this.state.showRegister ? 'Log In' : 'Sign up'}
-              </span>
-            </p>
-          </div>}
+        {this.props.token ? '' :
+        <div className="login-register">
+          {this.state.showRegister ? <Register /> : <Login user={this.props.user} />}
+          <p className='not-member'>
+            {this.state.showRegister ? 'Already a member?' : 'Not a member?'}
+            <span onClick={() => this.setState({showRegister: !this.state.showRegister})}>
+              {this.state.showRegister ? 'Log In' : 'Sign up'}
+            </span>
+          </p>
+        </div>}
 
       </div>
     );
