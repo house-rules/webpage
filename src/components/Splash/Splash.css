@@ -10,12 +10,12 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100vh;
+  justify-content: space-between;
+  min-height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 100%;
+  width: 100%;
   text-align: center;
   z-index: 3;
   /* for the background gradient animation */
@@ -63,7 +63,8 @@
 
 .Logo {
   width: 100%;
-  flex-basis: 50%;
+  /* flex-basis: 50%; */
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,7 +73,8 @@
 .enter, .login-register {
   color: white;
   width: 100%;
-  flex-basis: 50%;
+  /* flex-basis: 50%; */
+  height: 50vh;
 }
 
 .welcome {
