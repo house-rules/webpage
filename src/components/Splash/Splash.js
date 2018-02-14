@@ -24,16 +24,38 @@ class Splash extends Component {
   // will render when current endpoint doesnt match an routes in index.js
   // For example: When running as a PWA on initial load.
   render() {
+    console.log(this.state);
     return(
       <div className="Splash">
         <img src={require('../../images/house-rules-white-red.png')} alt="#"/>
 
-        {this.props.user.username !== null ? <p className="welcome">{"Welcome back " + this.props.user.username}</p> : ''}
-        {this.props.user.username !== null ? <p className="not-me">{'Not ' + this.props.user.username + '? ' }<span onClick={() => this.props.destroyCookie()}>Log in.</span></p> : ''}
+        {this.props.user.username !== null ?
+          <p className="welcome">
+            {"Welcome back " + this.props.user.username}
+          </p> : ''}
 
-        {!this.props.token ? '' : link }
+        {this.props.user.username !== null ?
+          <p className="not-me">{'Not ' + this.props.user.username + '? '}
+            <span onClick={() => this.props.destroyCookie()}>
+              Log in
+            </span>
+          </p> : ''}
 
-        {this.props.token ? '' : <Login user={this.props.user} /> }
+        {!this.props.token ? '' :
+          <Link to="/webpage/games" className="btn">Enter</Link> }
+
+        {this.props.token ? '' : this.state.showRegister ?
+          <Register /> :
+          <Login user={this.props.user} /> }
+
+        {this.props.token ? '' :
+          <p className='not-member'>
+            {this.state.showRegister ? 'Already a member?' : 'Not a member?'}
+            <span onClick={() => this.setState({showRegister: !this.state.showRegister})}>
+              {this.state.showRegister ? 'Log In' : 'Sign up'}
+            </span>
+          </p>}
+
       </div>
     );
   }

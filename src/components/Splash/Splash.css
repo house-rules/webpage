@@ -76,8 +76,14 @@
   text-transform: capitalize;
 }
 
-.not-me span {
+.not-me span, .not-member span {
   color: #ff533d;
+  margin-left: 0.75rem;
+}
+
+.not-member {
+  color: rgba(255,255,255,0.6);
+  margin-top: 5rem;
 }
 
 .Splash a {

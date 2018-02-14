@@ -149,7 +149,15 @@ export const newAlternate = (payload) => {
   return(dispatch, getState) => {
     return services.addHouseRules(payload)
             .then(data => {
-              dispatch(addAlternate(data))
-            })
-  }
-}
+              if (data.errors) {
+                dispatch(setAlert({type: 'error', message: data.errors}));
+                return data.errors;
+              } else {
+                dispatch(addAlternate(data))
+                dispatch(setAlert({type: 'success', message: data.title + ' added successfully'}))
+                return data;
+              }
+
+            });
+  };
+};

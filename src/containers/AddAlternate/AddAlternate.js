@@ -29,21 +29,17 @@ class AddAlternate extends Component {
         rules: event.target.value
       })
 
-      if ((this.state.title !== "") &&
-          (this.state.objective !== "") &&
-          (this.state.rules) !== "") {
+      if ((this.state.title !== "") && (this.state.objective !== "") && (this.state.rules) !== "") {
 
-        this.props.newAlternate({ id: this.props.game.id, state: this.state})
+          this.props.newAlternate({ id: this.props.game.id, state: this.state})
       } else {
-        let fields = []
-        // checking all fields for empty strings
-        for (var prop in this.state) {
-          if (this.state[prop] === '') {
-            fields.push(" " + prop.toUpperCase())
-          } else {
-            // fields.push(this.state[prop])
-          }
-        };
+          let fields = []
+          // checking all fields for empty strings
+          for (var prop in this.state) {
+            if (this.state[prop] === '') {
+              fields.push(" " + prop)
+            }
+          };
         this.props.setAlert({type: 'error', message: `${fields} fields cannot be empty`});
       };
     }
