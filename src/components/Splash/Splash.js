@@ -21,10 +21,9 @@ class Splash extends Component {
     }
   };
 
-  // will render when current endpoint doesnt match an routes in index.js
+  // will render this Component when current endpoint doesnt match any routes in index.js
   // For example: When running as a PWA on initial load.
   render() {
-    console.log(this.state);
     return(
       <div className="Splash">
         <img src={require('../../images/house-rules-white-red.png')} alt="#"/>

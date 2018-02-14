@@ -43,10 +43,12 @@ export const register = (fields) => {
       return services.register(fields)
              .then(data =>{
                if (data.errors) {
-                 return dispatch(setAlert({type: 'error', message: data.errors}));
+                 dispatch(setAlert({type: 'error', message: data.errors}));
+                 return data;
                } else {
                  dispatch(setAlert({type: 'success', message: fields.username + ' successfully registered'}))
                  dispatch(login({email: fields.email, password: fields.password, username: fields.username}))
+                 return data;
                }
              });
     };

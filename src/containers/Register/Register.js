@@ -28,8 +28,10 @@ class Register extends Component {
       this.props.setAlert({type: 'error', message: 'Must enter an email address, username, and password to register'});
     } else {
       const register = this.props.register;
+
+      // TODO fix this fetch call to make it a promise for navigation purposes
       register(this.state, () => {
-        this.getEndpoint('/webpage/games');
+        this.props.history.replace('/webpage/games');
         this.setState({
           email: "",
           username: "",
