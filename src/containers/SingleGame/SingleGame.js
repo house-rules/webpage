@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { gameSelected } from '../../actions/action';
+import TraditionalRules from '../../components/TraditionalRules/TraditionalRules';
 import AddAlternate from '../AddAlternate/AddAlternate';
 import AlternatesList from '../AlternatesList/AlternatesList';
 import TopButton from '../../components/TopButton/TopButton';
@@ -16,7 +17,7 @@ class SingleGame extends Component {
       openAlternatesForm: false,
       openReadMore: false
     }
-  }
+  };
 
   handleDeleteGame = (gameId) => {
     services.deleteGame(gameId);
@@ -29,7 +30,6 @@ class SingleGame extends Component {
 
   render() {
     let game = this.props.selectedGame;
-    let gameCategory = this.props.selectedGame.category;
     if (!game) {
       // using a fetch call if the filter is undefined
       const id = this.props.match.params.id;
@@ -37,7 +37,7 @@ class SingleGame extends Component {
       .then(data => {
         this.props.gameSelected(data);
       });
-    }
+    };
 
     return (
       <div className="singleGame" id="singleGame">
@@ -59,7 +59,7 @@ class SingleGame extends Component {
           <div className='alert icon_bar'>
 
             <div>
-              <i className="material-icons group" id={game.category}>{utils.getIconType(gameCategory)}</i>
+              <i className="material-icons group" id={game.category}>{utils.getIconType(game.category)}</i>
               <p>Category</p>
               <p>{game.category}</p>
             </div>
@@ -83,22 +83,7 @@ class SingleGame extends Component {
             <p>{game.objective}</p>
           </div>
 
-          <div className='house_rules alert normal_rules'>
-            <div>
-              <h4>Traditional rules</h4>
-              <div className="alt_games_link " onClick={() => utils.scrollTo('altGamesList')}>...or try a different spin on the game</div>
-            </div>
-          </div>
-
-          <p id="game_rules"
-            style={this.state.openReadMore ? {height: "auto", transition: 'height 0.5s'} : {height: '12rem', transition: 'height 0.5s'} }>
-            {game.rules}
-          </p>
-
-          <div className="read_more" id="read_more"
-            onClick={() => this.setState({openReadMore: !this.state.openReadMore})}>
-            {this.state.openReadMore ? "Read Less" : "Read more"}
-          </div>
+          <TraditionalRules rules={game.rules}/>
 
           {this.props.loggedIn ?
             <button className='btn arrowButton' data-toggle="collapse" data-target="#demo"onClick={() => this.setState({openAlternatesForm: !this.state.openAlternatesForm})}>
