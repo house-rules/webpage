@@ -70,7 +70,7 @@ class BaseLayout extends Component {
           <nav className={this.state.navOpen ? "topnav responsive" : 'topnav'} id="myNavBar">
 
             <Link className="Logo" to='#' onClick={() => this.handleNavigation('/webpage/games')}>
-              <img src={require('../../images/house-rules-white.png')} alt="#"/>
+              <img src={require('../../images/house-rules-white-red.png')} alt="#"/>
               <span>House Rules</span>
             </Link>
 
