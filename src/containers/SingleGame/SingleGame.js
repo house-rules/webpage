@@ -10,33 +10,13 @@ import utils from '../../utilities/utilities';
 import './SingleGame.css';
 
 class SingleGame extends Component {
-
-  // TODO need to use state to manipulate dom, not getElementById.
-  arrowToggle = () => {
-    var backArrow = document.getElementById('myArrow');
-
-    if (backArrow.className === "material-icons") {
-      backArrow.className += " rotate";
-    } else {
-      backArrow.className = "material-icons";
+  constructor() {
+    super()
+    this.state = {
+      openAlternatesForm: false,
+      openReadMore: false
     }
-  };
-
-  // TODO need to use state to manipulate dom, not getElementById.
-  toggleReadMore = () => {
-    let gameRules = document.getElementById('game_rules');
-    let readMore = document.getElementById('read_more');
-
-    if (gameRules.style.height === "auto") {
-      gameRules.style.height = "12rem";
-      gameRules.style.transition = "height 0.5s";
-      readMore.textContent = "Read more";
-    } else {
-      gameRules.style.height="auto";
-      gameRules.style.transition = 'height 0.5s';
-      readMore.textContent = "Read Less";
-    }
-  };
+  }
 
   handleDeleteGame = (gameId) => {
     services.deleteGame(gameId);
@@ -48,17 +28,16 @@ class SingleGame extends Component {
   };
 
   render() {
-        if (!this.props.selectedGame) {
-          // using a fetch call if the filter is undefined
-          const id = this.props.match.params.id;
-          services.fetchSingleGame(id)
-          .then(data => {
-            this.props.gameSelected(data);
-          });
-        }
-
-        let game = this.props.selectedGame;
-        let gameCategory = this.props.selectedGame.category;
+    let game = this.props.selectedGame;
+    let gameCategory = this.props.selectedGame.category;
+    if (!game) {
+      // using a fetch call if the filter is undefined
+      const id = this.props.match.params.id;
+      services.fetchSingleGame(id)
+      .then(data => {
+        this.props.gameSelected(data);
+      });
+    }
 
     return (
       <div className="singleGame" id="singleGame">
@@ -111,24 +90,29 @@ class SingleGame extends Component {
             </div>
           </div>
 
-          <p id="game_rules">{game.rules}</p>
-          <div className="read_more" id="read_more" onClick={() => this.toggleReadMore()}>Read more</div>
+          <p id="game_rules"
+            style={this.state.openReadMore ? {height: "auto", transition: 'height 0.5s'} : {height: '12rem', transition: 'height 0.5s'} }>
+            {game.rules}
+          </p>
+
+          <div className="read_more" id="read_more"
+            onClick={() => this.setState({openReadMore: !this.state.openReadMore})}>
+            {this.state.openReadMore ? "Read Less" : "Read more"}
+          </div>
 
           {this.props.loggedIn ?
-            <button className='btn arrowButton' data-toggle="collapse" data-target="#demo"onClick={this.arrowToggle}>
+            <button className='btn arrowButton' data-toggle="collapse" data-target="#demo"onClick={() => this.setState({openAlternatesForm: !this.state.openAlternatesForm})}>
               Add Rules
-              <i className="material-icons" id="myArrow">add</i>
+              <i className={this.state.openAlternatesForm ? "material-icons rotate" : 'material-icons'} id="myArrow">add</i>
             </button>
           : '' }
 
           {this.props.loggedIn ? <div id="demo" className="collapse">
-            <AddAlternate game={this.props.selectedGame} history={this.props.history} arrowToggle={() => this.arrowToggle()} />
+            <AddAlternate game={this.props.selectedGame} />
           </div> : ''}
 
           <div id="altGamesList">
-
             <AlternatesList />
-
           </div>
 
         </div>
