@@ -15,9 +15,11 @@ class SingleGame extends Component {
     super()
     this.state = {
       openAlternatesForm: false,
-      openReadMore: false
+      normalRules: true
     }
   };
+
+  //TODO change this component to hide alternate rules and the addRules component. Have a window that only shows the active component on button press. Either <TraditionalRules/>, <AlternatesList/>, or <AddAlternate/>
 
   handleDeleteGame = (gameId) => {
     services.deleteGame(gameId);
@@ -54,6 +56,11 @@ class SingleGame extends Component {
               </Link>
             </div>
 
+            <div className='alert game_objective'>
+              <h5>How to Win</h5>
+              <p>{game.objective}</p>
+            </div>
+
           </div>
 
           <div className='alert icon_bar'>
@@ -78,12 +85,26 @@ class SingleGame extends Component {
 
           </div>
 
-          <div className='alert game_objective'>
-            <h5>How to Win</h5>
-            <p>{game.objective}</p>
+
+          <div className="rules-buttons">
+            <div className={this.state.normalRules ? "btn active" : "btn"}
+              onClick={() => this.setState({normalRules: true})}>
+              Traditional Rules
+            </div>
+            <div className={!this.state.normalRules ? "btn active" : "btn"}
+              onClick={() => this.setState({normalRules: false})}>
+              House Rules
+            </div>
           </div>
 
-          <TraditionalRules rules={game.rules}/>
+          {this.state.normalRules ?
+             <TraditionalRules rules={game.rules}/> :
+             <div id="altGamesList">
+               <AlternatesList />
+             </div>}
+
+
+
 
           {this.props.loggedIn ?
             <button className='btn arrowButton' data-toggle="collapse" data-target="#demo"onClick={() => this.setState({openAlternatesForm: !this.state.openAlternatesForm})}>
@@ -96,9 +117,7 @@ class SingleGame extends Component {
             <AddAlternate game={this.props.selectedGame} />
           </div> : ''}
 
-          <div id="altGamesList">
-            <AlternatesList />
-          </div>
+
 
         </div>
 

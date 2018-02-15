@@ -24,10 +24,11 @@
 }
 
 .singleGame .title_block {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  min-height: 10rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  min-height: 20rem;
 }
 
 .arrow_container {
@@ -74,11 +75,11 @@
 }
 
 .icon_bar {
-  border-bottom: 1px solid lightgray;
+  /* border-bottom: 1px solid lightgray; */
   border-radius: 0px;
   display: flex;
   justify-content: space-around;
-  margin: 0rem auto;
+  margin: 2rem auto;
   padding: 1rem;
   width: 100%;
 }
@@ -117,14 +118,39 @@
 }
 
 .game_objective {
-  background: linear-gradient(155deg, #02558b, #2cf);
+  /* background: linear-gradient(155deg, #02558b, #2cf); */
   border-radius: 0px;
   color: white;
+  color: gray;
   display: flex;
   flex-direction: column;
+  flex-basis: 100%;
   justify-content: space-around;
   min-height: 7rem;
-  text-align: center;
+  text-align: left;
+}
+
+.game_objective h5 {
+  color: #02558b;
+}
+
+.rules-buttons {
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  margin-top: 3rem;
+}
+
+.rules-buttons .btn {
+  background-color: #02558b;
+  color: white;
+  flex-basis: 40%;
+  transition: background-color 0.4s;
+}
+
+.rules-buttons .btn.active {
+  background-color: #ff533d;
+  transition: background-color 0.4s;
 }
 
 .house_rules {
