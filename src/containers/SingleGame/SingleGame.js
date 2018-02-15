@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { gameSelected } from '../../actions/action';
 import AddAlternate from '../AddAlternate/AddAlternate';
+import AlternatesList from '../AlternatesList/AlternatesList';
 import TopButton from '../../components/TopButton/TopButton';
 import services from '../../services/services';
 import utils from '../../utilities/utilities';
@@ -42,58 +43,19 @@ class SingleGame extends Component {
     this.props.history.push('/webpage/games');
   };
 
-  mapAlternates = (alternates) => {
-    return alternates.map((game) => {
-      return (
-        <div className="each_alternate card-block" key={game.id}>
-          <div className="alt_game_label">
-            <div className="initial_container">
-              <h3 className="alternate_initial">
-                <img src={require('../../images/house-rules-white.png')} alt="#"/>
-              </h3>
-            </div>
-            <div className="title_container">
-              <h4 className="alternate_title">{game.title}</h4>
-            </div>
-
-            <button className='btn arrowButton2' data-toggle="collapse" data-target={"#" + game.id}><i className="material-icons" id="myArrow">expand_more</i></button>
-          </div>
-
-          <div id={game.id} className="collapse alt_rules">
-
-            <Link to="#" id="delete_rules_button" className="btn" onClick={() => services.deleteHouseRules(`${this.props.selectedGame.id}`, `${game.id}`)}><i className="material-icons">delete</i></Link>
-
-            <div>
-              <h5 className="game_labels">Objective</h5>
-              <h4>{game.objective}</h4>
-              <h5 className="game_labels">New Rules</h5>
-              <p>{game.rules}</p>
-            </div>
-          </div>
-
-        </div>
-      )
-    });
-
-  }
-
   componentDidMount() {
     utils.scrollTo('myNavBar');
   };
 
   render() {
-        let alternatesList;
         if (!this.props.selectedGame) {
           // using a fetch call if the filter is undefined
           const id = this.props.match.params.id;
           services.fetchSingleGame(id)
           .then(data => {
             this.props.gameSelected(data);
-            alternatesList =  this.mapAlternates(data.alternates)
           });
-        } else {
-          alternatesList = this.mapAlternates(this.props.alternates);
-        };
+        }
 
         let game = this.props.selectedGame;
         let gameCategory = this.props.selectedGame.category;
@@ -164,9 +126,8 @@ class SingleGame extends Component {
           </div> : ''}
 
           <div id="altGamesList">
-            <h3 className="alt_list_header">{alternatesList && alternatesList.length === 0 ? 'Be the first to add House Rules for this game' : 'House Rules'}</h3>
 
-              {alternatesList}
+            <AlternatesList />
 
           </div>
 
@@ -191,7 +152,6 @@ const mapStateToProps = (state) => {
   return {
     gamesList: state.gamesList,
     selectedGame: state.selectedGame,
-    alternates: state.selectedGame.alternates,
     loggedIn: !!state.token
   }
 };
