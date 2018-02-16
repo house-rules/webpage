@@ -298,8 +298,9 @@
 }
 
 .alt_list_header {
-  color: #02558b;
+  color: gray;
   padding: 1rem;
+  text-align: center;
 }
 
 .each_alternate {

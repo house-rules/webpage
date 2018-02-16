@@ -63,7 +63,7 @@ class AlternatesList extends Component {
     }
     return(
       <div className="AlternatesList">
-        <h3 className="alt_list_header">{alternatesList && alternatesList.length === 0 ? 'Be the first to add House Rules for this game' : ''}</h3>
+        <h5 className="alt_list_header">{alternatesList && alternatesList.length === 0 ? 'Be the first to add House Rules for this game!' : ''}</h5>
         {alternatesList}
 
         {this.props.loggedIn ?
