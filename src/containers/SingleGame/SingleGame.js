@@ -17,8 +17,7 @@ class SingleGame extends Component {
     }
   };
 
-  //TODO change this component to hide alternate rules and the addRules component. Have a window that only shows the active component on button press. Either <TraditionalRules/>, <AlternatesList/>, or <AddAlternate/>
-
+  //TODO add navigation to the traditional and house rules buttons to slide the view down once clicked.
   handleDeleteGame = (gameId) => {
     services.deleteGame(gameId);
     this.props.history.push('/webpage/games');
