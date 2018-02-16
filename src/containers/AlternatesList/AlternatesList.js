@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AddAlternate from '../AddAlternate/AddAlternate';
 import services from '../../services/services';
+import utils from '../../utilities/utilities';
 import './AlternatesList.css';
 
 class AlternatesList extends Component {
@@ -12,6 +13,13 @@ class AlternatesList extends Component {
       openAlternatesForm: false
     }
   }
+
+  openForm = (element) => {
+    this.setState({openAlternatesForm: !this.state.openAlternatesForm});
+    if (!this.state.openAlternatesForm) {
+      setTimeout(() => utils.scrollTo(element), 400);
+    }
+  };
 
   mapAlternates = (alternates) => {
     return alternates.map((game) => {
@@ -59,7 +67,7 @@ class AlternatesList extends Component {
         {alternatesList}
 
         {this.props.loggedIn ?
-          <button className='btn arrowButton' data-toggle="collapse" data-target="#demo"onClick={() => this.setState({openAlternatesForm: !this.state.openAlternatesForm})}>
+          <button className='btn arrowButton' data-toggle="collapse" data-target="#demo"onClick={() => this.openForm('bottom')}>
             Add Your Own Rules
             <i className={this.state.openAlternatesForm ? "material-icons rotate" : 'material-icons'} id="myArrow">add</i>
           </button>
