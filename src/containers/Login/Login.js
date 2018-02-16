@@ -18,8 +18,9 @@ class Login extends Component {
   handleUpdateState = (field) => {
     return (event) => {
       this.setState({[field]: event.target.value})
+      event.preventDefault();
     }
-  }
+  };
 
   handleLogin = (event) => {
     event.preventDefault();
@@ -48,11 +49,16 @@ class Login extends Component {
   render() {
     return(
       <div className='form-group Login'>
-        <input type='text' className="form-control" placeholder='Email' value={this.state.email} onChange={this.handleUpdateState('email')}/>
+        <form onSubmit={this.handleLogin}>
+          <input type='text' className="form-control"
+          placeholder='Email'  value={this.state.email}
+          onChange={this.handleUpdateState('email')}/>
 
-        <input type='password' className="form-control" placeholder='Password' value={this.state.password} onChange={this.handleUpdateState('password')}/>
+          <input type='password' className="form-control" placeholder='Password' value={this.state.password}
+          onChange={this.handleUpdateState('password')}/>
 
-        <button className='btn' type='submit'onClick={this.handleLogin}>{this.state.loggingIn ? 'Logging in ...' : 'Log In'}</button>
+          <button className='btn' type='submit'>{this.state.loggingIn ? 'Logging in ...' : 'Log In'}</button>
+        </form>
       </div>
     )
   }

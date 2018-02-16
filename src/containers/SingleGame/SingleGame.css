@@ -136,20 +136,25 @@
 
 .rules-buttons {
   align-items: center;
-  justify-content: space-around;
+  border-bottom: 1rem solid #02558b;
   display: flex;
+  justify-content: space-around;
   margin-top: 3rem;
 }
 
 .rules-buttons .btn {
-  background-color: #02558b;
+  background-color: #ff533d;
+  border: none;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   color: white;
-  flex-basis: 40%;
+  flex-basis: 50%;
   transition: background-color 0.4s;
 }
 
 .rules-buttons .btn.active {
-  background-color: #ff533d;
+  background-color: #02558b;
+  border: none;
   transition: background-color 0.4s;
 }
 

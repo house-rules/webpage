@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import App from './containers/App/App.js';
+// import App from './containers/App/App.js';
 import registerServiceWorker from './registerServiceWorker';
 
 // additional imports from react-router-dom and redux

@@ -55,8 +55,13 @@ label input {
   font-size: 1.25rem;
 }
 
-textarea {
+textarea, textarea:before, textarea:after {
   height: 9rem;
+  -webkit-user-select: initial;
+  -khtml-user-select: initial;
+  -moz-user-select: initial;
+  -ms-user-select: initial;
+  user-select: initial;
   resize: none;
 }
 

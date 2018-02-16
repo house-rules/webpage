@@ -4,9 +4,15 @@
   margin-top: 0;
 }
 
-.Login input {
+.Login input, .Login input:before, .Login input:after {
   margin: 1rem auto 0rem;
   width: 80%;
+  -webkit-user-select: initial;
+  -khtml-user-select: initial;
+  -moz-user-select: initial;
+  -ms-user-select: initial;
+  user-select: initial;
+  z-index: 5000;
 }
 
 .Login .btn {

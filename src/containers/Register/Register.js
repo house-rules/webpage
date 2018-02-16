@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { register, setAlert } from '../../actions/action';
 import './Register.css';
@@ -54,6 +54,11 @@ class Register extends Component {
         <button className='btn' type='submit'onClick={this.handleRegister}>
           Sign Up
         </button>
+
+        <div className="browse">
+          <Link to='/webpage/games'>
+            ... or <span>Browse</span> our selection of games to play</Link>
+        </div>
 
       </div>
     )

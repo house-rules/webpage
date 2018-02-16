@@ -3,8 +3,13 @@
   flex-basis: 5%;
 }
 
-.Signup input {
+.Signup input, .Signup input:before, .Signup input:after {
   margin: 1rem auto 0rem;
+  -webkit-user-select: initial;
+  -khtml-user-select: initial;
+  -moz-user-select: initial;
+  -ms-user-select: initial;
+  user-select: initial;
   width: 80%;
 }
 
@@ -14,4 +19,16 @@
   color: #fdfdff;
   margin-top: 1rem;
   width: 8rem;
+}
+
+.Signup .browse {
+  margin-top: 1.5rem;
+}
+
+.Signup .browse a {
+  background-color: transparent;
+}
+
+.Signup .browse a span {
+  color: #ff533d;
 }
