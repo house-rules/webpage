@@ -12,12 +12,12 @@ export default class TraditionalRules extends Component {
   render() {
     return(
         [
-        <p key={2} id="game_rules"
-          style={this.state.openReadMore ? {height: "auto", transition: 'height 0.5s'} : {height: '12rem', transition: 'height 0.5s'} }>
+        <p key={1} id="game_rules"
+          style={this.state.openReadMore ? {height: "auto", transition: 'height 0.5s'} : {height: '15rem', transition: 'height 0.5s'} }>
           {this.props.rules}
         </p>,
 
-        <div key={3} className="read_more" id="read_more"
+        <div key={2} className="read_more btn" id="read_more"
           onClick={() => this.setState({openReadMore: !this.state.openReadMore})}>
           {this.state.openReadMore ? "Read Less" : "Read more"}
         </div>
@@ -25,10 +25,3 @@ export default class TraditionalRules extends Component {
     )
   }
 };
-
-// <div key={1} className='house_rules alert normal_rules'>
-//   <div>
-//     <h4>Traditional rules</h4>
-//     <div className="alt_games_link " onClick={() => utils.scrollTo('altGamesList')}>...or try a different spin on the game</div>
-//   </div>
-// </div>,
