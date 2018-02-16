@@ -28,7 +28,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  min-height: 25rem;
+  min-height: 20rem;
   padding-top: 2rem;
 }
 
