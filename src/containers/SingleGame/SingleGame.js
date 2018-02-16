@@ -65,7 +65,7 @@ class SingleGame extends Component {
             <div>
               <i className="material-icons group" id={game.category}>{utils.getIconType(game.category)}</i>
               <p>Category</p>
-              <p>{game.category}</p>
+              <p>{game.category === 'recreational sports' ? 'sports' : game.category}</p>
             </div>
 
             <div>
