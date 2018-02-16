@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
-import { destroyCookie, loadTokenFromCookie } from '../../actions/action';
+import { destroyCookie, loadTokenFromCookie, setAlert } from '../../actions/action';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Alert from '../Alert/Alert';
@@ -58,8 +58,13 @@ class BaseLayout extends Component {
 
     let navLinks = navOptions.map((nav, index) => {
       return  <Link key={index}
-              className={nav.className} to='#' onClick={() => this.handleNavigation(`${nav.endpoint}`)}>
-                <i className="material-icons" style={nav.style ? nav.style : {}}>{nav.icon}</i>
+                className={nav.className} to='#'
+                onClick={nav.text === "Add Game" ? this.props.token ?
+                () => this.handleNavigation(`${nav.endpoint}`)
+                : () => this.props.setAlert({type: 'error', message: 'Must be logged in to add a game'})
+                : () => this.handleNavigation(`${nav.endpoint}`)}>
+                <i className="material-icons"
+                  style={nav.style ? nav.style : {}}>{nav.icon}</i>
                 {nav.text}
               </Link>
     })
@@ -101,7 +106,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     destroyCookie: destroyCookie,
-    loadToken: loadTokenFromCookie
+    loadToken: loadTokenFromCookie,
+    setAlert: setAlert
   }, dispatch)
 
 };
