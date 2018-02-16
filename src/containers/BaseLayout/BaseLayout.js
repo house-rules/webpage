@@ -56,6 +56,7 @@ class BaseLayout extends Component {
       {className: "LogOutLink", endpoint: '/webpage/login', icon: 'power_settings_new', text: logInOut, style: iconColor},
     ];
 
+    // TODO for the error message that pops up, I want a button that will navigate to login if pressed.
     let navLinks = navOptions.map((nav, index) => {
       return  <Link key={index}
                 className={nav.className} to='#'
