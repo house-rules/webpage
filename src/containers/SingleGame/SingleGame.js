@@ -17,7 +17,12 @@ class SingleGame extends Component {
     }
   };
 
-  //TODO add navigation to the traditional and house rules buttons to slide the view down once clicked.
+  // navigation to the traditional and house rules buttons to slide the view down once clicked.
+  handleRulesNav = (boolean, element) => {
+    this.setState({normalRules: boolean});
+    setTimeout(() => utils.scrollTo(element), 400);
+  }
+
   handleDeleteGame = (gameId) => {
     services.deleteGame(gameId);
     this.props.history.push('/webpage/games');
@@ -85,11 +90,11 @@ class SingleGame extends Component {
 
           <div className="rules-buttons">
             <div className={this.state.normalRules ? "btn active" : "btn"}
-              onClick={() => this.setState({normalRules: true})}>
+              onClick={() => this.handleRulesNav(true, 'bottom')}>
               Traditional Rules
             </div>
             <div className={!this.state.normalRules ? "btn active" : "btn"}
-              onClick={() => this.setState({normalRules: false})}>
+              onClick={() => this.handleRulesNav(false, 'bottom')}>
               House Rules
             </div>
           </div>
@@ -111,6 +116,8 @@ class SingleGame extends Component {
 
         {/*<div className="footer">
         </div>*/}
+
+        <div id="bottom"></div>
 
       </div>
     );

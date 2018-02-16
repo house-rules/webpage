@@ -67,8 +67,6 @@ class AddAlternate extends Component {
           <button className="btn" onClick={this.handleSubmit(`/webpage/games/${this.props.game.id}`)}>Submit</button>
         </div>
         
-        <div id="bottom"></div>
-
       </div>
     );
   }
