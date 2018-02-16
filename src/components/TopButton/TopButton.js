@@ -19,7 +19,7 @@ export default class TopButton extends Component {
   };
 
   showButton = () => {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
       this.setState({buttonShown: true});
     } else {
       this.setState({buttonShown: false});

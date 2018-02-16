@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { gameSelected } from '../../actions/action';
 import TraditionalRules from '../../components/TraditionalRules/TraditionalRules';
-import AddAlternate from '../AddAlternate/AddAlternate';
 import AlternatesList from '../AlternatesList/AlternatesList';
 import TopButton from '../../components/TopButton/TopButton';
 import services from '../../services/services';
@@ -14,7 +13,6 @@ class SingleGame extends Component {
   constructor() {
     super()
     this.state = {
-      openAlternatesForm: false,
       normalRules: true
     }
   };
@@ -103,33 +101,17 @@ class SingleGame extends Component {
                <AlternatesList />
              </div>}
 
-
-
-
-          {this.props.loggedIn ?
-            <button className='btn arrowButton' data-toggle="collapse" data-target="#demo"onClick={() => this.setState({openAlternatesForm: !this.state.openAlternatesForm})}>
-              Add Rules
-              <i className={this.state.openAlternatesForm ? "material-icons rotate" : 'material-icons'} id="myArrow">add</i>
-            </button>
-          : '' }
-
-          {this.props.loggedIn ? <div id="demo" className="collapse">
-            <AddAlternate game={this.props.selectedGame} />
-          </div> : ''}
-
-
-
         </div>
 
         {/*add this back in the delete_button after user login works---
           onClick={() => this.handleDeleteGame(`${game.id}`)}*/}
 
-        <Link to="#" id="delete_button" className="btn" ><i className="material-icons">delete</i></Link>
+        {/*<Link to="#" id="delete_button" className="btn" ><i className="material-icons">delete</i></Link>*/}
 
         <TopButton />
 
-        <div className="footer">
-        </div>
+        {/*<div className="footer">
+        </div>*/}
 
       </div>
     );
@@ -139,8 +121,7 @@ class SingleGame extends Component {
 const mapStateToProps = (state) => {
   return {
     gamesList: state.gamesList,
-    selectedGame: state.selectedGame,
-    loggedIn: !!state.token
+    selectedGame: state.selectedGame
   }
 };
 

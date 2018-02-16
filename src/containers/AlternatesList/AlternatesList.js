@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import AddAlternate from '../AddAlternate/AddAlternate';
 import services from '../../services/services';
 import './AlternatesList.css';
 
 class AlternatesList extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      openAlternatesForm: false
+    }
+  }
 
   mapAlternates = (alternates) => {
     return alternates.map((game) => {
@@ -50,6 +57,17 @@ class AlternatesList extends Component {
       <div className="AlternatesList">
         <h3 className="alt_list_header">{alternatesList && alternatesList.length === 0 ? 'Be the first to add House Rules for this game' : ''}</h3>
         {alternatesList}
+
+        {this.props.loggedIn ?
+          <button className='btn arrowButton' data-toggle="collapse" data-target="#demo"onClick={() => this.setState({openAlternatesForm: !this.state.openAlternatesForm})}>
+            Add Your Rules
+            <i className={this.state.openAlternatesForm ? "material-icons rotate" : 'material-icons'} id="myArrow">add</i>
+          </button>
+        : '' }
+
+        {this.props.loggedIn ? <div id="demo" className="collapse">
+          <AddAlternate game={this.props.selectedGame} />
+        </div> : ''}
       </div>
     )
   }
@@ -57,7 +75,9 @@ class AlternatesList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    alternates: state.selectedGame.alternates
+    selectedGame: state.selectedGame,
+    alternates: state.selectedGame.alternates,
+    loggedIn: !!state.token
   }
 };
 
