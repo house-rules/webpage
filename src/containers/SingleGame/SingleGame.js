@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { gameSelected } from '../../actions/action';
 import TraditionalRules from '../../components/TraditionalRules/TraditionalRules';
 import AlternatesList from '../AlternatesList/AlternatesList';
-import TopButton from '../../components/TopButton/TopButton';
+// import TopButton from '../../components/TopButton/TopButton';
 import services from '../../services/services';
 import utils from '../../utilities/utilities';
 import './SingleGame.css';

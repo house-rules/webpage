@@ -60,7 +60,7 @@ class AlternatesList extends Component {
 
         {this.props.loggedIn ?
           <button className='btn arrowButton' data-toggle="collapse" data-target="#demo"onClick={() => this.setState({openAlternatesForm: !this.state.openAlternatesForm})}>
-            Add Your Rules
+            Add Your Own Rules
             <i className={this.state.openAlternatesForm ? "material-icons rotate" : 'material-icons'} id="myArrow">add</i>
           </button>
         : '' }

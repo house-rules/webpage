@@ -140,8 +140,9 @@
   align-items: center;
   border-bottom: 0.6rem solid #02558b;
   display: flex;
-  justify-content: space-around;
-  margin-top: 3rem;
+  justify-content: space-between;
+  margin: 3rem auto 0rem;
+  width: 95%;
 }
 
 .rules-buttons .btn {
@@ -153,7 +154,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-basis: 47%;
+  flex-basis: 50%;
   font-size: 1.3rem;
   height: 3rem;
   transition: background-color 0.4s;
@@ -184,10 +185,14 @@
 }
 
 .arrowButton {
+  align-items: center;
   border-radius: 3px;
-  margin: 0rem auto 0.5rem;
-  padding-bottom: 2rem;
-  width: 60%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  height: 3rem;
+  margin: 2rem auto 0rem;
+  width: 80%;
 }
 
 .arrowButton2 {
