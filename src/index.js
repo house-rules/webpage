@@ -2,10 +2,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-// import App from './containers/App/App.js';
 import registerServiceWorker from './registerServiceWorker';
 
-// additional imports from react-router-dom and redux
+// additional imports from react-router-dom, redux, and other npm packages
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -13,7 +12,7 @@ import reduxThunk from 'redux-thunk';
 import reducers from './reducers/reducer';
 import Cookies from 'js-cookie';
 
-// import components and containers here
+// importing components and containers here. These are my page views.
 import Splash from './components/Splash/Splash';
 import BaseLayout from './containers/BaseLayout/BaseLayout';
 import GameList from './containers/GameList/GameList';
@@ -28,6 +27,7 @@ const store = createStore(
     )
 );
 
+// checking to see if there are cookies for authentication
 const loggedIn = () => {
   let cookie = Cookies.get('token');
     return !!cookie;
@@ -49,15 +49,6 @@ ReactDOM.render(
         <Route exact path='/webpage/about' component={About} />
         <Route exact path='/' component={Splash} />
         <Route component={Splash} />
-        {/*<Route exact path='/webpage/games/:id' render={() => (
-          loggedIn() ? <SingleGame/> : <Redirect to="/webpage/login"/>
-        )} />*/}
-        {/*}<Route exact path='/webpage/games' component={() => (
-          loggedIn() ? <GameList/> : <Redirect to="/webpage/login"/>
-        )} />*/}
-        {/*<Route exact path='/webpage/about' render={() => (
-          loggedIn() ? <About/> : <Redirect to="/webpage/logout"/>
-        )} />*/}
       </Switch>
     </BaseLayout>
   </BrowserRouter>

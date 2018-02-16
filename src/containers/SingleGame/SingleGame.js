@@ -107,7 +107,7 @@ class SingleGame extends Component {
 
         {/*<Link to="#" id="delete_button" className="btn" ><i className="material-icons">delete</i></Link>*/}
 
-        <TopButton />
+        {/*<TopButton />*/}
 
         {/*<div className="footer">
         </div>*/}
