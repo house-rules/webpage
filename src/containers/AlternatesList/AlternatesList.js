@@ -86,7 +86,7 @@ class AlternatesList extends Component {
     }
     return(
       <div className="AlternatesList">
-        <h5 className="alt_list_header">{alternatesList && alternatesList.length === 0 ? 'Be the first to add House Rules for this game!' : ''}</h5>
+        <h5 className="alt_list_header" style={alternatesList && alternatesList.length === 0 ? {display: 'block'} : {display: 'none'}}>{alternatesList && alternatesList.length === 0 ? 'Be the first to add House Rules for this game!' : ''}</h5>
 
         {alternatesList}
 

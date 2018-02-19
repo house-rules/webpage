@@ -14,6 +14,7 @@
   /* padding-top: 1rem; */
   background: linear-gradient(#02558b, #eee);
   margin: 0rem auto;
+  padding-top: 1.5rem;
   width: 100%;
 }
 
@@ -26,7 +27,7 @@
   background-color: white;
   border-radius: 3px;
   color: #02558b;
-  margin: 1.5rem auto;
+  margin: 0rem auto;
   padding: 1rem;
   text-align: center;
   width: 95%;
