@@ -1,0 +1,86 @@
+/***********************************
+  Mobile Alternate Games List Styling
+************************************/
+
+/* colors used:
+  #fdfdff
+  #ddd
+  #02558b
+  #2cf
+  #ff533d
+*/
+
+#altGamesList {
+  /* padding-top: 1rem; */
+  background-color: #02558b;
+  margin: 0rem auto;
+  width: 100%;
+}
+
+.alt_list_header {
+  color: gray;
+  padding: 1rem;
+  text-align: center;
+}
+
+.each_alternate {
+  background-color: rgba(255,255,255,1);
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px rgba(200, 200, 200, 0.6);
+  margin: 0px auto 0.7rem auto;
+  min-height: 5rem;
+  padding: 1rem;
+  padding-left: 1rem;
+  width: 95%;
+}
+
+.each_alternate .alt_game_label {
+  align-items: baseline;
+  display: flex;
+  /*justify-content: space-between;*/
+}
+
+.each_alternate .alternate_initial {
+  background-color: #ff533d;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 2rem;
+  padding: 0.3rem 0.6rem 0.6rem;
+  margin: 0rem 2rem 0rem 1rem;
+  text-transform: lowercase;
+
+  display: none;
+}
+
+.alternate_initial img {
+  width: 2rem;
+}
+
+.title_container {
+  flex: 1 0 60%;
+}
+
+.each_alternate .alternate_title {
+  color: #2cf;
+  text-align: left;
+}
+
+.each_alternate .arrowButton {
+  color: gray;
+  flex-basis: 10%;
+  margin: 0rem;
+  padding: 0rem;
+}
+
+.each_alternate .alternate_objective, .each_alternate .alternate_rules {
+  color: gray;
+}
+
+.each_alternate .game_labels {
+  color: darkgray;
+  font-size: 0.9rem;
+  font-style: italic;
+  padding-top: 1.5rem;
+}

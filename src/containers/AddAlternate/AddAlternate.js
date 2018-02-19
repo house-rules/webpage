@@ -14,6 +14,8 @@ class AddAlternate extends Component {
     }
   }
 
+  //TODO I want to make this a modal so there will be less scrolling for the user.
+
   handleUpdateState = (field) => {
     return (event) => {
       this.setState({[field]: event.target.value})
@@ -66,7 +68,7 @@ class AddAlternate extends Component {
         <div className="form_submits">
           <button className="btn" onClick={this.handleSubmit(`/webpage/games/${this.props.game.id}`)}>Submit</button>
         </div>
-        
+
       </div>
     );
   }
