@@ -52,7 +52,9 @@ class GameList extends Component {
 
         <GameFilter />
 
-        {gamesList.length ? gamesList : this.state.loader}
+        <div className='games-container'>
+         {gamesList.length ? gamesList : this.state.loader}
+        </div>
 
         {this.props.loggedIn ?
         <div>

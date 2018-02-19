@@ -136,23 +136,53 @@ Mobile Game List Page Styling
   bottom: 0rem;
 }*/
 
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
+
+@media screen and (min-width: 800px) {
+
+  .games-container {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0rem auto;
+    width: 90%;
   }
 
-}
+  .each_game {
+    flex-basis: 20%;
+    padding: 0;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
 
-@keyframes slideOutToLeft {
-  0% {
-    display: block;
-    transform: translateX(0);
+  .each_game a {
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
   }
-  100% {
-    display: none;
-    transform: translateX(-10%);
+
+  .each_game:hover {
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.4);
+    transform: scale(1.03);
+    transition: transform 0.3s, box-shadow 0.3s;
   }
+
+  .each_game:hover a {
+    text-decoration: none;
+  }
+
+  .game_initial {
+    width: 22%;
+    margin: 0rem auto;
+  }
+
+  .game_initial i {
+    /* width: 100%; */
+  }
+
+  .click-arrow {
+    margin: 0;
+    transform: rotate(90deg);
+  }
+
+
+
 }

@@ -42,7 +42,6 @@ class BaseLayout extends Component {
     loadToken();
   }
 
-
   render () {
     let user = this.props.user ? `${this.props.user.username}` : ' ';
     let logInOut = this.props.token ? `Log Out • ${user}` : "Log In";

@@ -66,14 +66,6 @@ body {
     #ff533d
   */
 
-  .topnav, .login, .signup {
-    display: none;
-  }
-
-  .topnav .icon {
-    display: none;
-  }
-
   .App {
     padding: 3rem;
     min-height: 100vh;

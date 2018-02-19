@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Modal from 'react-modal';
 import AddAlternate from '../AddAlternate/AddAlternate';
 import services from '../../services/services';
-// import utils from '../../utilities/utilities';
 import './AlternatesList.css';
-import Modal from 'react-modal';
 
 const customStyles = {
   overlay: {

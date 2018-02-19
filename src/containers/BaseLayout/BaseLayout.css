@@ -147,3 +147,55 @@
 
   transition: transform 0.5s;
 }
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+
+}
+
+@keyframes slideOutToLeft {
+  0% {
+    display: block;
+    transform: translateX(0);
+  }
+  100% {
+    display: none;
+    transform: translateX(-10%);
+  }
+}
+
+@media screen and (min-width: 800px) {
+
+  .BaseLayout .Logo img {
+    margin-right: 0.5rem;
+    width: 5%;
+  }
+
+  .topnav {
+    display: flex;
+    float: none;
+    text-align: left;
+  }
+
+  .topnav a:not(:first-child) {
+    display: flex;
+    opacity: 1;
+    height: 20px;
+  }
+
+  .topnav #icon {
+    display: none;
+  }
+
+  .topnav .GamesLink, .topnav .NewGameLink, .topnav .AboutLink, .topnav .LogOutLink  {
+    display: flex;
+    align-items: center;
+    animation: none;
+  }
+
+}
