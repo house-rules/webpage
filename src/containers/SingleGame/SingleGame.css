@@ -138,9 +138,6 @@
 
 .rules-buttons {
   align-items: center;
-  /* border-bottom: 0.6rem solid #02558b; */
-  /* border-bottom-left-radius: 3px; */
-  /* border-bottom-right-radius: 3px; */
   display: flex;
   justify-content: space-between;
   margin: 3rem auto 0rem;
