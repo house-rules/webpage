@@ -107,10 +107,7 @@ class SingleGame extends Component {
 
         </div>
 
-        {/*add this back in the delete_button after user login works---
-          onClick={() => this.handleDeleteGame(`${game.id}`)}*/}
-
-        {/*<Link to="#" id="delete_button" className="btn" ><i className="material-icons">delete</i></Link>*/}
+        {/*<Link to="#" id="delete_button" className="btn" onClick={() => this.handleDeleteGame(`${game.id}`)}><i className="material-icons">delete</i></Link>*/}
 
         {/*<TopButton />*/}
 

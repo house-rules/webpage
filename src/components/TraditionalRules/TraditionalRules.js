@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import utils from '../../utilities/utilities';
+import './TraditionalRules.css';
 
 export default class TraditionalRules extends Component {
   constructor(props) {

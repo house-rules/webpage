@@ -1,0 +1,52 @@
+/***********************************
+  Traditional Rules Component Page Styling
+************************************/
+
+/* colors used:
+  #fdfdff
+  #ddd
+  #02558b
+  #2cf
+  #ff533d
+*/
+
+.normal_rules {
+  color: gray;
+  min-height: 6rem;
+}
+
+.normal_rules div {
+  width: 100%;
+}
+
+.traditional_rules {
+  background-color: #02558b;
+}
+
+#game_rules {
+  background-color: white;
+  box-shadow: inset 0px -3px 10px 3px rgba(200, 200, 200, 0.2);
+  border-radius: 3px;
+  color: gray;
+  font-size: 18px;
+  height: 12rem;
+  margin: 1rem auto 0rem;
+  overflow: hidden;
+  padding: 1rem;
+  width: 95%;
+  transition: height 0.5s;
+}
+
+.read_more {
+  align-items: center;
+  background-color: #ff533d;
+  color: white;
+  display: flex;
+  font-size: 1.1rem;
+  justify-content: center;
+  height: 3rem;
+  margin: 0rem auto;
+  padding: 0rem;
+  text-transform: uppercase;
+  width: 65%;
+}
