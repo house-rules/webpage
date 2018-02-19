@@ -20,7 +20,7 @@
 }
 
 .traditional_rules {
-  background-color: #02558b;
+  background: linear-gradient(#02558b, #eee);
   padding-top: 1rem;
 }
 
@@ -31,7 +31,7 @@
   color: gray;
   font-size: 18px;
   height: 12rem;
-  margin: 1rem auto 0rem;
+  margin: 1rem auto 1rem;
   overflow: hidden;
   padding: 1rem;
   width: 95%;

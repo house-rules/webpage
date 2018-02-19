@@ -12,7 +12,7 @@
 
 #altGamesList {
   /* padding-top: 1rem; */
-  background-color: #02558b;
+  background: linear-gradient(#02558b, #eee);
   margin: 0rem auto;
   width: 100%;
 }

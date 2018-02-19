@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AddAlternate from '../AddAlternate/AddAlternate';
 import services from '../../services/services';
-import utils from '../../utilities/utilities';
+// import utils from '../../utilities/utilities';
 import './AlternatesList.css';
 import Modal from 'react-modal';
 
@@ -87,7 +87,7 @@ class AlternatesList extends Component {
     return(
       <div className="AlternatesList">
         <h5 className="alt_list_header">{alternatesList && alternatesList.length === 0 ? 'Be the first to add House Rules for this game!' : ''}</h5>
-        
+
         {alternatesList}
 
         {this.props.loggedIn ?

@@ -141,7 +141,7 @@
   display: flex;
   justify-content: space-between;
   margin: 3rem auto 0rem;
-  width: 98%;
+  width: 100%;
 }
 
 .rules-buttons .btn {

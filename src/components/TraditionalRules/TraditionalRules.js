@@ -16,7 +16,7 @@ export default class TraditionalRules extends Component {
           <p id="game_rules"
             style={this.state.openReadMore ? {height: "auto", transition: 'height 0.5s'} : {height: '15rem', transition: 'height 0.5s'} }>
             {this.props.rules}
-          </p>,
+          </p>
 
           <div className="read_more btn" id="read_more"
             onClick={() => this.setState({openReadMore: !this.state.openReadMore})}>
