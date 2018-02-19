@@ -12,7 +12,7 @@
 
 .alternateForm {
   /*background-color: #02558b;*/
-  background: linear-gradient(155deg, #02558b, #2cf);
+  /* background: linear-gradient(155deg, #02558b, #2cf); */
   background: linear-gradient(#02558b, #eee);
   border-radius: 4px;
   padding: 2rem 1rem;

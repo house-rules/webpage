@@ -23,9 +23,13 @@
 }
 
 .alt_list_header {
-  color: gray;
+  background-color: white;
+  border-radius: 3px;
+  color: #02558b;
+  margin: 1.5rem auto;
   padding: 1rem;
   text-align: center;
+  width: 95%;
 }
 
 .arrowButton, .arrowButton2 {
