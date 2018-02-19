@@ -49,7 +49,7 @@ class AddAlternate extends Component {
 
   render() {
     return (
-      <div className="alternateForm">
+      <div className="alternateForm modal_header">
 
         <h4>Add your favorite house rules</h4>
 

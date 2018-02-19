@@ -13,6 +13,7 @@
 .alternateForm {
   /*background-color: #02558b;*/
   background: linear-gradient(155deg, #02558b, #2cf);
+  border-radius: 4px;
   padding: 2rem 1rem;
 }
 
@@ -33,4 +34,8 @@
 .alternateForm .btn {
   background-color: #ff533d;
   color: white;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open {
+  background-color: transparent;
 }

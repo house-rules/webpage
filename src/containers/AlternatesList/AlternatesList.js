@@ -5,14 +5,44 @@ import AddAlternate from '../AddAlternate/AddAlternate';
 import services from '../../services/services';
 import utils from '../../utilities/utilities';
 import './AlternatesList.css';
+import Modal from 'react-modal';
+
+const customStyles = {
+  overlay: {
+    position          : 'fixed',
+    top               : 0,
+    left              : 0,
+    right             : 0,
+    bottom            : 0,
+    backgroundColor   : 'rgba(0, 0, 0, 0.8)'
+  },
+  content: {
+    position              : 'absolute',
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    background            : 'transparent',
+    border                : 'none',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
 
 class AlternatesList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      openAlternatesForm: false
+      openAlternatesForm: false,
+      isModalOpen: false,
     }
   }
+
+  toggle = () => {
+   this.setState({
+     isModalOpen: !this.state.isModalOpen
+   });
+ };
 
   openForm = (element) => {
     this.setState({openAlternatesForm: !this.state.openAlternatesForm});
@@ -57,7 +87,8 @@ class AlternatesList extends Component {
   };
 
   render() {
-    let alternatesList
+    let n = 1;
+    let alternatesList;
     if (this.props.alternates) {
       alternatesList =  this.mapAlternates(this.props.alternates)
     }
@@ -67,7 +98,7 @@ class AlternatesList extends Component {
         {alternatesList}
 
         {this.props.loggedIn ?
-          <button className='btn arrowButton' data-toggle="collapse" data-target="#demo"onClick={() => this.openForm('bottom')}>
+          <button className='btn arrowButton' onClick={() => this.toggle()}>
             Add Your Own Rules
             <i className={this.state.openAlternatesForm ? "material-icons rotate" : 'material-icons'} id="myArrow">add</i>
           </button>
@@ -76,6 +107,19 @@ class AlternatesList extends Component {
         {this.props.loggedIn ? <div id="demo" className="collapse">
           <AddAlternate game={this.props.selectedGame} />
         </div> : ''}
+
+        <Modal
+          isOpen={this.state.isModalOpen}
+          onRequestClose={this.toggle}
+          closeTimeoutMS={n}
+          shouldCloseOnOverlayClick={true}
+          style={customStyles}
+          contentLabel="Modal">
+          <div className="modal_background">
+            <AddAlternate game={this.props.selectedGame} toggle={this.toggle}/>
+          </div>
+        </Modal>
+
       </div>
     )
   }
