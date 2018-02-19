@@ -33,22 +33,14 @@ class AlternatesList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      openAlternatesForm: false,
-      isModalOpen: false,
+      isModalOpen: false
     }
   }
 
-  toggle = () => {
+  toggleModal = () => {
    this.setState({
      isModalOpen: !this.state.isModalOpen
    });
- };
-
-  openForm = (element) => {
-    this.setState({openAlternatesForm: !this.state.openAlternatesForm});
-    if (!this.state.openAlternatesForm) {
-      setTimeout(() => utils.scrollTo(element), 400);
-    }
   };
 
   mapAlternates = (alternates) => {
@@ -95,28 +87,26 @@ class AlternatesList extends Component {
     return(
       <div className="AlternatesList">
         <h5 className="alt_list_header">{alternatesList && alternatesList.length === 0 ? 'Be the first to add House Rules for this game!' : ''}</h5>
+        
         {alternatesList}
 
         {this.props.loggedIn ?
-          <button className='btn arrowButton' onClick={() => this.toggle()}>
+          <button className='btn arrowButton' onClick={() => this.toggleModal()}>
             Add Your Own Rules
-            <i className={this.state.openAlternatesForm ? "material-icons rotate" : 'material-icons'} id="myArrow">add</i>
+            <i className={this.state.isModalOpen ? "material-icons rotate" : 'material-icons'} id="myArrow">add</i>
           </button>
         : '' }
 
-        {this.props.loggedIn ? <div id="demo" className="collapse">
-          <AddAlternate game={this.props.selectedGame} />
-        </div> : ''}
-
         <Modal
           isOpen={this.state.isModalOpen}
-          onRequestClose={this.toggle}
+          onRequestClose={this.toggleModal}
           closeTimeoutMS={n}
           shouldCloseOnOverlayClick={true}
           style={customStyles}
+          ariaHideApp={false}
           contentLabel="Modal">
           <div className="modal_background">
-            <AddAlternate game={this.props.selectedGame} toggle={this.toggle}/>
+            <AddAlternate game={this.props.selectedGame} toggleModal={this.toggleModal}/>
           </div>
         </Modal>
 

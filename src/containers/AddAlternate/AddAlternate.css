@@ -35,7 +35,3 @@
   background-color: #ff533d;
   color: white;
 }
-
-.ReactModal__Content.ReactModal__Content--after-open {
-  background-color: transparent;
-}

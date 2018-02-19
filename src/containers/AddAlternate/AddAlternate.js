@@ -54,7 +54,7 @@ class AddAlternate extends Component {
         <h4>Add your favorite house rules</h4>
 
         <div>
-          <input className="form-control" onChange={this.handleUpdateState('title')} value={this.state.title} placeholder="Game Title" required autoFocus/>
+          <input className="form-control" onChange={this.handleUpdateState('title')} value={this.state.title} placeholder="Game Title" required/>
         </div>
 
         <div>
