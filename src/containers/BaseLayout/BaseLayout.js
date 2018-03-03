@@ -91,7 +91,7 @@ class BaseLayout extends Component {
 
           </nav>*/}
 
-          <nav className='topnav'>
+          <nav id="myNavBar" className='topnav'>
             <Link className="Logo" to='#' onClick={() => this.handleNavigation('/webpage/games')}>
               <img src={require('../../images/house-rules-white-red.png')} alt="#"/>
               <span>House Rules</span>
