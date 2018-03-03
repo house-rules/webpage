@@ -38,7 +38,6 @@ class BaseLayout extends Component {
   }
 
   createNavLinks = () => {
-    let navLinks;
     let user = this.props.user ? `${this.props.user.username}` : ' ';
     let logInOut = this.props.token ? `Log Out • ${user}` : "Log In";
     let iconColor = this.props.token ? {color: '#ff533d', transform: 'scale(1)'} : {};
@@ -52,7 +51,7 @@ class BaseLayout extends Component {
     ];
 
     // TODO for the error message that pops up, I want a button that will navigate to login if pressed.
-    return navLinks = navOptions.map((nav, index) => {
+    return navOptions.map((nav, index) => {
       return  <Link key={index}
                 className={nav.className} to='#'
                 onClick={nav.text === "Add Game" ? this.props.token ?
@@ -72,11 +71,12 @@ class BaseLayout extends Component {
   }
 
   render () {
+    let user = this.props.user ? this.props.user : ' ';
 
     return (
       <div className='BaseLayout'>
 
-          <nav className={this.state.navOpen ? "topnav responsive" : 'topnav'} id="myNavBar">
+          {/*<nav className={this.state.navOpen ? "topnav responsive" : 'topnav'} id="myNavBar">
 
             <Link className="Logo" to='#' onClick={() => this.handleNavigation('/webpage/games')}>
               <img src={require('../../images/house-rules-white-red.png')} alt="#"/>
@@ -89,9 +89,9 @@ class BaseLayout extends Component {
               &#9776;
             </div>
 
-          </nav>
+          </nav>*/}
 
-          {/*<nav className='topnav'>
+          <nav className='topnav'>
             <Link className="Logo" to='#' onClick={() => this.handleNavigation('/webpage/games')}>
               <img src={require('../../images/house-rules-white-red.png')} alt="#"/>
               <span>House Rules</span>
@@ -103,14 +103,26 @@ class BaseLayout extends Component {
           </nav>
 
           <div className={this.state.navOpen ? "menu shown" : "menu"}>
-            <div className="links">
-             {navLinks}
+            <div className='menu-bg'>
+
+              <div className="links">
+                <div className='links-top'>
+                  <div className="gradient">
+                    <h2 className="menu-user">{user.username}</h2>
+                    <p>Welcome!</p>
+                  </div>
+                </div>
+                <div className="links-bottom">
+                  {this.createNavLinks()}
+                </div>
+              </div>
+              <div className="close-menu">
+                <i className="material-icons"
+                onClick={this.navToggle}>close</i>
+              </div>
+
             </div>
-            <div className="close-menu">
-              <i className="material-icons"
-              onClick={this.navToggle}>close</i>
-            </div>
-          </div>*/}
+          </div>
 
           <Alert />
 
