@@ -3,6 +3,28 @@
   flex-basis: 5%;
 }
 
+.Signup input {
+  background-color: rgba(200,200,200,0.0);
+  border: none;
+  border: 2px solid rgba(200,200,200,0.6);
+  /* border-bottom: 2px solid rgba(200,200,200,0.6); */
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  transition: background-color 0.7s, border 0.7s;
+}
+
+.Signup input:focus {
+  background-color: rgba(0,0,0,0.2);
+  border: 2px solid rgba(255,255,255,1);
+  color: white;
+  transition: background-color 0.7s, border 0.7s;
+}
+
+.Signup input::placeholder {
+  color: white;
+}
+
 .Signup input, .Signup input:before, .Signup input:after {
   margin: 1rem auto 0rem;
   -webkit-user-select: initial;
@@ -17,7 +39,7 @@
   background-color: #ff533d;
   border-radius: 20px;
   color: #fdfdff;
-  margin-top: 1rem;
+  margin-top: 2rem;
   width: 8rem;
 }
 
