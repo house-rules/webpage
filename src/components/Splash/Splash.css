@@ -8,7 +8,7 @@
 
 .Splash {
   align-items: center;
-  background-image: url('../../images/sergi-viladesau-391230-unsplash.jpg');
+  background-image: url('../../images/playing_cards.png');
   background-size: cover;
   background-position: 100% 100%;
   display: flex;
@@ -18,11 +18,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  overflow: scroll;
+  overflow: hidden;
   width: 100%;
   text-align: center;
-  z-index: 3;
-
 }
 
 .Splash .wrapper {
@@ -34,7 +32,17 @@
   -webkit-animation: changeBackGround 12s ease-in-out infinite;
   -moz-animation: changeBackGround 12s ease-in-out infinite;
   animation: changeBackGround 12s ease-in-out infinite;
+  height: 100vh;
+  width: 100vw;
 }
+
+/* .Splash .wrapper .wrapper-bg img {
+  height: 100%;
+  width: 200vw;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+} */
 
 @-webkit-keyframes changeBackGround {
     0%{background-position:-0% -0%}
@@ -139,4 +147,21 @@
 
 .Splash .form-group {
   padding-top: 0;
+}
+
+@media screen and (min-width: 800px) {
+
+  .Splash {
+    background-position: center;
+  }
+
+  .Splash .wrapper {
+    width: 100%;
+  }
+
+  .Splash .Main-Logo img {
+    height: auto;
+    width: 15%;
+  }
+
 }

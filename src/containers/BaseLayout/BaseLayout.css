@@ -16,7 +16,7 @@
   overflow: hidden;
   transition: height 0.5s;
   width: 100%;
-
+  z-index: -5;
   /* margin-bottom: 1rem; */
 }
 
@@ -169,6 +169,78 @@
   }
 }
 
+.menu {
+  background-color: rgba(0,0,0,0);
+  background-size: 150%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  transform: translate(110vh, -7.5vh);
+  z-index: 5000;
+  transition: transform 0.4s, background-color 0.2s;
+}
+
+.links {
+  background: linear-gradient(135deg, #02558b, #2cf);
+  border-radius: 5px;
+  display: flex;
+  flex-flow: row wrap;
+  width: 70%;
+  height: 100%;
+  margin-right: auto;
+}
+
+.menu.shown {
+  background-color: rgba(0,0,0,0.6);
+  transform: translate(0vh, -7.5vh);
+  transition: transform 0.4s, background-color 0.8s;
+}
+
+.close-menu {
+  /* color: white; */
+  position: absolute;
+  right: 0.5rem;
+  top: 1rem;
+}
+
+.close-menu i {
+  color: white;
+  font-size: 36px;
+}
+
+.menu a {
+  background-color: #ff533d;
+  border: 1px solid gray;
+  border-radius: 5px;
+  align-items: center;
+  text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+  /* border: 1px solid rgba(0,0,0,1); */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 45%;
+  justify-content: center;
+  margin: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.menu a .material-icons {
+  font-size: 48px;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.menu a p {
+  color: white;
+}
+
+
+
+
 @media screen and (min-width: 800px) {
 
   .BaseLayout .Logo img {
@@ -196,6 +268,14 @@
     display: flex;
     align-items: center;
     animation: none;
+  }
+
+  .menu {
+    transform: translate(100vw, -7.5vh);
+  }
+
+  .menu.shown {
+    transform: translate(0vh, -7.5vh);
   }
 
 }

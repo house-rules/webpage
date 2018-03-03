@@ -34,7 +34,7 @@ class BaseLayout extends Component {
       this.props.destroyCookie();
     }
     this.props.history.replace(endpoint);
-    setTimeout(() => this.navToggle(endpoint), 300);
+    setTimeout(() => this.navToggle(endpoint), 200);
   }
 
   componentWillMount() {
@@ -45,7 +45,7 @@ class BaseLayout extends Component {
   render () {
     let user = this.props.user ? `${this.props.user.username}` : ' ';
     let logInOut = this.props.token ? `Log Out • ${user}` : "Log In";
-    let iconColor = this.props.token ? {color: '#ff533d', transform: 'scale(1.2)'} : {};
+    let iconColor = this.props.token ? {color: '#ff533d', transform: 'scale(1)'} : {};
 
     // creating the nav links below in a map fuction and keep code DRY
     const navOptions = [
@@ -65,7 +65,7 @@ class BaseLayout extends Component {
                 : () => this.handleNavigation(`${nav.endpoint}`)}>
                 <i className="material-icons"
                   style={nav.style ? nav.style : {}}>{nav.icon}</i>
-                {nav.text}
+                <p>{nav.text}</p>
               </Link>
     })
 
@@ -86,6 +86,27 @@ class BaseLayout extends Component {
             </div>
 
           </nav>
+
+          {/*<nav className='topnav'>
+            <Link className="Logo" to='#' onClick={() => this.handleNavigation('/webpage/games')}>
+              <img src={require('../../images/house-rules-white-red.png')} alt="#"/>
+              <span>House Rules</span>
+            </Link>
+
+            <div id='icon' className={this.state.navOpen ? 'icon rotate' : 'icon'} onClick={this.navToggle}>
+              &#9776;
+            </div>
+          </nav>
+
+          <div className={this.state.navOpen ? "menu shown" : "menu"}>
+            <div className="links">
+             {navLinks}
+            </div>
+            <div className="close-menu">
+              <i className="material-icons"
+              onClick={this.navToggle}>close</i>
+            </div>
+          </div>*/}
 
           <Alert />
 
