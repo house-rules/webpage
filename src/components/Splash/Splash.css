@@ -8,6 +8,9 @@
 
 .Splash {
   align-items: center;
+  background-image: url('../../images/sergi-viladesau-391230-unsplash.jpg');
+  background-size: cover;
+  background-position: 100% 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,8 +22,12 @@
   width: 100%;
   text-align: center;
   z-index: 3;
+
+}
+
+.Splash .wrapper {
   /* for the background gradient animation */
-  background: linear-gradient(165deg, #02558b 33%, #2cf 65%);
+  background: linear-gradient(165deg, rgba(2, 85, 139, 0.7) 33%, rgba(34, 204, 255, 0.7) 65%);
   background-size: 225% 225%;
   background-repeat: no-repeat;
   background-attachment: fixed;
