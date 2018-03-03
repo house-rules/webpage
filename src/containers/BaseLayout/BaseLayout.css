@@ -207,9 +207,9 @@
 }
 
 .links-top {
-  background-image: url('../../images/StockSnap_QDNG1EOEU4.jpg');
+  background-image: url('../../images/menu-background.jpeg');
   background-size: cover;
-  background-position: 10% 10%;
+  /* background-position: 10% 10%; */
 }
 
 .gradient {
