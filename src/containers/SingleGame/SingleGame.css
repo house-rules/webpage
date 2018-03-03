@@ -145,24 +145,27 @@
 }
 
 .rules-buttons .btn {
-  background-color: #ff533d;
+  /* background-color: #ff533d; */
+  background-color: #eee;
   border: none;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
-  color: white;
+  /* color: white; */
+  color: #ff533d;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-basis: 50%;
   font-size: 1.3rem;
   height: 3rem;
-  transition: background-color 0.4s;
+  transition: background-color 0.4s, color 0.4s;
 }
 
 .rules-buttons .btn.active {
   background-color: #02558b;
   border: none;
-  transition: background-color 0.4s;
+  color: white;
+  transition: background-color 0.4s, color 0.4s;
 }
 
 .btn i {

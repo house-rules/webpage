@@ -142,12 +142,13 @@ Mobile Game List Page Styling
   .games-container {
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-around;
     margin: 0rem auto;
-    width: 90%;
+    width: 85%;
   }
 
   .each_game {
-    flex-basis: 20%;
+    flex: 0 0 22%;
     padding: 0;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -160,7 +161,7 @@ Mobile Game List Page Styling
   }
 
   .each_game:hover {
-    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.4);
+    box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.4);
     transform: scale(1.03);
     transition: transform 0.3s, box-shadow 0.3s;
   }
@@ -170,7 +171,7 @@ Mobile Game List Page Styling
   }
 
   .game_initial {
-    width: 22%;
+    width: 24%;
     margin: 0rem auto;
   }
 

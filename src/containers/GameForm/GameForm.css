@@ -81,3 +81,20 @@ textarea, textarea:before, textarea:after {
 .another_game_link {
   color: #2cf;
 }
+
+@media screen and (min-width: 800px) {
+
+  .gameForm * {
+    margin: 0 auto 1rem;
+    width: 70%;
+  }
+
+  label input {
+    margin: 0;
+  }
+
+  .players-input {
+  width: 51%;
+  }
+
+}

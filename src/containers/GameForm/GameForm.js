@@ -108,7 +108,7 @@ class GameForm extends Component {
           </div>
         </fieldset>
 
-        <div className="" style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
+        <div className="players-input" style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
           <input style={{flexBasis: '40%'}} className="form-control" onChange={this.handleUpdateState('minPlayers')} value={this.state.minPlayers} placeholder="Minimum players" required/>
           <div style={{backgroundColor: '#02558b', width: '3rem', height: '0.2rem'}}></div>
           <input style={{flexBasis: '40%'}} className="form-control" onChange={this.handleUpdateState('maxPlayers')} value={this.state.maxPlayers} placeholder="Maximum players" required/>

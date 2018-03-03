@@ -61,3 +61,17 @@ Game Filter bar Styling
   font-size: 12px;
   min-width: 50%;
 }
+
+@media screen and (min-width: 800px) {
+
+  .GameList .filter-bar {
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    margin: 1rem auto;
+    width: 83%;
+  }
+
+
+
+
+}
