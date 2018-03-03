@@ -175,7 +175,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 102vh;
   width: 100vw;
   position: fixed;
   transform: translate(-110vh, -7.5vh);
@@ -257,7 +257,7 @@
 
 .menu.shown {
   background-color: rgba(0,0,0,0.6);
-  transform: translate(0vh, -7.5vh);
+  transform: translate(0vh, -8vh);
   transition: transform 0.4s, background-color 0.8s;
 }
 
