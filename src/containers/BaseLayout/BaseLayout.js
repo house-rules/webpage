@@ -37,12 +37,8 @@ class BaseLayout extends Component {
     setTimeout(() => this.navToggle(endpoint), 200);
   }
 
-  componentWillMount() {
-    const loadToken = this.props.loadToken;
-    loadToken();
-  }
-
-  render () {
+  createNavLinks = () => {
+    let navLinks;
     let user = this.props.user ? `${this.props.user.username}` : ' ';
     let logInOut = this.props.token ? `Log Out • ${user}` : "Log In";
     let iconColor = this.props.token ? {color: '#ff533d', transform: 'scale(1)'} : {};
@@ -56,7 +52,7 @@ class BaseLayout extends Component {
     ];
 
     // TODO for the error message that pops up, I want a button that will navigate to login if pressed.
-    let navLinks = navOptions.map((nav, index) => {
+    return navLinks = navOptions.map((nav, index) => {
       return  <Link key={index}
                 className={nav.className} to='#'
                 onClick={nav.text === "Add Game" ? this.props.token ?
@@ -68,6 +64,14 @@ class BaseLayout extends Component {
                 <p>{nav.text}</p>
               </Link>
     })
+  }
+
+  componentWillMount() {
+    const loadToken = this.props.loadToken;
+    loadToken();
+  }
+
+  render () {
 
     return (
       <div className='BaseLayout'>
@@ -79,7 +83,7 @@ class BaseLayout extends Component {
               <span>House Rules</span>
             </Link>
 
-            {navLinks}
+            {this.createNavLinks()}
 
             <div id='icon' className={this.state.navOpen ? 'icon rotate' : 'icon'} onClick={this.navToggle}>
               &#9776;
