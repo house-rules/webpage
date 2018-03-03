@@ -91,7 +91,7 @@ class GameForm extends Component {
       <div className="gameForm">
 
         <div className="">
-          <input className="form-control" onChange={this.handleUpdateState('title')} value={this.state.title} placeholder="Game title" required autoFocus/>
+          <input className="form-control" onChange={this.handleUpdateState('title')} value={this.state.title} placeholder="Game title" required/>
         </div>
 
         <fieldset className="">

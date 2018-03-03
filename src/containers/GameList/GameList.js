@@ -36,7 +36,12 @@ class GameList extends Component {
 
   componentDidMount() {
     // Function for the api 'GET' call. Returns the entire game list
-    this.props.getGameList();
+    if (this.props.gamesList.length === 0) {
+      console.log("no game list");
+      this.props.getGameList();
+    } else {
+      console.log(this.props.gamesList);
+    }
   };
 
   render () {

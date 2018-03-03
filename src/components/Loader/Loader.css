@@ -11,7 +11,9 @@ Spinning Loader Component Styling
 */
 
 .Loader {
+  background-color: #eee;
   padding-top: 6rem;
+  height: 92vh;
 }
 
 #spinner, #loading-message {
@@ -34,7 +36,7 @@ Spinning Loader Component Styling
   font-size: 48px;
   margin-top: 2rem;
   position: absolute;
-  left: 12rem;
+  left: 45%;
 
 }
 
@@ -42,21 +44,21 @@ Spinning Loader Component Styling
   0% {
     color: #ff533d;
     align-self: flex-start;
-    left: -1rem;
-    margin-top: 0.75rem;
+    /* left: -1rem; */
+    /* margin-top: 0.75rem; */
     transform: rotateZ(0deg);
   }
   7% {
     margin-top: 2rem;
   }
   10% {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
   13% {
     margin-top: 2rem;
   }
   16% {
-    margin-top: 1.3rem;
+    margin-top: 1rem;
   }
   19% {
     margin-top: 2rem;
@@ -66,10 +68,25 @@ Spinning Loader Component Styling
   }
   25% {
     color: #02558b;
+    margin-top: 1rem;
+  }
+  28% {
     margin-top: 2rem;
+  }
+  31% {
+    margin-top: 1.8rem;
   }
   50% {
     color: #2cf;
+    margin-top: 2rem;
+  }
+  65% {
+    margin-top: 2rem;
+  }
+  68% {
+    margin-top: 1.8rem;
+  }
+  71% {
     margin-top: 2rem;
   }
   95% {
@@ -78,7 +95,7 @@ Spinning Loader Component Styling
   100% {
     color: #ff533d;
     align-self: center;
-    left: 15rem;
+    /* left: 15rem; */
     margin-top: 2rem;
     transform: rotateZ(1710deg);
   }

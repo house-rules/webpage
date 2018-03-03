@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import Login from '../../containers/Login/Login';
 import Register from '../../containers/Register/Register';
-import { destroyCookie } from '../../actions/action';
+import { destroyCookie, getGameList } from '../../actions/action';
 import './Splash.css';
 
 class Splash extends Component {
@@ -19,6 +20,7 @@ class Splash extends Component {
     if (!this.props.token) {
       this.setState({showLogin: true})
     }
+    this.props.getGameList();
   };
 
   // will render this Component when current endpoint doesnt match any routes in index.js
@@ -70,10 +72,10 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    destroyCookie: () =>
-      dispatch(destroyCookie())
-  }
+  return bindActionCreators({
+    destroyCookie: destroyCookie,
+    getGameList: getGameList
+  }, dispatch)
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);
