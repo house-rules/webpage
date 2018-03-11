@@ -11,7 +11,8 @@
 }
 
 .topnav {
-  background: linear-gradient(155deg, #02558b 30%, #2cf );
+  /* background: linear-gradient(155deg, #02558b 30%, #2cf ); */
+  background-color: #02558b;
   height: 55px;
   overflow: hidden;
   transition: height 0.5s;

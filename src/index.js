@@ -20,6 +20,7 @@ import GameForm from './containers/GameForm/GameForm';
 import SingleGame from './containers/SingleGame/SingleGame';
 import About from './components/About/About';
 
+// creating the redux store with middleware
 const store = createStore(
     reducers,
     compose(
