@@ -10,7 +10,7 @@
    }
   ],
   "start_url": "/webpage/",
-  "display": "standalone",
+  "display": "minimal-ui",
   "orientation": "portrait",
   "theme_color": "#02558b",
   "background_color": "#02558b"
