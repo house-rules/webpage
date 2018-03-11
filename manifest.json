@@ -9,8 +9,8 @@
     "density": "4.0"
    }
   ],
-  "start_url": "./webpage/",
-  "display": "standalone",
+  "start_url": "/?utm_source=homescreen",
+  "display": "fullscreen",
   "orientation": "portrait",
   "theme_color": "#02558b",
   "background_color": "#02558b"
