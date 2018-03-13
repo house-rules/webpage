@@ -9,9 +9,9 @@
     "density": "4.0"
    }
   ],
-  "start_url": "/webpage/",
-  "display": "minimal-ui",
-  "orientation": "portrait",
+  "start_url": "./index.html",
+  "display": "standalone",
   "theme_color": "#02558b",
-  "background_color": "#02558b"
+  "background_color": "#02558b",
+  "orientation": "portrait"
 }
