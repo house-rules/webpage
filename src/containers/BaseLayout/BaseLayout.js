@@ -76,21 +76,6 @@ class BaseLayout extends Component {
     return (
       <div className='BaseLayout'>
 
-          {/*<nav className={this.state.navOpen ? "topnav responsive" : 'topnav'} id="myNavBar">
-
-            <Link className="Logo" to='#' onClick={() => this.handleNavigation('/webpage/games')}>
-              <img src={require('../../images/house-rules-white-red.png')} alt="#"/>
-              <span>House Rules</span>
-            </Link>
-
-            {this.createNavLinks()}
-
-            <div id='icon' className={this.state.navOpen ? 'icon rotate' : 'icon'} onClick={this.navToggle}>
-              &#9776;
-            </div>
-
-          </nav>*/}
-
           <nav id="myNavBar" className='topnav'>
             <Link className="Logo" to='#' onClick={() => this.handleNavigation('/webpage/games')}>
               <img src={require('../../images/house-rules-white-red.png')} alt="#"/>

@@ -69,70 +69,8 @@
   width: 2rem;
 }
 
-.topnav .GamesLink, .topnav .NewGameLink, .topnav .LogOutLink, .topnav .AboutLink {
-  animation: 0.9s ease-in 0s 1 slideOutToLeft;
-}
-
 .topnav a:hover {
   background-color: transparent;
-}
-
-.topnav.responsive {
-  height: 250px;
-  transition: height 0.5s;
-
-  /* border-bottom: 2px solid white; */
-}
-
-.topnav.responsive .icon {
-  color: white;
-  /* position: absolute; */
-  height: 2rem;
-  /* right: 0.5rem;
-  top: 0.5rem; */
-
-  width: 2rem;
-}
-
-.topnav.responsive a {
-  float: none;
-  opacity: 1;
-  height: 20px;
-  text-align: left;
-}
-
-.topnav.responsive .Logo {
-  margin-left: 0rem;
-  padding-left: 1rem;
-}
-
-/*.topnav.responsive a:hover {
-    background-color: #ddd;
-}*/
-
-.topnav.responsive .GamesLink {
-  display: flex;
-  animation: 0.5s ease-out 0s 1 slideInFromLeft;
-  margin-top: 8px;
-  vertical-align: top;
-}
-
-.topnav.responsive .NewGameLink {
-  display: flex;
-  animation: 0.7s ease-out 0s 1 slideInFromLeft;
-  margin-top: 8px;
-}
-
-.topnav.responsive .AboutLink {
-  display: flex;
-  animation: 0.9s ease-out 0s 1 slideInFromLeft;
-  margin-top: 8px;
-}
-
-.topnav.responsive .LogOutLink {
-  display: flex;
-  animation: 1.1s ease-out 0s 1 slideInFromLeft;
-  margin-top: 8px;
 }
 
 .icon.rotate {
@@ -149,39 +87,20 @@
   transition: transform 0.5s;
 }
 
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-
-}
-
-@keyframes slideOutToLeft {
-  0% {
-    display: block;
-    transform: translateX(0);
-  }
-  100% {
-    display: none;
-    transform: translateX(-10);
-  }
-}
-
 .menu {
   background-color: rgba(0,0,0,0);
   background-size: 150%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 102vh;
+  height: 100%;
   width: 100vw;
   position: fixed;
-  transform: translate(-110vh, -7.5vh);
+  top: 0;
+  left: -100%;
+  /* transform: translate(-100%, -8%); */
   z-index: 5000;
-  transition: transform 0.4s, background-color 0.2s;
+  transition: left 0.4s, background-color 0.2s;
 }
 
 .menu-bg {
@@ -203,7 +122,6 @@
 }
 
 .links-top, .links-bottom {
-  /* border: 1px solid red; */
   flex-basis: 50%;
 }
 
@@ -235,6 +153,7 @@
     /* flex-direction: column; */
     justify-content: space-around;
     align-items: flex-start;
+
 }
 
 .links-bottom .LogOutLink {
@@ -258,8 +177,9 @@
 
 .menu.shown {
   background-color: rgba(0,0,0,0.6);
-  transform: translate(0vh, -8vh);
-  transition: transform 0.4s, background-color 0.8s;
+  /* transform: translate(0%, -8%); */
+  left: 0%;
+  transition: left 0.4s, background-color 0.8s;
 }
 
 .close-menu {
@@ -286,7 +206,7 @@
   flex-basis: 90%;
   /* height: 40%; */
   /* justify-content: space-between; */
-  margin: 0.0rem auto;
+  margin: 0.4rem auto;
   text-align: center;
   text-decoration: none;
   /* width: 95%; */
@@ -336,7 +256,6 @@
   .topnav .GamesLink, .topnav .NewGameLink, .topnav .AboutLink, .topnav .LogOutLink  {
     display: flex;
     align-items: center;
-    animation: none;
   }
 
   .menu {
