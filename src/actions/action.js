@@ -57,12 +57,10 @@ export const login = (fields) => {
   return (dispatch) => {
     return services.login(fields)
            .then(data => {
-             console.log("register data");
              if (!data.user) {
               dispatch(setAlert({type: 'error', message: data.errors}));
               return data;
              } else {
-               console.log("Action data--> ",data);
                dispatch(setAlert({type: null, message: null}))
                dispatch(setToken(data['auth_token']));
                dispatch(setUser({
