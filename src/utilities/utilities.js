@@ -7,7 +7,7 @@ const utils = {
         return 'dashboard';
       case "dice":
         return 'casino';
-      case "recreational sports":
+      case "sports":
         return "golf_course";
       default:
         return "fiber_manual_record";
@@ -25,7 +25,7 @@ const utils = {
       const titleA = a.title.toUpperCase();
       const titleB = b.title.toUpperCase();
       let comparison = 0;
-      
+
       if (titleA > titleB) {
         comparison = 1;
       } else if (titleA < titleB) {

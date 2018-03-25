@@ -30,7 +30,8 @@ class Register extends Component {
       const register = this.props.register;
 
       // TODO fix this fetch call to make it a promise for navigation purposes
-      register(this.state, () => {
+      register(this.state, (data) => {
+        console.log("REGISTER-CALLBACK-DATA-->", data);
         this.props.history.replace('/webpage/games');
         this.setState({
           email: "",

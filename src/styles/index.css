@@ -1,10 +1,18 @@
-/* colors used:
-  #fdfdff
-  #ddd
-  #02558b
-  #2cf
-  #ff533d
+/* colors used and thier css variables:
+  #fdfdff    or var(--white)
+  #ddd       or var(--gray)
+  #02558b    or var(--primary-color)
+  #2cf       or var(--secondary-color)
+  #ff533d    or var(--action-color)
 */
+
+:root {
+  --primary-color: #02558b;
+  --secondary-color: #2cf;
+  --action-color: #ff533d;
+  --white: #fdfdff;
+  --gray: #ddd;
+}
 
 textarea:hover,
 input:hover,

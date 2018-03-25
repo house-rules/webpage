@@ -13,7 +13,7 @@ class GameFilter extends Component {
                    {filter: 'card', iconClass: 'card_hand', iconName: 'style', text: 'Card'},
                    {filter: 'board', iconClass: '', iconName: 'dashboard', text: 'Board'},
                    {filter: 'dice', iconClass: '', iconName: 'casino', text: 'Dice'},
-                   {filter: 'recreational sports', iconClass: '', iconName: 'golf_course', text: 'Sport'}
+                   {filter: 'sports', iconClass: '', iconName: 'golf_course', text: 'Sport'}
                   ];
 
     let filterButtons = filters.map((filter, index) => {

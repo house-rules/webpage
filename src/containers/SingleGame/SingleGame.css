@@ -2,19 +2,15 @@
   Mobile Single Game Page Styling
 ************************************/
 
-/* colors used:
-  #fdfdff
-  #ddd
-  #02558b
-  #2cf
-  #ff533d
+/* colors used and thier css variables:
+  #fdfdff    or var(--white)
+  #ddd       or var(--gray)
+  #02558b    or var(--primary-color)
+  #2cf       or var(--secondary-color)
+  #ff533d    or var(--action-color)
 */
 
 .singleGame {
-  /* background:    linear-gradient(
-      rgba(2, 85, 139, 1),
-      rgba(2, 85, 139, 0.4)
-    ), url('../../images/gplaypattern.png'); */
   /* background: url('../../images/gplaypattern.png'); */
   display: flex;
   flex-direction: column;
@@ -22,14 +18,10 @@
 }
 
 .singleGame .card {
-  /* background-color: rgba(2, 85, 139, 0.8); */
-  /* background-color: transparent;
-  background:    linear-gradient(
-      rgba(2, 85, 139, 0.4),
-      rgba(2, 85, 139, 1)
-    ), url('../../images/gplaypattern.png'); */
   background: url('../../images/gplaypattern.png');
+  /* background-color: var(--primary-color); */
   border: none;
+  border-radius: 0px;
   margin: 0rem auto;
   padding: 0rem;
   width: 100%;
@@ -64,7 +56,7 @@
 
 .material-icons.md-36 {
   color: gray;
-  /* color: white; */
+            /* color: white; */
   font-size: 36px;
 }
 
@@ -75,6 +67,7 @@
 .title_block h2 {
   color: #02558b;
   color: #ff533d;
+  /* color: white; */
 }
 
 .title_block a {
@@ -108,7 +101,7 @@
 
 .icon_bar i {
   color: #ff533d;
-    /* color: white; */
+        /* color: white; */
   font-size: 42px;
   margin-right: 0rem;
   text-align: center;
@@ -116,7 +109,7 @@
 
 .icon_bar p {
   color: gray;
-    /* color: white; */
+          /* color: white; */
   font-size: 0.9rem;
   margin-bottom: 0rem;
   text-align: center;
@@ -161,7 +154,7 @@
 }
 
 .rules-buttons .btn {
-  /* background-color: #ff533d; */
+  background-color: #ff533d;
   background-color: #eee;
   border: none;
   border-bottom-left-radius: 0px;

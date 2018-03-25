@@ -17,7 +17,8 @@ class GameList extends Component {
   };
 
   returnGameJSX = (game, gameIcon) => {
-    return <div key={game.id}
+    return (
+    <div key={game.id}
     onClick={() => this.props.gameSelected(game)} className="each_game card-block card">
        <Link to={`/webpage/games/${game.id}`}>
          <div className="game_initial">
@@ -25,13 +26,13 @@ class GameList extends Component {
          </div>
          <div>
            <h4 className="game_title card-title">{game.title}</h4>
-           <p className="game_category">{game.alternates.length < 1 ? "1 way to play" : `${game.alternates.length + 1} ways to play`}</p>
+           <p className="game_category">{game.Alternates.length <= 0 ? "1 way to play" : `${game.Alternates.length + 1} ways to play`}</p>
          </div>
          <div className="click-arrow">
            <i className="material-icons">keyboard_arrow_right</i>
          </div>
        </Link>
-     </div>;
+     </div> );
   };
 
   componentDidMount() {

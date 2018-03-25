@@ -117,7 +117,7 @@ class AlternatesList extends Component {
 const mapStateToProps = (state) => {
   return {
     selectedGame: state.selectedGame,
-    alternates: state.selectedGame.alternates,
+    alternates: state.selectedGame.Alternates,
     loggedIn: !!state.token
   }
 };

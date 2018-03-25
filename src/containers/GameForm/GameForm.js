@@ -29,12 +29,13 @@ class GameForm extends Component {
 
   createRadioButtons = (array, field) => {
     return array.map((button,index) => {
-      return <div key={index} className={button.className}>
-               <label className="form-check-label">
-                 <input type="radio" className="form-check-input" name={button.name} id={button.id} value={button.value} checked={this.state[field] === button.checked} onChange={this.handleUpdateState(field)} />
-                  {button.text}
-               </label>
-             </div>
+      return (
+        <div key={index} className={button.className}>
+          <label className="form-check-label">
+            <input type="radio" className="form-check-input" name={button.name} id={button.id} value={button.value} checked={this.state[field] === button.checked} onChange={this.handleUpdateState(field)} />
+            {button.text}
+          </label>
+        </div> );
     })
   };
 

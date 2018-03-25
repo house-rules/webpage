@@ -14,8 +14,6 @@ export const GAME_SELECTED = "GAME_SELECTED",
              SET_ALERT     = 'SET_ALERT';
 
 // TODO once reducers are created for DELETE_GAME and DELETE_HOUSE_RULES create the necessary actions.
-// TODO We then want to make the api call followed by updating the state with the returned info.
-
 const makeActionCreator = function(actionType) {
     return function(payload) {
         return {type: actionType, payload: payload}
@@ -35,15 +33,16 @@ export const setToken     = makeActionCreator(SET_TOKEN),
 
 // TODO change this url once backend can log in and out
 // const baseURL = "https://dry-forest-51238.herokuapp.com/api";
-const baseURL = "https://user-auth-test.herokuapp.com";
+// const baseURL = "https://user-auth-test.herokuapp.com";
+const baseURL = 'https://house-rules-api.herokuapp.com';
 const api = (path) => baseURL + path;
 
 export const register = (fields) => {
     return (dispatch, getState) => {
       return services.register(fields)
              .then(data =>{
-               if (data.errors) {
-                 dispatch(setAlert({type: 'error', message: data.errors}));
+               if (data.error) {
+                 dispatch(setAlert({type: 'error', message: data.error}));
                  return data;
                } else {
                  dispatch(setAlert({type: 'success', message: fields.username + ' successfully registered'}))
@@ -58,48 +57,56 @@ export const login = (fields) => {
   return (dispatch) => {
     return services.login(fields)
            .then(data => {
-             if (data.errors) {
+             console.log("register data");
+             if (!data.user) {
               dispatch(setAlert({type: 'error', message: data.errors}));
               return data;
              } else {
+               console.log("Action data--> ",data);
                dispatch(setAlert({type: null, message: null}))
                dispatch(setToken(data['auth_token']));
-               dispatch(getGamePage(data['auth_token']));
+               dispatch(setUser({
+                   email: data.user.email,
+                   username: data.user.username
+               }))
+               // dispatch(getGamePage(data['auth_token']));
                Cookies.set('token', data['auth_token'], {expires: 90});
-               Cookies.set('email', data['email'], {expires: 90});
-               if (fields.username) {
-                 Cookies.set('name', fields.username, {expires: 90});
-               }
+               Cookies.set('email', data.user['email'], {expires: 90});
+               Cookies.set('name', data.user['username'], {expires: 90});
                return data;
              }
            });
   };
 };
 
-const getGamePage = (token) => {
-  return(dispatch, getState) => {
-    // TODO move to services.js
-    request
-      .get(api("/dashboard"))
-      .set('X-AUTH-TOKEN', getState()['token'])
-      .end((err, res) => {
-        if (err) {
-          return dispatch(setAlert({type: 'error', message: res.body.errors}));
-        }
-        dispatch(setUser({
-            email: res.body.email,
-            username: res.body.full_name
-        }))
-      })
-  }
-}
+// const getGamePage = (token) => {
+//   return(dispatch, getState) => {
+//     // TODO move to services.js
+//     request
+//       .get(api("/dashboard"))
+//       .set('X-AUTH-TOKEN', getState()['token'])
+//       .end((err, res) => {
+//         if (err) {
+//           console.log("Error---->>>> ", err);
+//           // return dispatch(setAlert({type: 'error', message: res.body.errors}));
+//         }
+//
+//       })
+//   }
+// }
 
 export const loadTokenFromCookie = () => {
   return (dispatch) => {
     const token = Cookies.get('token');
+    const email = Cookies.get('email');
+    const name = Cookies.get('name');
     if (token) {
         dispatch(setToken(token));
-        dispatch(getGamePage(token));
+        // dispatch(getGamePage(token));
+        dispatch(setUser({
+            email: email,
+            username: name
+        }))
     }
   }
 }

@@ -33,7 +33,8 @@ class Login extends Component {
       const login = this.props.login;
       login({email: this.state.email, password: this.state.password})
       .then(data => {
-        if (data.success) {
+        console.log(data);
+        if (data.user) {
           this.props.history.replace('/webpage/games');
         } else {
           this.setState({
