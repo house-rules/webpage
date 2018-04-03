@@ -6,7 +6,7 @@ const initialState = {
     token: Cookies.get('token'),
     gamesList: [],
     filter: 'all',
-    user: { username: null, email: null },
+    user: { username: null, email: null, userId: null },
     selectedGame: '',
     loggedIn: false,
     alert: { type: null, message: null }

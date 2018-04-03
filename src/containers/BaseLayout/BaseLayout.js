@@ -71,6 +71,7 @@ class BaseLayout extends Component {
   }
 
   render () {
+    // console.log("Props -->> ", this.props.state);
     let user = this.props.user ? this.props.user : ' ';
 
     return (
@@ -122,6 +123,7 @@ const mapStateToProps = (state) => {
   return {
     token: state.token,
     user: state.user,
+    // TODO remove entire state from props after debugging
     state: state
   }
 };

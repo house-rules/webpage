@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import request from "superagent";
+// import request from "superagent";
 import services from '../services/services';
 
 export const GAME_SELECTED = "GAME_SELECTED",
@@ -34,8 +34,8 @@ export const setToken     = makeActionCreator(SET_TOKEN),
 // TODO change this url once backend can log in and out
 // const baseURL = "https://dry-forest-51238.herokuapp.com/api";
 // const baseURL = "https://user-auth-test.herokuapp.com";
-const baseURL = 'https://house-rules-api.herokuapp.com';
-const api = (path) => baseURL + path;
+// const baseURL = 'https://house-rules-api.herokuapp.com';
+// const api = (path) => baseURL + path;
 
 export const register = (fields) => {
     return (dispatch, getState) => {
@@ -65,12 +65,14 @@ export const login = (fields) => {
                dispatch(setToken(data['auth_token']));
                dispatch(setUser({
                    email: data.user.email,
-                   username: data.user.username
+                   username: data.user.username,
+                   userId: data.user.id
                }))
                // dispatch(getGamePage(data['auth_token']));
                Cookies.set('token', data['auth_token'], {expires: 90});
                Cookies.set('email', data.user['email'], {expires: 90});
                Cookies.set('name', data.user['username'], {expires: 90});
+               Cookies.set('userId', data.user['id'], {expires: 90});
                return data;
              }
            });
@@ -95,15 +97,17 @@ export const login = (fields) => {
 
 export const loadTokenFromCookie = () => {
   return (dispatch) => {
-    const token = Cookies.get('token');
-    const email = Cookies.get('email');
-    const name = Cookies.get('name');
+    const token  = Cookies.get('token');
+    const email  = Cookies.get('email');
+    const name   = Cookies.get('name');
+    const userId = Cookies.get('userId');
     if (token) {
         dispatch(setToken(token));
         // dispatch(getGamePage(token));
         dispatch(setUser({
             email: email,
-            username: name
+            username: name,
+            userId: userId
         }))
     }
   }
@@ -114,11 +118,13 @@ export const destroyCookie = () => {
     const token = Cookies.remove('token');
     Cookies.remove('name');
     Cookies.remove('email');
+    Cookies.remove('userId');
     dispatch(removeToken(token));
     dispatch(logout());
     dispatch(setUser({
         email: null,
-        username: null
+        username: null,
+        userId: null
     }))
   }
 }

@@ -32,8 +32,12 @@ class AddAlternate extends Component {
       })
 
       if ((this.state.title !== "") && (this.state.objective !== "") && (this.state.rules) !== "") {
-
-          this.props.newAlternate({ id: this.props.game.id, state: this.state})
+          this.props.newAlternate({
+            id: this.props.game.id,
+            title: this.state.title,
+            objective: this.state.objective,
+            rules: this.state.rules, userId: this.props.user.userId
+          });
       } else {
           let fields = []
           // checking all fields for empty strings
@@ -48,6 +52,7 @@ class AddAlternate extends Component {
   };
 
   render() {
+    console.log(this.props.user);
     return (
       <div className="alternateForm modal_header">
 
@@ -72,7 +77,13 @@ class AddAlternate extends Component {
       </div>
     );
   }
-}
+};
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
@@ -81,4 +92,4 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch)
 };
 
-export default connect(null, mapDispatchToProps)(AddAlternate);
+export default connect(mapStateToProps, mapDispatchToProps)(AddAlternate);

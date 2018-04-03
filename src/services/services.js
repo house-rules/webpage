@@ -76,9 +76,10 @@ const services = {
     })
   },
   addHouseRules: (body) => {
+    console.log(body);
     return fetch(`${urlBase}/game/${body.id}/alternate`, {
       method: "POST",
-      body: JSON.stringify(body.state),
+      body: JSON.stringify({title: body.title, objective: body.objective, rules: body.rules, userId: body.userId, gameId: body.id}),
       headers: {
         'Content-Type': 'application/json'
       }
