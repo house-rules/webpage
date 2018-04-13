@@ -60,9 +60,12 @@ class GameList extends Component {
         </div>
 
         {this.props.loggedIn ?
-        <div>
+        <div className="FAB">
           <Link to='/webpage/newGame'>
-            <i className="material-icons md-36 FAB">add</i>
+            <p>Add Game</p>
+            <div>
+              <i className="material-icons md-24">add</i>
+            </div>
           </Link>
         </div> : ''}
 

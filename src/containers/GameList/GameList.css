@@ -113,16 +113,41 @@ Mobile Game List Page Styling
   /* color: white; */
 }
 
+.FAB {
+  bottom: 1rem;
+  display: flex;
+  position: fixed;
+  width: 100%;
+}
+
+.FAB a {
+  background: linear-gradient(45deg, var(--action-color) 35%, #CC200F);
+  border-radius: 18px;
+  color: var(--white);
+  display: flex;
+  margin: 0 auto;
+  padding: 0rem 0.85rem;
+  align-items: center;
+}
+
+.FAB p {
+  margin-bottom: 0;
+  border-right: 2px solid var(--white);
+  padding-right: 0.5rem;
+  padding: 0.35rem 0.5rem 0.35rem 0rem;
+}
+
+.FAB div {
+  display: flex;
+  align-items: center;
+  margin-left: 0.2rem;
+  padding: 0.35rem 0rem;
+}
+
 .material-icons.md-36.FAB {
- background-color: #ff533d;
- border-radius: 50%;
- box-shadow: 5px 8px 10px 2px rgba(0, 0, 0, 0.2);
- color: white;
- padding: 0.75rem;
- position: fixed;
- bottom: 1rem;
- right: 1rem;
- z-index: 1;
+  border-radius: 50%;
+  box-shadow: 5px 8px 10px 2px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 
  /* background-color: white;
  color: #9938f9; */
