@@ -53,11 +53,11 @@ class GameList extends Component {
     return (
       <div className="GameList">
 
-        <GameFilter />
-
         <div className='games-container'>
          {gamesList.length ? gamesList : this.state.loader}
         </div>
+
+        <GameFilter />
 
         {this.props.loggedIn ?
         <div className="FAB">

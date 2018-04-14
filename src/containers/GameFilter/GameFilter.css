@@ -12,17 +12,25 @@ Game Filter bar Styling
 */
 
 .GameList .filter-bar {
-  background-image: url('../../images/gplaypattern.png');
+  /* background-image: url('../../images/gplaypattern.png'); */
+  background-color: var(--white);
+  border-top: 2px solid var(--gray);
+  /* border-radius: 15px; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding-top: 0.7rem;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  /* left: 10%; */
 }
 
 .GameList .filter-bar a {
   flex-basis: 18%;
   text-align: center;
   transition: color 0.4s;
+  text-decoration: none;
 
   /* color: white; */
 }
@@ -37,7 +45,8 @@ Game Filter bar Styling
 }
 
 .filter-bar .material-icons {
-  font-size: 48px;
+  font-size: 36px;
+  transition: text-shadow 0.4s;
 
   /* color: #ff533d; */
   /* -webkit-text-stroke: 2px #9938f9; */
@@ -51,6 +60,7 @@ Game Filter bar Styling
   font-size: 14px;
   text-align: center;
   transition: color 0.4s;
+  color: darkgray;
 
   /* color: white; */
 }

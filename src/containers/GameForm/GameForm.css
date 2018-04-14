@@ -15,8 +15,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  min-height: 93vh;
-  padding: 1rem;
+  min-height: 100vh;
+  padding: 6rem 1rem 1rem;
   overflow: scroll;
 }
 

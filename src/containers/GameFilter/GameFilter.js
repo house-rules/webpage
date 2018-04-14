@@ -9,31 +9,33 @@ class GameFilter extends Component {
   render() {
     // using this data to create the filter buttons. Keeping code dry.
     let filters = [
-                   {filter: 'all', iconClass: 'all_games_filter', iconName: 'dns', text: 'All'},
                    {filter: 'card', iconClass: 'card_hand', iconName: 'style', text: 'Card'},
                    {filter: 'board', iconClass: '', iconName: 'dashboard', text: 'Board'},
                    {filter: 'dice', iconClass: '', iconName: 'casino', text: 'Dice'},
-                   {filter: 'sports', iconClass: '', iconName: 'golf_course', text: 'Sport'}
+                   {filter: 'sports', iconClass: '', iconName: 'golf_course', text: 'Sport'},
+                   {filter: 'all', iconClass: 'all_games_filter', iconName: 'clear', text: 'Clear'}
                   ];
 
     let filterButtons = filters.map((filter, index) => {
       return  <Link to="#" key={index}
-              style={filter.filter === this.props.filter ? {color: '#b30700'} : {color: '#FF533D'}}
+              style={filter.filter === this.props.filter ? {color: '#ff533d'} : {color: 'white'}}
               onClick={() => this.props.setFilter(filter.filter)}>
-                <i className={'material-icons ' + filter.iconClass}>
+                <i className={'material-icons ' + filter.iconClass}
+                style={filter.filter === this.props.filter ? {color: ''} : {  textShadow: "-1px -1px 0 #ff533d, 1px -1px 0 #ff533d,-1px 1px 0 #ff533d, 1px 1px 0 #ff533d"}}>
                   {filter.iconName}
                 </i>
                 <p>
-                  <span style={filter.filter === this.props.filter ? {color: '#b30700'} : {color: '#02558b'}}>{filter.text}</span>
+                  <span style={filter.filter === this.props.filter ? {color: '#ff533d'} : {color: '#02558b'}}>{filter.text}</span>
                 </p>
               </Link>
     });
 
     return(
       <div className="filter-bar">
-        <h5 className="filter_header"> Filter Game Types</h5>
 
         {filterButtons}
+
+        {/*<h5 className="filter_header"> Filter Game Types</h5>*/}
 
       </div>
     )

@@ -18,7 +18,7 @@
   position: fixed;
   top: 4rem;
   left: 0.55rem;
-  z-index: 5;
+  z-index: 5000;
   transition: top 0.3s, background-color 0.4s ease;
 }
 
