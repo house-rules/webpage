@@ -46,58 +46,57 @@ class SingleGame extends Component {
     return (
       <div className="singleGame" id="singleGame">
         <div className='card card-block'>
-          <div className="title_block">
 
+          <div className="title-section">
             <div>
               <h2 className='card-title alert'>{game.title}</h2>
             </div>
 
             <div className="arrow_container">
               <Link to='/webpage/games'>
-                <i className="material-icons md-36">arrow_back</i>
+                <i className="material-icons md-36">clear</i>
               </Link>
             </div>
+          </div>
 
-            <div className='alert game_objective'>
+          <div className="title_block">
+            <div className='icon_bar'>
+              <div>
+                <i className="material-icons group" id={game.category}>{utils.getIconType(game.category)}</i>
+                <p>Category</p>
+                <p>{game.category === 'sports' ? 'sports' : game.category}</p>
+              </div>
+
+              <div>
+                <i className="material-icons group">group</i>
+                <p>Players</p>
+                <p className=''>{game.numberOfPlayers}</p>
+              </div>
+
+              <div>
+                <i className="material-icons face">face</i>
+                <p>Ages</p>
+                <p className=''>{game.playerAgeRange}</p>
+              </div>
+            </div>
+
+            <div className='game_objective'>
               <h5>How to Win</h5>
               <p>{game.objective}</p>
             </div>
 
-          </div>
-
-          <div className='alert icon_bar'>
-
-            <div>
-              <i className="material-icons group" id={game.category}>{utils.getIconType(game.category)}</i>
-              <p>Category</p>
-              <p>{game.category === 'sports' ? 'sports' : game.category}</p>
-            </div>
-
-            <div>
-              <i className="material-icons group">group</i>
-              <p>Players</p>
-              <p className=''>{game.numberOfPlayers}</p>
-            </div>
-
-            <div>
-              <i className="material-icons face">face</i>
-              <p>Ages</p>
-              <p className=''>{game.playerAgeRange}</p>
-            </div>
-
-          </div>
-
-
-          <div className="rules-buttons">
-            <div className={this.state.normalRules ? "btn active" : "btn"}
-              onClick={() => this.handleRulesNav(true, 'bottom')}>
-              Traditional Rules
-            </div>
-            <div className={!this.state.normalRules ? "btn active" : "btn"}
-              onClick={() => this.handleRulesNav(false, 'bottom')}>
-              House Rules
+            <div className="rules-buttons">
+              <div className={this.state.normalRules ? "btn active" : "btn"}
+                onClick={() => this.handleRulesNav(true, 'bottom')}>
+                Traditional Rules
+              </div>
+              <div className={!this.state.normalRules ? "btn active" : "btn"}
+                onClick={() => this.handleRulesNav(false, 'bottom')}>
+                House Rules
+              </div>
             </div>
           </div>
+
 
           {this.state.normalRules ?
              <TraditionalRules rules={game.rules}/> :

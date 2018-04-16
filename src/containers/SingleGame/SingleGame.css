@@ -11,15 +11,17 @@
 */
 
 .singleGame {
-  /* background: url('../../images/gplaypattern.png'); */
   display: flex;
   flex-direction: column;
-  min-height: 90vh;
+  min-height: 100vh;
+  padding-top: 0.5rem;
+  position: absolute;
+  z-index: 10;
+  width: 100vw;
 }
 
 .singleGame .card {
-  background: url('../../images/gplaypattern.png');
-  /* background-color: var(--primary-color); */
+  background-color: var(--primary-color);
   border: none;
   border-radius: 0px;
   margin: 0rem auto;
@@ -27,12 +29,18 @@
   width: 100%;
 }
 
-.singleGame .title_block {
+.singleGame .title-section {
   align-items: center;
   display: flex;
-  flex-flow: row wrap;
   justify-content: space-between;
-  min-height: 48vh;
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.singleGame .title_block {
+  background-color: var(--white);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   padding-top: 2rem;
 }
 
@@ -55,19 +63,14 @@
 }
 
 .material-icons.md-36 {
-  color: gray;
-            /* color: white; */
-  font-size: 36px;
+  color: white;
+  font-size: 30px;
 }
 
-.title_block {
-  /* background-image: url('../../images/gplaypattern.png'); */
-}
-
-.title_block h2 {
-  color: #02558b;
-  color: #ff533d;
-  /* color: white; */
+.card-title {
+  color: white;
+  font-size: 24px;
+  padding: 0rem inherit;
 }
 
 .title_block a {
@@ -83,13 +86,13 @@
 }
 
 .icon_bar {
-  /* border-bottom: 1px solid lightgray; */
+  background-color: var(--white);
   border-radius: 0px;
   display: flex;
   justify-content: space-around;
-  margin: 2rem auto;
+  margin: 0rem auto;
   padding: 1rem;
-  width: 100%;
+  width: 90%;
 }
 
 .icon_bar div {
@@ -100,78 +103,76 @@
 }
 
 .icon_bar i {
+  background-color: var(--action-color);
+  /* border: 1px solid var(--action-color); */
+  border-radius: 50%;
+  box-shadow: 0px 4px 8px 2px rgba(0,0,0,0.2);
   color: #ff533d;
-        /* color: white; */
-  font-size: 42px;
+  color: var(--white);
+  font-size: 28px;
   margin-right: 0rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
   text-align: center;
 }
 
 .icon_bar p {
   color: gray;
-          /* color: white; */
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-bottom: 0rem;
   text-align: center;
   text-transform: capitalize;
 }
 
-.icon_bar #card {
-  transform: rotate(180deg);
-  /* Safari */
-  -webkit-transform: rotate(180deg);
-  /* Firefox */
-  -moz-transform: rotate(180deg);
-  /* IE */
-  -ms-transform: rotate(180deg);
-  /* Opera */
-  -o-transform: rotate(180deg);
-}
-
 .game_objective {
   /* background: linear-gradient(155deg, #02558b, #2cf); */
-  border-radius: 0px;
-  color: white;
+  /* border-radius: 0px;
+  color: white; */
   color: gray;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   flex-basis: 100%;
   justify-content: space-around;
   min-height: 7rem;
-  text-align: left;
+  text-align: left; */
+  margin-top: 2rem;
+  padding: 1.5rem;
+  /* text-align: center; */
 }
 
 .game_objective h5 {
-  color: #02558b;
+  border-bottom: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  margin-bottom: 1.3rem;
+  padding-bottom: 0.5rem;
+  width: 35%;
 }
 
 .rules-buttons {
-  align-items: center;
+  border-radius: 3px;
+  box-shadow: 2px 2px 8px 2px rgba(0,0,0,0.2);
   display: flex;
+    /* height: 2.5rem; */
   justify-content: space-between;
-  margin: 3rem auto 0rem;
-  width: 100%;
+  margin: 3rem auto;
+  width: 75%;
 }
 
 .rules-buttons .btn {
-  background-color: #ff533d;
+  /* background-color: #ff533d; */
   background-color: #eee;
-  border: none;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  /* color: white; */
+  color: white;
   color: #ff533d;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-basis: 50%;
-  font-size: 1.3rem;
-  height: 3rem;
+  font-size: 1rem;
+  justify-content: center;
   transition: background-color 0.4s, color 0.4s;
 }
 
 .rules-buttons .btn.active {
-  background-color: #02558b;
+  background-color: #ff533d;
   border: none;
   color: white;
   transition: background-color 0.4s, color 0.4s;
@@ -211,9 +212,4 @@
   color: white;
   /*margin-top: 2rem;*/
   width: 20%;
-}
-
-.footer {
-  background: linear-gradient(155deg, #02558b, #2cf);
-  height: 3rem;
 }

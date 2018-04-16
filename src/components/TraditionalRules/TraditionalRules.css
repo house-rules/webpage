@@ -20,7 +20,8 @@
 }
 
 .traditional_rules {
-  background: linear-gradient(#02558b, #eee);
+  /* background: linear-gradient(#02558b, #eee); */
+  background-color: var(--white);
   padding-top: 1rem;
 }
 
