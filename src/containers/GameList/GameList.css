@@ -2,23 +2,19 @@
 Mobile Game List Page Styling
 ************************************/
 
-/* colors used:
-  #fdfdff
-  #ddd
-  #02558b
-  #2cf
-  #ff533d
+/* colors used and thier css variables:
+  #fdfdff    or var(--white)
+  #ddd       or var(--gray)
+  #02558b    or var(--primary-color)
+  #2cf       or var(--secondary-color)
+  #ff533d    or var(--action-color)
 */
 
 .GameList {
   background-color: #fdfdff;
-  padding-bottom: 5.5rem;
+  padding-bottom: 6.5rem;
   padding-top: 4rem;
   position: relative;
-
-  /* background: linear-gradient(180deg, #2cf, #ff533d); */
-  /* overflow: scroll;
-  height: 92.5vh; */
 }
 
 .GameList .material-icons {
@@ -29,7 +25,7 @@ Mobile Game List Page Styling
   background-color: transparent;
   border: none;
   border-radius: 3px;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.2);
   margin: 0px 0.7rem 0.7rem;
   min-height: 2rem;
   padding: 10px;
@@ -38,12 +34,9 @@ Mobile Game List Page Styling
   /* border-top: 1px solid white; */
 }
 
-/* .each_game {
-  background-color: #02558b;
-  border-radius: 60px;
-  margin: 0px 0.7rem 0.7rem;
-  padding: 5px 5px 5px 0px ;
-} */
+.each_game .card-title {
+  color: var(--secondary-color);
+}
 
 .each_game a {
   display: flex;
@@ -63,10 +56,6 @@ Mobile Game List Page Styling
 
 .game_initial i {
   color: white;
-
-  /* color: transparent;
-  -webkit-text-stroke: 1px white;
-  font-size: 36px; */
 }
 
 .game_initial #card {
@@ -116,7 +105,7 @@ Mobile Game List Page Styling
 }
 
 .FAB {
-  bottom: 6rem;
+  bottom: 5.5rem;
   display: flex;
   position: fixed;
   width: 100%;
@@ -125,6 +114,7 @@ Mobile Game List Page Styling
 .FAB a {
   background: linear-gradient(45deg, var(--action-color) 35%, #CC200F);
   border-radius: 18px;
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.2);
   color: var(--white);
   display: flex;
   margin: 0 auto;
@@ -147,22 +137,13 @@ Mobile Game List Page Styling
 }
 
 .material-icons.md-36.FAB {
-  border-radius: 50%;
+  /* border-radius: 50%;
   box-shadow: 5px 8px 10px 2px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 1; */
 
  /* background-color: white;
  color: #9938f9; */
 }
-
-/*#footer {
-  background: linear-gradient(155deg, #02558b, #2cf);
-  height: 3rem;
-  width: 100%;
-  position: fixed;
-  bottom: 0rem;
-}*/
-
 
 @media screen and (min-width: 800px) {
 

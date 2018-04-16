@@ -83,7 +83,7 @@ class BaseLayout extends Component {
               <span>House Rules</span>
             </Link>
 
-            <div id='icon' className={this.state.navOpen ? 'icon rotate' : 'icon'} onClick={this.navToggle}>
+            <div id='icon' className='icon' onClick={this.navToggle}>
               &#9776;
             </div>
           </nav>

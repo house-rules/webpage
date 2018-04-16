@@ -33,6 +33,7 @@
 
 .topnav a {
   color: #f2f2f2;
+  /* color: var(--primary-color); */
   float: left;
   display: block;
   text-align: center;
@@ -57,7 +58,7 @@
 }
 
 .topnav .icon {
-  color: white;
+  color: var(--action-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,20 +76,6 @@
 
 .topnav a:hover {
   background-color: transparent;
-}
-
-.icon.rotate {
-  transform: rotate(90deg);
-  /* Safari */
-  -webkit-transform: rotate(90deg);
-  /* Firefox */
-  -moz-transform: rotate(90deg);
-  /* IE */
-  -ms-transform: rotate(90deg);
-  /* Opera */
-  -o-transform: rotate(90deg);
-
-  transition: transform 0.5s;
 }
 
 .menu {
