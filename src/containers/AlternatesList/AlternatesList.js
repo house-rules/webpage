@@ -6,6 +6,7 @@ import AddAlternate from '../AddAlternate/AddAlternate';
 import services from '../../services/services';
 import './AlternatesList.css';
 
+// for modal_background
 const customStyles = {
   overlay: {
     position          : 'fixed',
