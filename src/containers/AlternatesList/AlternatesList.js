@@ -69,9 +69,9 @@ class AlternatesList extends Component {
 
             <div>
               <h5 className="game_labels">Objective</h5>
-              <h4>{game.objective}</h4>
+              <h4 className="alternate_objective">{game.objective}</h4>
               <h5 className="game_labels">New Rules</h5>
-              <p>{game.rules}</p>
+              <p className="alternate_rules">{game.rules}</p>
             </div>
           </div>
 
