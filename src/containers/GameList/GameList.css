@@ -12,7 +12,7 @@ Mobile Game List Page Styling
 
 .GameList {
   background-color: #fdfdff;
-  padding-bottom: 6.5rem;
+  padding-bottom: 6rem;
   padding-top: 4rem;
   position: relative;
 }
@@ -105,7 +105,7 @@ Mobile Game List Page Styling
 }
 
 .FAB {
-  bottom: 5.5rem;
+  bottom: 5rem;
   display: flex;
   position: fixed;
   width: 100%;

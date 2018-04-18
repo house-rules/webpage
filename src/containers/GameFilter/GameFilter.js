@@ -18,10 +18,9 @@ class GameFilter extends Component {
 
     let filterButtons = filters.map((filter, index) => {
       return  <Link to="#" key={index}
-              style={filter.filter === this.props.filter ? {color: '#ff533d'} : {color: 'white'}}
+              style={filter.filter === this.props.filter ? {color: '#ff533d'} : {color: 'darkgray'}}
               onClick={() => this.props.setFilter(filter.filter)}>
-                <i className={'material-icons ' + filter.iconClass}
-                style={filter.filter === this.props.filter ? {color: ''} : {  textShadow: "-1px -1px 0 #ff533d, 1px -1px 0 #ff533d,-1px 1px 0 #ff533d, 1px 1px 0 #ff533d"}}>
+                <i className={'material-icons ' + filter.iconClass}>
                   {filter.iconName}
                 </i>
                 <p>
