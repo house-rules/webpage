@@ -49,11 +49,6 @@ class AlternatesList extends Component {
       return (
         <div className="each_alternate card-block" key={game.id}>
           <div className="alt_game_label">
-            <div className="initial_container">
-              <h3 className="alternate_initial">
-                <img src={require('../../images/house-rules-white.png')} alt="#"/>
-              </h3>
-            </div>
             <div className="title_container">
               <h4 className="alternate_title">{game.title}</h4>
             </div>
