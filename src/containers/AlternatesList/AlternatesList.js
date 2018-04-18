@@ -58,7 +58,9 @@ class AlternatesList extends Component {
               <h4 className="alternate_title">{game.title}</h4>
             </div>
 
-            <button className='btn arrowButton2' data-toggle="collapse" data-target={"#" + game.id}><i className="material-icons" id="myArrow">expand_more</i></button>
+            <button className='btn arrowButton2' data-toggle="collapse" data-target={"#" + game.id}>
+              <i className="material-icons" id="myArrow">expand_more</i>
+            </button>
           </div>
 
           <div id={game.id} className="collapse alt_rules">
