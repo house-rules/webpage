@@ -175,7 +175,7 @@
   font-size: 28px;
   margin: 0;
   padding: 0.9rem;
-  text-shadow: 5px 3px 3px rgba(0,0,0,0.3);
+  box-shadow: 2px 3px 15px rgba(0,0,0,0.3);
 }
 
 .menu a p {
