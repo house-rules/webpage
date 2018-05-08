@@ -16,7 +16,7 @@
   flex-direction: column;
   justify-content: space-around;
   min-height: 100vh;
-  /* padding: 6rem 1rem 1rem; */
+  padding: 6rem 0,0,0;
   overflow: scroll;
   overflow-x: hidden;
 }
@@ -39,7 +39,7 @@ legend {
 
 label {
   color: #ff533d;
-  align-self: flex-start;
+  align-self: center;
 }
 
 label.form-check-label {
@@ -53,9 +53,9 @@ input.form-check-input {
 .radio_buttons_cat {
   display: flex;
   justify-content: space-between;
-  flex-flow: row wrap;
+  /* flex-flow: row wrap; */
   margin: 0rem auto;
-  width: 95%;
+  width: 90%;
 }
 
 label input {
@@ -72,10 +72,10 @@ label input {
   justify-content: center;
   align-items: center;
   margin: 0;
-  font-size: 40px;
+  font-size: 30px;
   border-radius: 50%;
   width: 25%;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1.75rem;
   margin: 0 auto 0.5rem;
   box-shadow: 3px 3px 15px rgba(0,0,0,0.3);
   transition: background-color 0.4s, transform 0.4s;
@@ -111,6 +111,7 @@ textarea, textarea:before, textarea:after {
 }
 
 .nav-tabs {
+  border-bottom: none;
   display: flex;
   justify-content: center;
   width: 300vw;
@@ -124,6 +125,7 @@ textarea, textarea:before, textarea:after {
   flex-flow: column nowrap;
   justify-content: space-around;
   padding: 6rem 1rem 1rem;
+  text-align: center;
 }
 
 .tab-arrows {
@@ -145,6 +147,15 @@ textarea, textarea:before, textarea:after {
   border-radius: 0px;
   text-align: center;
   font-size: 24px;
+}
+
+#tab1 input {
+  border-radius: 5px;
+}
+
+#tab3 textarea {
+  border-radius: 5px;
+  height: 50vh;
 }
 
 @media screen and (min-width: 800px) {

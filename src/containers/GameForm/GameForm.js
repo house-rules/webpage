@@ -45,7 +45,7 @@ class GameForm extends Component {
                   {utils.getIconType(button.value)}
                 </i>
 
-                <p style={this.state[field] === button.checked ? {color: "var(--action-color)",margin: "0", fontSize: "20px"} : {color: "darkgray",margin: "0", fontSize: "20px"}}>
+                <p style={this.state[field] === button.checked ? {color: "var(--action-color)",margin: "0", fontSize: "16px"} : {color: "darkgray",margin: "0", fontSize: "16px"}}>
                     {button.text}
                 </p>
 
@@ -123,7 +123,7 @@ class GameForm extends Component {
 
             <fieldset className="">
              <label>Game Category</label>
-              <div className="radio_buttons_cat" style={{display: 'flex', flexFlow: 'row wrap'}}>
+              <div className="radio_buttons_cat" style={{width: '90%', margin: '0 auto'}}>
                 {this.createRadioButtons(buttonData[0], 'category')}
               </div>
             </fieldset>
@@ -133,18 +133,18 @@ class GameForm extends Component {
             <div className="players-input" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center'}}>
               <label style={{flexBasis: "100%"}}>How many players?</label>
               <div style={{flexBasis: '30%', height: "6rem"}}>
-                <input style={{height: "6rem", border: "none", borderBottom: "2px solid var(--secondary-color)"}} className="form-control" onChange={this.handleUpdateState('minPlayers')} value={this.state.minPlayers} placeholder="1" required/>
+                <input style={{height: "6rem", border: "none", borderBottom: "3px solid var(--secondary-color)"}} className="form-control" onChange={this.handleUpdateState('minPlayers')} value={this.state.minPlayers} placeholder="1" required/>
                 <p style={{marginTop: "0.5rem"}}>Minimum</p>
               </div>
               <div style={{backgroundColor: '#02558b', width: '5rem', height: '0.2rem', boxShadow: "5px 5px 15px rgba(0,0,0,0.3)", margin: "0 0.5rem"}}></div>
               <div style={{flexBasis: '30%', height: "6rem"}}>
-                <input style={{height: "6rem", border: "none", borderBottom: "2px solid var(--secondary-color)"}} className="form-control" onChange={this.handleUpdateState('maxPlayers')} value={this.state.maxPlayers} placeholder="50" required/>
+                <input style={{height: "6rem", border: "none", borderBottom: "3px solid var(--secondary-color)"}} className="form-control" onChange={this.handleUpdateState('maxPlayers')} value={this.state.maxPlayers} placeholder="50" required/>
                 <p style={{marginTop: "0.5rem"}}>Maximum</p>
               </div>
             </div>
 
             <fieldset className="">
-              <legend>Age Range</legend>
+              <label>Age Range</label>
               <div className="radio_buttons_cat">
                 {this.createRadioButtons(buttonData[2], 'playerAgeRange')}
               </div>
