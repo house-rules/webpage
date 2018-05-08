@@ -1,13 +1,12 @@
-.Signup {
-  text-align: center;
-  flex-basis: 5%;
-}
+/* .Signup { */
+  /* text-align: center; */
+  /* flex-basis: 5%; */
+/* } */
 
 .Signup input {
   background-color: rgba(200,200,200,0.0);
   border: none;
   border: 2px solid rgba(200,200,200,0.6);
-  /* border-bottom: 2px solid rgba(200,200,200,0.6); */
   border-radius: 20px;
   color: white;
   text-align: center;

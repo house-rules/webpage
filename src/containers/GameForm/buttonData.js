@@ -24,9 +24,9 @@ const buttonData = [
   },{
     name: 'options1',
     id: 'optionsRadios4',
-    value: 'recreational sports',
-    checked: 'recreational sports',
-    text: 'Recreational Sports',
+    value: 'sports',
+    checked: 'sports',
+    text: 'Sports',
     className: 'form-check'
   }],
   [{

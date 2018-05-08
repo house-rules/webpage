@@ -9,6 +9,14 @@ const utils = {
         return 'casino';
       case "sports":
         return "golf_course";
+      case "under 7":
+        return "child_care";
+      case "7+":
+        return "tag_faces";
+      case "12+":
+        return "face";
+      case "18+":
+        return "person";
       default:
         return "fiber_manual_record";
     }

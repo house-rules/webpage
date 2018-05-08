@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import buttonData from './buttonData';
+import utils from '../../utilities/utilities';
 import './GameForm.css';
 
 class GameForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      activeTab: 1,
       title: '',
       category: 'card',
       objective: '',
@@ -30,11 +32,25 @@ class GameForm extends Component {
   createRadioButtons = (array, field) => {
     return array.map((button,index) => {
       return (
-        <div key={index} className={button.className}>
-          <label className="form-check-label">
-            <input type="radio" className="form-check-input" name={button.name} id={button.id} value={button.value} checked={this.state[field] === button.checked} onChange={this.handleUpdateState(field)} />
-            {button.text}
-          </label>
+        <div key={index} className={button.className} style={{flexBasis: "50%", textAlign: "center", alignItems: "center", marginTop: "0.75rem"}}>
+
+            <label className="form-check-label" style={{display: "flex", flexDirection: "column", justifyContent: "space-around"}}>
+
+                <input type="radio" className="form-check-input" name={button.name} id={button.id} value={button.value} checked={this.state[field] === button.checked} onChange={this.handleUpdateState(field)}/>
+
+                <i className="material-icons"
+                style={this.state[field] === button.checked ?
+                {backgroundColor: "var(--action-color)", transform: "scale(1.1)"} :
+                {backgroundColor: "darkgray", transform: "scale(0.9)"}}>
+                  {utils.getIconType(button.value)}
+                </i>
+
+                <p style={this.state[field] === button.checked ? {color: "var(--action-color)",margin: "0", fontSize: "20px"} : {color: "darkgray",margin: "0", fontSize: "20px"}}>
+                    {button.text}
+                </p>
+
+            </label>
+
         </div> );
     })
   };
@@ -91,41 +107,73 @@ class GameForm extends Component {
     return (
       <div className="gameForm">
 
-        <div className="">
-          <input className="form-control" onChange={this.handleUpdateState('title')} value={this.state.title} placeholder="Game title" required/>
-        </div>
+        <div className="nav-tabs"
+             style={this.state.activeTab === 2 ? {transform: "translateX(-100vw)"}:
+             this.state.activeTab === 3 ? {transform: "translateX(-200vw)"}: {}}>
 
-        <fieldset className="">
-         <legend>Game Category</legend>
-          <div className="radio_buttons_cat">
-            {this.createRadioButtons(buttonData[0], 'category')}
+          <div id="tab1" className="tabs">
+            <div className="">
+              <label>Title</label>
+              <input className="form-control" onChange={this.handleUpdateState('title')} value={this.state.title} placeholder="Game title" required/>
+            </div>
+            <div className="">
+              <label>How do you win?</label>
+              <textarea className="form-control" onChange={this.handleUpdateState('objective')} value={this.state.objective} placeholder="Game Objective" required></textarea>
+            </div>
+
+            <fieldset className="">
+             <label>Game Category</label>
+              <div className="radio_buttons_cat" style={{display: 'flex', flexFlow: 'row wrap'}}>
+                {this.createRadioButtons(buttonData[0], 'category')}
+              </div>
+            </fieldset>
           </div>
-        </fieldset>
 
-        <fieldset className="">
-          <legend>Age Range</legend>
-          <div className="radio_buttons_cat">
-            {this.createRadioButtons(buttonData[2], 'playerAgeRange')}
+          <div id="tab2" className="tabs" style={{textAlign: "center"}}>
+            <div className="players-input" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center'}}>
+              <label style={{flexBasis: "100%"}}>How many players?</label>
+              <div style={{flexBasis: '30%', height: "6rem"}}>
+                <input style={{height: "6rem", border: "none", borderBottom: "2px solid var(--secondary-color)"}} className="form-control" onChange={this.handleUpdateState('minPlayers')} value={this.state.minPlayers} placeholder="1" required/>
+                <p style={{marginTop: "0.5rem"}}>Minimum</p>
+              </div>
+              <div style={{backgroundColor: '#02558b', width: '5rem', height: '0.2rem', boxShadow: "5px 5px 15px rgba(0,0,0,0.3)", margin: "0 0.5rem"}}></div>
+              <div style={{flexBasis: '30%', height: "6rem"}}>
+                <input style={{height: "6rem", border: "none", borderBottom: "2px solid var(--secondary-color)"}} className="form-control" onChange={this.handleUpdateState('maxPlayers')} value={this.state.maxPlayers} placeholder="50" required/>
+                <p style={{marginTop: "0.5rem"}}>Maximum</p>
+              </div>
+            </div>
+
+            <fieldset className="">
+              <legend>Age Range</legend>
+              <div className="radio_buttons_cat">
+                {this.createRadioButtons(buttonData[2], 'playerAgeRange')}
+              </div>
+            </fieldset>
           </div>
-        </fieldset>
 
-        <div className="players-input" style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
-          <input style={{flexBasis: '40%'}} className="form-control" onChange={this.handleUpdateState('minPlayers')} value={this.state.minPlayers} placeholder="Minimum players" required/>
-          <div style={{backgroundColor: '#02558b', width: '3rem', height: '0.2rem'}}></div>
-          <input style={{flexBasis: '40%'}} className="form-control" onChange={this.handleUpdateState('maxPlayers')} value={this.state.maxPlayers} placeholder="Maximum players" required/>
+          <div id="tab3" className="tabs">
+            <div className="">
+              <label>The Rules</label>
+              <textarea className="form-control" onChange={this.handleUpdateState('rules')} value={this.state.rules} placeholder="Normal Rules" required></textarea>
+            </div>
+
+            <div className="form_submits">
+              <button className="btn" onClick={this.handleSubmit('/webpage/games')}>Submit</button>
+              <p className="another_game_link" onClick={this.handleSubmit('/webpage/newGame')}>or submit and add another game</p>
+            </div>
+          </div>
+
         </div>
 
-        <div className="">
-          <input className="form-control" onChange={this.handleUpdateState('objective')} value={this.state.objective} placeholder="Game Objective" required/>
-        </div>
-
-        <div className="">
-          <textarea className="form-control" onChange={this.handleUpdateState('rules')} value={this.state.rules} placeholder="Normal Rules" required></textarea>
-        </div>
-
-        <div className="form_submits">
-          <button className="btn" onClick={this.handleSubmit('/webpage/games')}>Submit</button>
-          <p className="another_game_link" onClick={this.handleSubmit('/webpage/newGame')}>or submit and add another game</p>
+        <div className='tab-arrows' style={{display: 'flex', justifyContent: 'space-between'}}>
+           <div>
+            {this.state.activeTab > 1 ? <i className="material-icons"
+               onClick={() => this.setState({activeTab: this.state.activeTab - 1})}>arrow_back</i> : ''}
+          </div>
+          <div>
+            {this.state.activeTab < 3 ? <i className="material-icons"
+               onClick={() => this.setState({activeTab: this.state.activeTab + 1})}>arrow_forward</i> : ''}
+          </div>
         </div>
 
       </div>
@@ -134,7 +182,7 @@ class GameForm extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return {state: state}
+  return { state: state }
 }
 
 const mapDispatchToProps = (dispatch) => {

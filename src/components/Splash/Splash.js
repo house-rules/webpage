@@ -44,7 +44,7 @@ class Splash extends Component {
                   Log in
                 </span>
               </p>
-              <Link to="/webpage/games" className="btn">Enter</Link>
+              <Link to="/webpage/games" className="btn enter-btn">Enter</Link>
             </div> : ''}
 
             {this.props.token ? '' :

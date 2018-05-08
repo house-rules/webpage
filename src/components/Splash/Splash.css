@@ -7,58 +7,27 @@
 */
 
 .Splash {
-  align-items: center;
+  /* align-items: center; */
   background-image: url('../../images/playing_cards.png');
   background-size: cover;
   background-position: 100% 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  /* min-height: 100vh; */
   position: absolute;
   top: 0;
   left: 0;
   overflow: hidden;
-  width: 100%;
+  width: 100vw;
   text-align: center;
   z-index: 2;
 }
 
 .Splash .wrapper {
-  /* for the background gradient animation */
-  background: linear-gradient(165deg, rgba(2, 85, 139, 0.7) 33%, rgba(34, 204, 255, 0.7) 65%);
-  background-size: 225% 225%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  -webkit-animation: changeBackGround 12s ease-in-out infinite;
-  -moz-animation: changeBackGround 12s ease-in-out infinite;
-  animation: changeBackGround 12s ease-in-out infinite;
+  background-color: rgba(2,85,139,0.7);
   height: 100vh;
   width: 100vw;
-}
-
-/* .Splash .wrapper .wrapper-bg img {
-  height: 100%;
-  width: 200vw;
-  position: absolute;
-  right: 0;
-  z-index: -1;
-} */
-
-@-webkit-keyframes changeBackGround {
-    0%{background-position:-0% -0%}
-    40%{background-position: 20% 50%}
-    100%{background-position:0% 0%}
-}
-@-moz-keyframes changeBackGround {
-    0%{background-position:-0% -0%}
-    40%{background-position: 20% 50%}
-    100%{background-position:0% 0%}
-}
-@keyframes changeBackGround {
-    0%{background-position:-0% -0%}
-    40%{background-position: 20% 50%}
-    100%{background-position:0% 0%}
 }
 
 .Splash .Main-Logo img {
@@ -69,21 +38,10 @@
   animation: 0.9s ease-in 0s 1 imageScale;
 }
 
-@keyframes imageScale {
-  0%{
-    opacity: 0.5;
-    transform: scale(0.5);
-  }
-  100%{
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 .Main-Logo {
   width: 100%;
   /* flex-basis: 50%; */
-  min-height: 50vh;
+  min-height: 45vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,6 +75,10 @@
 .not-me span, .not-member span {
   color: #ff533d;
   margin-left: 0.75rem;
+}
+
+.enter-btn {
+  border-radius: 25px;
 }
 
 .not-member {
