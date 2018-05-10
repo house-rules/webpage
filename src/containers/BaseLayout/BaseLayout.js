@@ -71,7 +71,6 @@ class BaseLayout extends Component {
   }
 
   render () {
-    console.log("Props -->> ", this.props.state);
     let user = this.props.user ? this.props.user : ' ';
 
     return (
